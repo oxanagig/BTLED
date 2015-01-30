@@ -1,0 +1,186 @@
+/********************************************************************************
+** Form generated from reading UI file 'mywidget.ui'
+**
+** Created by: Qt User Interface Compiler version 5.4.0
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_MYWIDGET_H
+#define UI_MYWIDGET_H
+
+#include <QtCore/QVariant>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_myWidget
+{
+public:
+    QComboBox *comboBox;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QLabel *connectionStatus;
+    QComboBox *serialPortListBox;
+    QPushButton *refreshButton;
+    QPushButton *connectButton;
+    QPushButton *disconnectButton;
+
+    void setupUi(QWidget *myWidget)
+    {
+        if (myWidget->objectName().isEmpty())
+            myWidget->setObjectName(QStringLiteral("myWidget"));
+        myWidget->resize(387, 300);
+        comboBox = new QComboBox(myWidget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(220, 40, 151, 26));
+        widget = new QWidget(myWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(210, 130, 171, 155));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        connectionStatus = new QLabel(widget);
+        connectionStatus->setObjectName(QStringLiteral("connectionStatus"));
+        QPalette palette;
+        QBrush brush(QColor(0, 0, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(237, 0, 45, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        QBrush brush2(QColor(255, 100, 130, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Light, brush2);
+        QBrush brush3(QColor(246, 50, 87, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Midlight, brush3);
+        QBrush brush4(QColor(118, 0, 22, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Dark, brush4);
+        QBrush brush5(QColor(158, 0, 30, 255));
+        brush5.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Mid, brush5);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        QBrush brush6(QColor(255, 255, 255, 255));
+        brush6.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::BrightText, brush6);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush6);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Shadow, brush);
+        QBrush brush7(QColor(246, 127, 150, 255));
+        brush7.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush7);
+        QBrush brush8(QColor(255, 255, 220, 255));
+        brush8.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipBase, brush8);
+        palette.setBrush(QPalette::Active, QPalette::ToolTipText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Light, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Midlight, brush3);
+        palette.setBrush(QPalette::Inactive, QPalette::Dark, brush4);
+        palette.setBrush(QPalette::Inactive, QPalette::Mid, brush5);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::BrightText, brush6);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush6);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Shadow, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush7);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush8);
+        palette.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Light, brush2);
+        palette.setBrush(QPalette::Disabled, QPalette::Midlight, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::Dark, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Mid, brush5);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::BrightText, brush6);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush8);
+        palette.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush);
+        connectionStatus->setPalette(palette);
+        connectionStatus->setTextFormat(Qt::RichText);
+        connectionStatus->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(connectionStatus);
+
+        serialPortListBox = new QComboBox(widget);
+        serialPortListBox->setObjectName(QStringLiteral("serialPortListBox"));
+
+        verticalLayout->addWidget(serialPortListBox);
+
+        refreshButton = new QPushButton(widget);
+        refreshButton->setObjectName(QStringLiteral("refreshButton"));
+
+        verticalLayout->addWidget(refreshButton);
+
+        connectButton = new QPushButton(widget);
+        connectButton->setObjectName(QStringLiteral("connectButton"));
+
+        verticalLayout->addWidget(connectButton);
+
+        disconnectButton = new QPushButton(widget);
+        disconnectButton->setObjectName(QStringLiteral("disconnectButton"));
+
+        verticalLayout->addWidget(disconnectButton);
+
+        connectButton->raise();
+        serialPortListBox->raise();
+        disconnectButton->raise();
+        refreshButton->raise();
+        connectionStatus->raise();
+        serialPortListBox->raise();
+        comboBox->raise();
+        QWidget::setTabOrder(serialPortListBox, refreshButton);
+        QWidget::setTabOrder(refreshButton, connectButton);
+        QWidget::setTabOrder(connectButton, disconnectButton);
+
+        retranslateUi(myWidget);
+
+        QMetaObject::connectSlotsByName(myWidget);
+    } // setupUi
+
+    void retranslateUi(QWidget *myWidget)
+    {
+        myWidget->setWindowTitle(QApplication::translate("myWidget", "myWidget", 0));
+        comboBox->clear();
+        comboBox->insertItems(0, QStringList()
+         << QApplication::translate("myWidget", "Turn off LED Strip", 0)
+         << QApplication::translate("myWidget", "Direct Color Mode", 0)
+         << QApplication::translate("myWidget", "Starry Mode", 0)
+         << QApplication::translate("myWidget", "Xmas Mode", 0)
+         << QApplication::translate("myWidget", "Party Mode", 0)
+        );
+        connectionStatus->setText(QApplication::translate("myWidget", "TextLabel", 0));
+        refreshButton->setText(QApplication::translate("myWidget", "Refresh", 0));
+        connectButton->setText(QApplication::translate("myWidget", "Connect", 0));
+        disconnectButton->setText(QApplication::translate("myWidget", "Disconnect", 0));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class myWidget: public Ui_myWidget {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_MYWIDGET_H
