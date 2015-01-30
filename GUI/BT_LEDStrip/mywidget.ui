@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>myWidget</string>
   </property>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="LEDmodeSelection">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -22,33 +22,8 @@
      <height>26</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>Turn off LED Strip</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Direct Color Mode</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Starry Mode</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Xmas Mode</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Party Mode</string>
-    </property>
-   </item>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -512,13 +487,22 @@
     </item>
    </layout>
   </widget>
-  <zorder>connectButton</zorder>
-  <zorder>serialPortListBox</zorder>
-  <zorder>disconnectButton</zorder>
-  <zorder>refreshButton</zorder>
-  <zorder>connectionStatus</zorder>
-  <zorder>serialPortListBox</zorder>
-  <zorder>comboBox</zorder>
+  <widget class="QLabel" name="serialWriteCounter">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>90</y>
+     <width>59</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>LEDmodeSelection</zorder>
+  <zorder>serialWriteCounter</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>

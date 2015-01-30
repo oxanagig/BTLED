@@ -27,9 +27,3 @@ HEADERS  += mywidget.h
 
 FORMS    += mywidget.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../Qt-Color-Picker/build-color_widget_plugin-Desktop_Qt_5_4_0_clang_64bit-Release/release/ -lcolor_widgets
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../Qt-Color-Picker/build-color_widget_plugin-Desktop_Qt_5_4_0_clang_64bit-Release/debug/ -lcolor_widgets
-else:unix: LIBS += -L$$PWD/../../../Qt-Color-Picker/build-color_widget_plugin-Desktop_Qt_5_4_0_clang_64bit-Release/ -lcolor_widgets
-
-INCLUDEPATH += $$PWD/../../../Qt-Color-Picker/build-color_widget_plugin-Desktop_Qt_5_4_0_clang_64bit-Release
-DEPENDPATH += $$PWD/../../../Qt-Color-Picker/build-color_widget_plugin-Desktop_Qt_5_4_0_clang_64bit-Release
