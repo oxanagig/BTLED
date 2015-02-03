@@ -2280,18 +2280,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 64: extern char * strichr(const char *, int);
 [; ;string.h: 65: extern char * strrchr(const char *, int);
 [; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;LED.h: 20: void LED_Task(void);
-[; ;LED.h: 21: void ledSendByte(uint8_t);
-[; ;LED.h: 23: typedef enum
-[; ;LED.h: 24: {
-[; ;LED.h: 25: LED_OFF,
-[; ;LED.h: 26: LED_DIRECT,
-[; ;LED.h: 27: LED_STARRY,
-[; ;LED.h: 28: LED_XMAS,
-[; ;LED.h: 29: LED_PARTY,
-[; ;LED.h: 30: }LED_MODE;
-[; ;LED.h: 32: extern LED_MODE LED_mode;
-[; ;LED.h: 33: extern uint8_t LED_color[3];
 [; ;mcc.h: 75: void SYSTEM_Initialize(void);
 [; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 [v F3 `(v ~T0 @X0 1 tf ]

@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <QtSerialPort>
+#include <QTimer>
+#include <colorpicker.h>
 
 namespace Ui {
 class myWidget;
@@ -17,11 +19,11 @@ const QSerialPort::StopBits STOPBITS = QSerialPort::OneStop;
 const QSerialPort::FlowControl FLOWCONTROL = QSerialPort::NoFlowControl;
 
 //LED SET command
-const char CMD_SET_OFF[]="SetLED Off\r\n";
-const char CMD_SET_DIRECT[]="SetLED DIRECT\r\n";
-const char CMD_SET_STARRY[]="SetLED STARRY\r\n";
-const char CMD_SET_XMAS[]="SetLED XMAS\r\n";
-const char CMD_SET_PARTY[]="SetLED PARTY\r\n";
+const char CMD_SET_OFF[]="SetLED Off";
+const char CMD_SET_DIRECT[]="SetLED DIRECT";
+const char CMD_SET_STARRY[]="SetLED STARRY";
+const char CMD_SET_XMAS[]="SetLED XMAS";
+const char CMD_SET_PARTY[]="SetLED PARTY";
 
 //LED GET command
 const char CMD_GET_STATE[]="GetLEDState\r\n";
@@ -45,10 +47,13 @@ private slots:
 
     void on_LEDmodeSelection_currentIndexChanged(int index);
 
+    void updateColor(QColor color);
+
 private:
     Ui::myWidget *ui;
     QSerialPort *serial;
     QByteArray serialResponse;
+    QByteArray responseCommandQueue;
 
 
 private:

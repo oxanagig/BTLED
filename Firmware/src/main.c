@@ -45,6 +45,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "LED.h"
+#include "serialCommand.h"
 
 /*
 Main application
@@ -63,10 +65,11 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
 
 
+    LED_Test();
 
     while (1)
     {
-        UART_Task();
+        COMM_Task();
         LED_Task();
         __delay_us(100);
 

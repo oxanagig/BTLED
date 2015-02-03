@@ -11,7 +11,8 @@ myWidget::myWidget(QWidget *parent) :
 
     /*Initialization*/
     serial = new QSerialPort(this);
-    QByteArray serialResponse;
+    QByteArray responseCommandQueue("");
+    QByteArray serialResponse("");
 
     ui->disconnectButton->setEnabled(false);
     ui->connectionStatus->setText("Disconnected");
@@ -23,8 +24,12 @@ myWidget::myWidget(QWidget *parent) :
     ui->LEDmodeSelection->addItem("Set party mode",CMD_SET_PARTY);
     ui->LEDmodeSelection->setEnabled(false);
 
+    ui->colorPicker->init();
+    ui->colorPicker->setEnabled(false);
+
     fillPortsInfo();
     connect(serial, SIGNAL(readyRead()), this, SLOT(readData()));
+    connect(ui->colorPicker, SIGNAL(colorChanged(QColor)), this, SLOT(updateColor(QColor)));
 
 }
 
@@ -105,29 +110,93 @@ void myWidget::on_disconnectButton_clicked()
 
 void myWidget::on_LEDmodeSelection_currentIndexChanged(int index)
 {
- /*   switch(index){
-    case 0:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_OFF)));break;
-    case 1:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_DIRECT)));break;
-    case 2:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_STARRY)));break;
-    case 3:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_XMAS)));break;
-    case 4:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_PARTY)));break;
+    switch(index){
+    case 0:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_OFF)));ui->colorPicker->setEnabled(false);break;
+    case 1:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_DIRECT)));ui->colorPicker->setEnabled(true);break;
+    case 2:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_STARRY)));ui->colorPicker->setEnabled(false);break;
+    case 3:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_XMAS)));ui->colorPicker->setEnabled(false);break;
+    case 4:ui->serialWriteCounter->setText(tr("%1").arg(serial->write(CMD_SET_PARTY)));ui->colorPicker->setEnabled(false);break;
     default:
         break;
     }
-    serialResponse = "DONE!\r\n";
-    */
-
     serial->write("\r\n");
+    responseCommandQueue = "DONE!\r\n";
 }
 
 void myWidget::readData()
 {
-    QByteArray data = serial->readAll();
-    if(serialResponse.isEmpty() != true){
-        if(data!=serialResponse)
-        {
-            QMessageBox::critical(this,"Oops, error. TT","Failed");
+    if(responseCommandQueue.isEmpty()==true){
+        //we don't expect any data.
+        return;
+    }
+
+    serialResponse.append(serial->readAll());
+
+    if(serialResponse.endsWith('\n')){
+        if(serialResponse!=responseCommandQueue){
+            //QMessageBox::critical(this,"error","failed");
         }
+        responseCommandQueue.clear();
         serialResponse.clear();
     }
+}
+
+void myWidget::updateColor(QColor color)
+{
+    QByteArray colorCommand;
+
+    colorCommand.append('C');
+
+    // RED
+    if(color.red()/16<10){
+        colorCommand.append(color.red()/16+0x30);
+    }
+    else{
+        colorCommand.append(color.red()/16+0x41-0x0A);
+    }
+
+    if(color.red()%16<10){
+        colorCommand.append(color.red()%16+0x30);
+    }
+    else{
+        colorCommand.append(color.red()%16+0x41-0x0A);
+    }
+
+    //GREEN
+    if(color.green()/16<10){
+        colorCommand.append(color.green()/16+0x30);
+    }
+    else{
+        colorCommand.append(color.green()/16+0x41-0x0A);
+    }
+
+    if(color.green()%16<10){
+        colorCommand.append(color.green()%16+0x30);
+    }
+    else{
+        colorCommand.append(color.green()%16+0x41-0x0A);
+    }
+
+    //BLUE
+    if(color.blue()/16<10){
+        colorCommand.append(color.blue()/16+0x30);
+    }
+    else{
+        colorCommand.append(color.blue()/16+0x41-0x0A);
+    }
+
+    if(color.blue()%16<10){
+        colorCommand.append(color.blue()%16+0x30);
+    }
+    else{
+        colorCommand.append(color.blue()%16+0x41-0x0A);
+    }
+
+    colorCommand.append("\r\n");
+    serial->write(colorCommand);
+
+    ui->redSlider->setValue(color.red());
+    ui->greenSlider->setValue(color.green());
+    ui->blueSlider->setValue(color.blue());
+
 }

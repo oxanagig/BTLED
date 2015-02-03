@@ -17,6 +17,7 @@ extern "C" {
 #define NUMBER_OF_LED       20
 
 
+void LED_Test(void);
 void LED_Task(void);
 void ledSendByte(uint8_t);
 

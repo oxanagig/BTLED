@@ -3185,22 +3185,6 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 20 "../src/mcc_generated_files/../LED.h"
-void LED_Task(void);
-void ledSendByte(uint8_t);
-
-typedef enum
-{
-LED_OFF,
-LED_DIRECT,
-LED_STARRY,
-LED_XMAS,
-LED_PARTY,
-}LED_MODE;
-
-extern LED_MODE LED_mode;
-extern uint8_t LED_color[3];
-
 # 75 "../src/mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 

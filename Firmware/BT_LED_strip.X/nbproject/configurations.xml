@@ -15,6 +15,7 @@
         <itemPath>../src/mcc_generated_files/cmp1.h</itemPath>
       </logicalFolder>
       <itemPath>../src/LED.h</itemPath>
+      <itemPath>../src/serialCommand.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,16 +24,19 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../src/mcc_generated_files/cmp1.c</itemPath>
-      <itemPath>../src/mcc_generated_files/eusart.c</itemPath>
-      <itemPath>../src/mcc_generated_files/fvr.c</itemPath>
-      <itemPath>../src/mcc_generated_files/interrupt_manager.c</itemPath>
-      <itemPath>../src/mcc_generated_files/mcc.c</itemPath>
-      <itemPath>../src/mcc_generated_files/memory.c</itemPath>
-      <itemPath>../src/mcc_generated_files/pin_manager.c</itemPath>
-      <itemPath>../src/mcc_generated_files/tmr1.c</itemPath>
+      <logicalFolder name="f1" displayName="MCC files" projectFiles="true">
+        <itemPath>../src/mcc_generated_files/mcc.c</itemPath>
+        <itemPath>../src/mcc_generated_files/memory.c</itemPath>
+        <itemPath>../src/mcc_generated_files/pin_manager.c</itemPath>
+        <itemPath>../src/mcc_generated_files/tmr1.c</itemPath>
+        <itemPath>../src/mcc_generated_files/interrupt_manager.c</itemPath>
+        <itemPath>../src/mcc_generated_files/eusart.c</itemPath>
+        <itemPath>../src/mcc_generated_files/cmp1.c</itemPath>
+        <itemPath>../src/mcc_generated_files/fvr.c</itemPath>
+      </logicalFolder>
       <itemPath>../src/LED.c</itemPath>
       <itemPath>../src/main.c</itemPath>
+      <itemPath>../src/serialCommand.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -151,6 +155,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

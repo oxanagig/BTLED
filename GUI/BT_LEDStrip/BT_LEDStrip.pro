@@ -21,9 +21,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mywidget.cpp
+        mywidget.cpp \
+        colorpicker.cpp
 
-HEADERS  += mywidget.h
+HEADERS  += mywidget.h \
+            colorpicker.h
 
 FORMS    += mywidget.ui
 

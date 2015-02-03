@@ -1,15 +1,39 @@
 #include <xc.h>
 #include <stdint.h>
 #include "LED.h"
-#include "mcc_generated_files/pin_manager.h"
+#include "mcc_generated_files/mcc.h"
 
         LED_MODE LED_mode = LED_OFF;
         uint8_t  LED_color[3]={0,0,0}; 
 static  uint8_t  LED_currentColor[3]={0,0,0};
 
-void LED_Task()
+void LED_Test(void)
 {
-    static uint8_t ledOFF;
+    for(uint8_t i=0; i<NUMBER_OF_LED+1; i++)
+    {
+        for(uint16_t j=0;j<NUMBER_OF_LED;j++)
+        {
+            if(j==i)
+            {
+                ledSendByte(255);        //Green
+                ledSendByte(255);        //Red
+                ledSendByte(255);        //Blue
+            }
+            else
+            {
+                ledSendByte(0);        //Green
+                ledSendByte(0);        //Red
+                ledSendByte(0);        //Blue
+            }
+        }
+        __delay_ms(50);
+    }
+
+}
+
+void LED_Task(void)
+{
+    static uint8_t ledOFF = 0;
     switch(LED_mode)
     {
         case LED_OFF:

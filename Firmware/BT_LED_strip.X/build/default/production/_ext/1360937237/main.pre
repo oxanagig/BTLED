@@ -3165,7 +3165,14 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 20 "../src/mcc_generated_files/../LED.h"
+# 75 "../src/mcc_generated_files/mcc.h"
+void SYSTEM_Initialize(void);
+
+# 88
+void OSCILLATOR_Initialize(void);
+
+# 20 "../src/LED.h"
+void LED_Test(void);
 void LED_Task(void);
 void ledSendByte(uint8_t);
 
@@ -3181,13 +3188,10 @@ LED_PARTY,
 extern LED_MODE LED_mode;
 extern uint8_t LED_color[3];
 
-# 75 "../src/mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
+# 20 "../src/serialCommand.h"
+void COMM_Task(void);
 
-# 88
-void OSCILLATOR_Initialize(void);
-
-# 54 "../src/main.c"
+# 56 "../src/main.c"
 void main(void)
 {
 
@@ -3200,10 +3204,11 @@ SYSTEM_Initialize();
 (INTCONbits.PEIE = 1);
 
 
+LED_Test();
 
 while (1)
 {
-UART_Task();
+COMM_Task();
 LED_Task();
 _delay((unsigned long)((100)*(32000000/4000000.0)));
 

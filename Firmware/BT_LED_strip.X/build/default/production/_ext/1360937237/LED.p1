@@ -1,12 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "6 ../src/LED.c
-[c E2209 0 1 2 3 4 .. ]
-[n E2209 . LED_OFF LED_DIRECT LED_STARRY LED_XMAS LED_PARTY  ]
+[c E2211 0 1 2 3 4 .. ]
+[n E2211 . LED_OFF LED_DIRECT LED_STARRY LED_XMAS LED_PARTY  ]
+"22 ../src/LED.h
+[v _ledSendByte `(v ~T0 @X0 0 ef1`uc ]
+[v F2176 `(v ~T0 @X0 1 tf1`ul ]
+"154 /Applications/microchip/xc8/v1.33/include/pic.h
+[v __delay `JF2176 ~T0 @X0 0 e ]
+[p i __delay ]
 "5208 /Applications/microchip/xc8/v1.33/include/pic12f1822.h
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"21 ../src/LED.h
-[v _ledSendByte `(v ~T0 @X0 0 ef1`uc ]
-"5278 /Applications/microchip/xc8/v1.33/include/pic12f1822.h
+"5278
 [v _LATA2 `Vb ~T0 @X0 0 e@2146 ]
 "28 /Applications/microchip/xc8/v1.33/include/pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
@@ -2158,24 +2162,119 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LED.h: 20: void LED_Task(void);
-[; ;LED.h: 21: void ledSendByte(uint8_t);
-[; ;LED.h: 23: typedef enum
-[; ;LED.h: 24: {
-[; ;LED.h: 25: LED_OFF,
-[; ;LED.h: 26: LED_DIRECT,
-[; ;LED.h: 27: LED_STARRY,
-[; ;LED.h: 28: LED_XMAS,
-[; ;LED.h: 29: LED_PARTY,
-[; ;LED.h: 30: }LED_MODE;
-[; ;LED.h: 32: extern LED_MODE LED_mode;
-[; ;LED.h: 33: extern uint8_t LED_color[3];
+[; ;LED.h: 20: void LED_Test(void);
+[; ;LED.h: 21: void LED_Task(void);
+[; ;LED.h: 22: void ledSendByte(uint8_t);
+[; ;LED.h: 24: typedef enum
+[; ;LED.h: 25: {
+[; ;LED.h: 26: LED_OFF,
+[; ;LED.h: 27: LED_DIRECT,
+[; ;LED.h: 28: LED_STARRY,
+[; ;LED.h: 29: LED_XMAS,
+[; ;LED.h: 30: LED_PARTY,
+[; ;LED.h: 31: }LED_MODE;
+[; ;LED.h: 33: extern LED_MODE LED_mode;
+[; ;LED.h: 34: extern uint8_t LED_color[3];
 [; ;pin_manager.h: 141: void PIN_MANAGER_Initialize (void);
 [; ;pin_manager.h: 153: void PIN_MANAGER_IOC(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;interrupt_manager.h: 111: void interrupt INTERRUPT_InterruptManager(void);
+[; ;stdio.h: 8: typedef int ptrdiff_t;
+[; ;stdio.h: 9: typedef unsigned size_t;
+[; ;stdio.h: 10: typedef unsigned short wchar_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 23: extern int errno;
+[; ;stdio.h: 54: struct __prbuf
+[; ;stdio.h: 55: {
+[; ;stdio.h: 56: char * ptr;
+[; ;stdio.h: 57: void (* func)(char);
+[; ;stdio.h: 58: };
+[; ;conio.h: 17: extern int errno;
+[; ;conio.h: 20: extern void init_uart(void);
+[; ;conio.h: 22: extern char getch(void);
+[; ;conio.h: 23: extern char getche(void);
+[; ;conio.h: 24: extern void putch(char);
+[; ;conio.h: 25: extern void ungetch(char);
+[; ;conio.h: 27: extern __bit kbhit(void);
+[; ;conio.h: 31: extern char * cgets(char *);
+[; ;conio.h: 32: extern void cputs(const char *);
+[; ;stdio.h: 99: extern int cprintf(char *, ...);
+[; ;stdio.h: 104: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 194: extern char * gets(char *);
+[; ;stdio.h: 195: extern int puts(const char *);
+[; ;stdio.h: 196: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 197: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 198: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 199: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 200: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 201: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 205: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 206: extern int printf(const char *, ...);
+[; ;eusart.h: 78: extern volatile uint8_t eusartTxBufferRemaining;
+[; ;eusart.h: 79: extern volatile uint8_t eusartRxCount;
+[; ;eusart.h: 107: void EUSART_Initialize(void);
+[; ;eusart.h: 127: uint8_t EUSART_Read(void);
+[; ;eusart.h: 147: void EUSART_Write(uint8_t txData);
+[; ;eusart.h: 168: void EUSART_Transmit_ISR(void);
+[; ;eusart.h: 189: void EUSART_Receive_ISR(void);
+[; ;eusart.h: 191: void outputString(const uint8_t*);
+[; ;eusart.h: 193: void UART_Task(void);
+[; ;cmp1.h: 93: void CMP1_Initialize(void);
+[; ;cmp1.h: 133: bool CMP1_GetOutputStatus(void);
+[; ;cmp1.h: 149: void CMP1_ISR(void);
+[; ;fvr.h: 93: void FVR_Initialize(void);
+[; ;fvr.h: 127: bool FVR_IsOutputReady(void);
+[; ;memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[; ;memory.h: 128: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+[; ;memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[; ;memory.h: 189: void FLASH_EraseBlock(uint16_t startAddr);
+[; ;memory.h: 220: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
+[; ;memory.h: 246: uint8_t DATAEE_ReadByte(uint8_t bAdd);
+[; ;tmr1.h: 101: void TMR1_Initialize(void);
+[; ;tmr1.h: 130: void TMR1_StartTimer(void);
+[; ;tmr1.h: 162: void TMR1_StopTimer(void);
+[; ;tmr1.h: 197: uint16_t TMR1_ReadTimer(void);
+[; ;tmr1.h: 236: void TMR1_WriteTimer(uint16_t timerVal);
+[; ;tmr1.h: 272: void TMR1_Reload(void);
+[; ;tmr1.h: 311: void TMR1_StartSinglePulseAcquisition(void);
+[; ;tmr1.h: 350: uint8_t TMR1_CheckGateValueStatus(void);
+[; ;tmr1.h: 368: void TMR1_ISR(void);
+[; ;tmr1.h: 386: void TMR1_CallBack(void);
+[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 24: extern void * memset(void *, int, size_t);
+[; ;string.h: 28: extern void * __builtin_memcpy(void *, const void *, size_t);
+[; ;string.h: 42: extern char * strcat(char *, const char *);
+[; ;string.h: 43: extern char * strcpy(char *, const char *);
+[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 46: extern char * strdup(const char *);
+[; ;string.h: 47: extern char * strtok(char *, const char *);
+[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 51: extern int strcmp(const char *, const char *);
+[; ;string.h: 52: extern int stricmp(const char *, const char *);
+[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 58: extern size_t strspn(const char *, const char *);
+[; ;string.h: 59: extern char * strstr(const char *, const char *);
+[; ;string.h: 60: extern char * stristr(const char *, const char *);
+[; ;string.h: 61: extern char * strerror(int);
+[; ;string.h: 62: extern size_t strlen(const char *);
+[; ;string.h: 63: extern char * strchr(const char *, int);
+[; ;string.h: 64: extern char * strichr(const char *, int);
+[; ;string.h: 65: extern char * strrchr(const char *, int);
+[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 "6 ../src/LED.c
-[v _LED_mode `E2209 ~T0 @X0 1 e ]
+[v _LED_mode `E2211 ~T0 @X0 1 e ]
 [i _LED_mode
--> . `E2209 0 `E2209
+-> . `E2211 0 `E2211
 ]
 [; ;LED.c: 6: LED_MODE LED_mode = LED_OFF;
 "7
@@ -2199,290 +2298,386 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;LED.c: 8: static uint8_t LED_currentColor[3]={0,0,0};
 "10
-[v _LED_Task `(v ~T0 @X0 1 ef ]
+[v _LED_Test `(v ~T0 @X0 1 ef ]
 "11
 {
-[; ;LED.c: 10: void LED_Task()
+[; ;LED.c: 10: void LED_Test(void)
 [; ;LED.c: 11: {
-[e :U _LED_Task ]
+[e :U _LED_Test ]
 [f ]
+[; ;LED.c: 12: for(uint8_t i=0; i<20+1; i++)
 "12
-[v F2223 `uc ~T0 @X0 1 s ledOFF ]
-[; ;LED.c: 12: static uint8_t ledOFF;
-[; ;LED.c: 13: switch(LED_mode)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i + -> 20 `i -> 1 `i 272  ]
+[e $U 273  ]
 "13
-[e $U 272  ]
-[; ;LED.c: 14: {
+[e :U 272 ]
+[; ;LED.c: 13: {
+{
+[; ;LED.c: 14: for(uint16_t j=0;j<20;j++)
 "14
 {
-[; ;LED.c: 15: case LED_OFF:
+[v _j `ui ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `ui ]
+[e $ < _j -> -> 20 `i `ui 275  ]
+[e $U 276  ]
 "15
-[e :U 273 ]
-[; ;LED.c: 16: if(ledOFF ==0)
+[e :U 275 ]
+[; ;LED.c: 15: {
+{
+[; ;LED.c: 16: if(j==i)
 "16
-[e $ ! == -> F2223 `i -> 0 `i 274  ]
+[e $ ! == _j -> _i `ui 278  ]
 [; ;LED.c: 17: {
 "17
 {
-[; ;LED.c: 18: GIE = 0;
+[; ;LED.c: 18: ledSendByte(255);
 "18
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 19: for(uint16_t i=0;i<20;i++)
+[e ( _ledSendByte (1 -> -> 255 `i `uc ]
+[; ;LED.c: 19: ledSendByte(255);
 "19
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 275  ]
-[e $U 276  ]
+[e ( _ledSendByte (1 -> -> 255 `i `uc ]
+[; ;LED.c: 20: ledSendByte(255);
 "20
-[e :U 275 ]
-[; ;LED.c: 20: {
-{
-[; ;LED.c: 21: ledSendByte(0);
+[e ( _ledSendByte (1 -> -> 255 `i `uc ]
 "21
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 22: ledSendByte(0);
+}
+[; ;LED.c: 21: }
+[e $U 279  ]
 "22
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 23: ledSendByte(0);
+[e :U 278 ]
+[; ;LED.c: 22: else
+[; ;LED.c: 23: {
 "23
+{
+[; ;LED.c: 24: ledSendByte(0);
+"24
 [e ( _ledSendByte (1 -> -> 0 `i `uc ]
-"24
-}
-"19
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 275  ]
-[e :U 276 ]
-"24
-}
-[; ;LED.c: 24: }
-[; ;LED.c: 25: GIE = 1;
+[; ;LED.c: 25: ledSendByte(0);
 "25
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 26: ledOFF = 1;
+[e ( _ledSendByte (1 -> -> 0 `i `uc ]
+[; ;LED.c: 26: ledSendByte(0);
 "26
-[e = F2223 -> -> 1 `i `uc ]
+[e ( _ledSendByte (1 -> -> 0 `i `uc ]
 "27
 }
-[e :U 274 ]
-[; ;LED.c: 27: }
-[; ;LED.c: 28: break;
+[e :U 279 ]
 "28
-[e $U 271  ]
-[; ;LED.c: 29: case LED_DIRECT:
+}
+"14
+[e ++ _j -> -> 1 `i `ui ]
+[e $ < _j -> -> 20 `i `ui 275  ]
+[e :U 276 ]
+"28
+}
+[; ;LED.c: 27: }
+[; ;LED.c: 28: }
+[; ;LED.c: 29: _delay((unsigned long)((50)*(32000000/4000.0)));
 "29
-[e :U 278 ]
-[; ;LED.c: 30: if(LED_color[0]!=LED_currentColor[0]|| LED_color[1]!=LED_currentColor[1]|| LED_color[2]!=LED_currentColor[2])
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "30
-[e $ ! || || != -> *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i 279  ]
-[; ;LED.c: 33: {
-"33
-{
-[; ;LED.c: 34: GIE = 0;
+}
+"12
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i + -> 20 `i -> 1 `i 272  ]
+[e :U 273 ]
+"30
+}
+[; ;LED.c: 30: }
+[; ;LED.c: 32: }
+"32
+[e :UE 271 ]
+}
 "34
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 35: for(uint16_t i=0;i<20;i++)
+[v _LED_Task `(v ~T0 @X0 1 ef ]
 "35
+{
+[; ;LED.c: 34: void LED_Task(void)
+[; ;LED.c: 35: {
+[e :U _LED_Task ]
+[f ]
+"36
+[v F2452 `uc ~T0 @X0 1 s ledOFF ]
+[i F2452
+-> -> 0 `i `uc
+]
+[; ;LED.c: 36: static uint8_t ledOFF = 0;
+[; ;LED.c: 37: switch(LED_mode)
+"37
+[e $U 282  ]
+[; ;LED.c: 38: {
+"38
+{
+[; ;LED.c: 39: case LED_OFF:
+"39
+[e :U 283 ]
+[; ;LED.c: 40: if(ledOFF ==0)
+"40
+[e $ ! == -> F2452 `i -> 0 `i 284  ]
+[; ;LED.c: 41: {
+"41
+{
+[; ;LED.c: 42: GIE = 0;
+"42
+[e = _GIE -> -> 0 `i `b ]
+[; ;LED.c: 43: for(uint16_t i=0;i<20;i++)
+"43
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 280  ]
-[e $U 281  ]
-"36
-[e :U 280 ]
-[; ;LED.c: 36: {
-{
-[; ;LED.c: 37: ledSendByte(LED_color[0]);
-"37
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-[; ;LED.c: 38: ledSendByte(LED_color[1]);
-"38
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-[; ;LED.c: 39: ledSendByte(LED_color[2]);
-"39
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-"40
-}
-"35
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 280  ]
-[e :U 281 ]
-"40
-}
-[; ;LED.c: 40: }
-[; ;LED.c: 41: GIE = 1;
-"41
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 42: for(uint8_t i=0;i<3;i++)
-"42
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 283  ]
-[e $U 284  ]
-"43
-[e :U 283 ]
-[; ;LED.c: 43: LED_currentColor[i] = LED_color[i];
-[e = *U + &U _LED_currentColor * -> _i `ux -> -> # *U &U _LED_currentColor `ui `ux *U + &U _LED_color * -> _i `ux -> -> # *U &U _LED_color `ui `ux ]
-"42
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 283  ]
-[e :U 284 ]
-"43
-}
-[; ;LED.c: 44: ledOFF = 0;
+[e $ < _i -> -> 20 `i `ui 285  ]
+[e $U 286  ]
 "44
-[e = F2223 -> -> 0 `i `uc ]
+[e :U 285 ]
+[; ;LED.c: 44: {
+{
+[; ;LED.c: 45: ledSendByte(0);
 "45
-}
-[e :U 279 ]
-[; ;LED.c: 45: }
-[; ;LED.c: 46: break;
+[e ( _ledSendByte (1 -> -> 0 `i `uc ]
+[; ;LED.c: 46: ledSendByte(0);
 "46
-[e $U 271  ]
-[; ;LED.c: 47: case LED_STARRY:
+[e ( _ledSendByte (1 -> -> 0 `i `uc ]
+[; ;LED.c: 47: ledSendByte(0);
 "47
-[e :U 286 ]
-[; ;LED.c: 48: ledOFF = 0;
+[e ( _ledSendByte (1 -> -> 0 `i `uc ]
 "48
-[e = F2223 -> -> 0 `i `uc ]
-[; ;LED.c: 49: break;
+}
+"43
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 20 `i `ui 285  ]
+[e :U 286 ]
+"48
+}
+[; ;LED.c: 48: }
+[; ;LED.c: 49: GIE = 1;
 "49
-[e $U 271  ]
-[; ;LED.c: 50: case LED_XMAS:
+[e = _GIE -> -> 1 `i `b ]
+[; ;LED.c: 50: ledOFF = 1;
 "50
-[e :U 287 ]
-[; ;LED.c: 51: ledOFF = 0;
+[e = F2452 -> -> 1 `i `uc ]
 "51
-[e = F2223 -> -> 0 `i `uc ]
+}
+[e :U 284 ]
+[; ;LED.c: 51: }
 [; ;LED.c: 52: break;
 "52
-[e $U 271  ]
-[; ;LED.c: 53: case LED_PARTY:
+[e $U 281  ]
+[; ;LED.c: 53: case LED_DIRECT:
 "53
 [e :U 288 ]
-[; ;LED.c: 54: ledOFF = 0;
+[; ;LED.c: 54: if(LED_color[0]!=LED_currentColor[0]|| LED_color[1]!=LED_currentColor[1]|| LED_color[2]!=LED_currentColor[2])
 "54
-[e = F2223 -> -> 0 `i `uc ]
-[; ;LED.c: 55: break;
-"55
-[e $U 271  ]
-[; ;LED.c: 56: default:
-"56
-[e :U 289 ]
-[; ;LED.c: 57: break;
+[e $ ! || || != -> *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i 289  ]
+[; ;LED.c: 57: {
 "57
-[e $U 271  ]
-"58
-}
-[; ;LED.c: 58: }
-[e $U 271  ]
-"13
-[e :U 272 ]
-[e [\ _LED_mode , $ -> . `E2209 0 `E2209 273
- , $ -> . `E2209 1 `E2209 278
- , $ -> . `E2209 2 `E2209 286
- , $ -> . `E2209 3 `E2209 287
- , $ -> . `E2209 4 `E2209 288
- 289 ]
-"58
-[e :U 271 ]
-[; ;LED.c: 62: }
-"62
-[e :UE 270 ]
-}
-"64
-[v _ledSendByte `(v ~T0 @X0 1 ef1`uc ]
-"65
 {
-[; ;LED.c: 64: void ledSendByte(uint8_t data)
-[; ;LED.c: 65: {
-[e :U _ledSendByte ]
+[; ;LED.c: 58: GIE = 0;
+"58
+[e = _GIE -> -> 0 `i `b ]
+[; ;LED.c: 59: for(uint16_t i=0;i<20;i++)
+"59
+{
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 20 `i `ui 290  ]
+[e $U 291  ]
+"60
+[e :U 290 ]
+[; ;LED.c: 60: {
+{
+[; ;LED.c: 61: ledSendByte(LED_color[0]);
+"61
+[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
+[; ;LED.c: 62: ledSendByte(LED_color[1]);
+"62
+[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
+[; ;LED.c: 63: ledSendByte(LED_color[2]);
+"63
+[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
 "64
-[v _data `uc ~T0 @X0 1 r1 ]
+}
+"59
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 20 `i `ui 290  ]
+[e :U 291 ]
+"64
+}
+[; ;LED.c: 64: }
+[; ;LED.c: 65: GIE = 1;
 "65
-[f ]
-[; ;LED.c: 81: for(uint8_t i = 0; i<8;i++)
-"81
+[e = _GIE -> -> 1 `i `b ]
+[; ;LED.c: 66: for(uint8_t i=0;i<3;i++)
+"66
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 291  ]
-[e $U 292  ]
-"82
-[e :U 291 ]
-[; ;LED.c: 82: {
-{
-[; ;LED.c: 83: if(data&0x80)
-"83
-[e $ ! != & -> _data `i -> 128 `i -> 0 `i 294  ]
-[; ;LED.c: 84: {
-"84
-{
-[; ;LED.c: 85: do { LATA2 = 1; } while(0);
-"85
-[e :U 297 ]
-{
-[e = _LATA2 -> -> 1 `i `b ]
-}
-[e :U 296 ]
-[; ;LED.c: 86: __nop();
-"86
-[e ( ___nop ..  ]
-[; ;LED.c: 87: __nop();
-"87
-[e ( ___nop ..  ]
-[; ;LED.c: 88: do { LATA2 = 0; } while(0);
-"88
-[e :U 300 ]
-{
-[e = _LATA2 -> -> 0 `i `b ]
-}
-[e :U 299 ]
-"89
-}
-[; ;LED.c: 89: }
-[e $U 301  ]
-"90
+[e $ < -> _i `i -> 3 `i 293  ]
+[e $U 294  ]
+"67
+[e :U 293 ]
+[; ;LED.c: 67: LED_currentColor[i] = LED_color[i];
+[e = *U + &U _LED_currentColor * -> _i `ux -> -> # *U &U _LED_currentColor `ui `ux *U + &U _LED_color * -> _i `ux -> -> # *U &U _LED_color `ui `ux ]
+"66
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 3 `i 293  ]
 [e :U 294 ]
-[; ;LED.c: 90: else
-[; ;LED.c: 91: {
-"91
-{
-[; ;LED.c: 92: do { LATA2 = 1; } while(0);
-"92
-[e :U 304 ]
-{
-[e = _LATA2 -> -> 1 `i `b ]
+"67
 }
-[e :U 303 ]
-[; ;LED.c: 93: __nop();
-"93
-[e ( ___nop ..  ]
-[; ;LED.c: 94: do { LATA2 = 0; } while(0);
-"94
+[; ;LED.c: 68: ledOFF = 0;
+"68
+[e = F2452 -> -> 0 `i `uc ]
+"69
+}
+[e :U 289 ]
+[; ;LED.c: 69: }
+[; ;LED.c: 70: break;
+"70
+[e $U 281  ]
+[; ;LED.c: 71: case LED_STARRY:
+"71
+[e :U 296 ]
+[; ;LED.c: 72: ledOFF = 0;
+"72
+[e = F2452 -> -> 0 `i `uc ]
+[; ;LED.c: 73: break;
+"73
+[e $U 281  ]
+[; ;LED.c: 74: case LED_XMAS:
+"74
+[e :U 297 ]
+[; ;LED.c: 75: ledOFF = 0;
+"75
+[e = F2452 -> -> 0 `i `uc ]
+[; ;LED.c: 76: break;
+"76
+[e $U 281  ]
+[; ;LED.c: 77: case LED_PARTY:
+"77
+[e :U 298 ]
+[; ;LED.c: 78: ledOFF = 0;
+"78
+[e = F2452 -> -> 0 `i `uc ]
+[; ;LED.c: 79: break;
+"79
+[e $U 281  ]
+[; ;LED.c: 80: default:
+"80
+[e :U 299 ]
+[; ;LED.c: 81: break;
+"81
+[e $U 281  ]
+"82
+}
+[; ;LED.c: 82: }
+[e $U 281  ]
+"37
+[e :U 282 ]
+[e [\ _LED_mode , $ -> . `E2211 0 `E2211 283
+ , $ -> . `E2211 1 `E2211 288
+ , $ -> . `E2211 2 `E2211 296
+ , $ -> . `E2211 3 `E2211 297
+ , $ -> . `E2211 4 `E2211 298
+ 299 ]
+"82
+[e :U 281 ]
+[; ;LED.c: 86: }
+"86
+[e :UE 280 ]
+}
+"88
+[v _ledSendByte `(v ~T0 @X0 1 ef1`uc ]
+"89
+{
+[; ;LED.c: 88: void ledSendByte(uint8_t data)
+[; ;LED.c: 89: {
+[e :U _ledSendByte ]
+"88
+[v _data `uc ~T0 @X0 1 r1 ]
+"89
+[f ]
+[; ;LED.c: 105: for(uint8_t i = 0; i<8;i++)
+"105
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 301  ]
+[e $U 302  ]
+"106
+[e :U 301 ]
+[; ;LED.c: 106: {
+{
+[; ;LED.c: 107: if(data&0x80)
+"107
+[e $ ! != & -> _data `i -> 128 `i -> 0 `i 304  ]
+[; ;LED.c: 108: {
+"108
+{
+[; ;LED.c: 109: do { LATA2 = 1; } while(0);
+"109
 [e :U 307 ]
 {
-[e = _LATA2 -> -> 0 `i `b ]
+[e = _LATA2 -> -> 1 `i `b ]
 }
 [e :U 306 ]
-"95
+[; ;LED.c: 110: __nop();
+"110
+[e ( ___nop ..  ]
+[; ;LED.c: 111: __nop();
+"111
+[e ( ___nop ..  ]
+[; ;LED.c: 112: do { LATA2 = 0; } while(0);
+"112
+[e :U 310 ]
+{
+[e = _LATA2 -> -> 0 `i `b ]
 }
-[e :U 301 ]
-[; ;LED.c: 95: }
-[; ;LED.c: 96: data = data<<1;
-"96
+[e :U 309 ]
+"113
+}
+[; ;LED.c: 113: }
+[e $U 311  ]
+"114
+[e :U 304 ]
+[; ;LED.c: 114: else
+[; ;LED.c: 115: {
+"115
+{
+[; ;LED.c: 116: do { LATA2 = 1; } while(0);
+"116
+[e :U 314 ]
+{
+[e = _LATA2 -> -> 1 `i `b ]
+}
+[e :U 313 ]
+[; ;LED.c: 117: __nop();
+"117
+[e ( ___nop ..  ]
+[; ;LED.c: 118: do { LATA2 = 0; } while(0);
+"118
+[e :U 317 ]
+{
+[e = _LATA2 -> -> 0 `i `b ]
+}
+[e :U 316 ]
+"119
+}
+[e :U 311 ]
+[; ;LED.c: 119: }
+[; ;LED.c: 120: data = data<<1;
+"120
 [e = _data -> << -> _data `i -> 1 `i `uc ]
-"97
+"121
 }
-"81
+"105
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 291  ]
-[e :U 292 ]
-"97
+[e $ < -> _i `i -> 8 `i 301  ]
+[e :U 302 ]
+"121
 }
-[; ;LED.c: 97: }
-[; ;LED.c: 99: }
-"99
-[e :UE 290 ]
+[; ;LED.c: 121: }
+[; ;LED.c: 123: }
+"123
+[e :UE 300 ]
 }
