@@ -1,5 +1,8 @@
 
-# 1 "../src/serialCommand.c"
+# 1 "mcc_generated_files/interrupt_manager.c"
+
+# 111 "mcc_generated_files/interrupt_manager.h"
+void interrupt INTERRUPT_InterruptManager(void);
 
 # 26 "/Applications/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -14451,53 +14454,11 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 4 "/Applications/microchip/xc8/v1.34/include/string.h"
-typedef int ptrdiff_t;
-typedef unsigned size_t;
-typedef unsigned short wchar_t;
+# 280 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize(void);
 
-
-extern int errno;
-
-# 22
-extern void * memcpy(void *, const void *, size_t);
-extern void * memmove(void *, const void *, size_t);
-extern void * memset(void *, int, size_t);
-
-
-
-extern void * __builtin_memcpy(void *, const void *, size_t);
-#pragma intrinsic(__builtin_memcpy)
-
-# 42
-extern char * strcat(char *, const char *);
-extern char * strcpy(char *, const char *);
-extern char * strncat(char *, const char *, size_t);
-extern char * strncpy(char *, const char *, size_t);
-extern char * strdup(const char *);
-extern char * strtok(char *, const char *);
-
-
-extern int memcmp(const void *, const void *, size_t);
-extern int strcmp(const char *, const char *);
-extern int stricmp(const char *, const char *);
-extern int strncmp(const char *, const char *, size_t);
-extern int strnicmp(const char *, const char *, size_t);
-extern void * memchr(const void *, int, size_t);
-extern size_t strcspn(const char *, const char *);
-extern char * strpbrk(const char *, const char *);
-extern size_t strspn(const char *, const char *);
-extern char * strstr(const char *, const char *);
-extern char * stristr(const char *, const char *);
-extern char * strerror(int);
-extern size_t strlen(const char *);
-extern char * strchr(const char *, int);
-extern char * strichr(const char *, int);
-extern char * strrchr(const char *, int);
-extern char * strrichr(const char *, int);
-
-# 12 "/Applications/microchip/xc8/v1.34/include/stdbool.h"
-typedef unsigned char bool;
+# 292
+void PIN_MANAGER_IOC(void);
 
 # 13 "/Applications/microchip/xc8/v1.34/include/stdint.h"
 typedef signed char int8_t;
@@ -14589,316 +14550,262 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 7 "/Applications/microchip/xc8/v1.34/include/stdarg.h"
-typedef void * va_list[1];
+# 12 "/Applications/microchip/xc8/v1.34/include/stdbool.h"
+typedef unsigned char bool;
 
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 24 "/Applications/microchip/xc8/v1.34/include/stdio.h"
-extern int errno;
-
-# 55
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 17 "/Applications/microchip/xc8/v1.34/include/conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 100 "/Applications/microchip/xc8/v1.34/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 192
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 78 "../src/mcc_generated_files/eusart.h"
+# 77 "mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
 
-# 107
+# 106
 void EUSART_Initialize(void);
 
-# 127
+# 155
 uint8_t EUSART_Read(void);
 
-# 147
+# 180
 void EUSART_Write(uint8_t txData);
 
-# 168
+# 201
 void EUSART_Transmit_ISR(void);
 
-# 189
+# 222
 void EUSART_Receive_ISR(void);
 
-void outputString(const uint8_t*);
+# 2 "/Applications/microchip/xc8/v1.34/include/stddef.h"
+typedef int ptrdiff_t;
+typedef unsigned size_t;
+typedef unsigned short wchar_t;
 
-void UART_Task(void);
+# 13
+extern int errno;
 
-# 20 "../src/serialCommand.h"
-void COMM_Task(void);
+# 117 "mcc_generated_files/spi.h"
+void SPI_Initialize(void);
 
-# 20 "../src/LED.h"
-void LED_Test(void);
-void LED_Task(void);
-void ledSendByte(uint8_t);
+# 152
+uint8_t SPI_Exchange8bit(uint8_t data);
 
-typedef enum
-{
-LED_OFF,
-LED_DIRECT,
-LED_STARRY,
-LED_XMAS,
-LED_PARTY,
-}LED_MODE;
+# 192
+uint8_t SPI_Exchange8bitBuffer(uint8_t *dataIn, uint8_t bufLen, uint8_t *dataOut);
 
-extern LED_MODE LED_mode;
-extern uint8_t LED_color[3];
+# 215
+bool SPI_IsBufferFull(void);
 
-# 6 "../src/serialCommand.c"
-typedef enum
-{
-COMM_IDEL,
-COMM_PROCESS_SET_COMMAND,
-COMM_PROCESS_GET_COMMAND,
-COMM_PROCESS_COLOR,
-COMM_PROCESS_TRASH,
-}COMM_RECEIVE_STATE;
+# 240
+bool SPI_HasWriteCollisionOccured(void);
 
-static uint8_t inputCommand[16];
+# 264
+void SPI_ClearWriteCollisionStatus(void);
+
+# 79 "mcc_generated_files/tmr2.h"
+typedef enum {
+
+# 87
+TMR2_ROP_STARTS_TMRON,
+
+# 92
+TMR2_ROP_STARTS_TMRON_ERSHIGH,
+
+# 97
+TMR2_ROP_STARTS_TMRON_ERSLOW,
+
+# 102
+TMR2_ROP_RESETS_ERSBOTHEDGE,
+
+# 107
+TMR2_ROP_RESETS_ERSRISINGEDGE,
+
+# 112
+TMR2_ROP_RESETS_ERSFALLINGEDGE,
+
+# 117
+TMR2_ROP_RESETS_ERSLOW,
+
+# 122
+TMR2_ROP_RESETS_ERSHIGH,
+
+# 133
+TMR2_OS_STARTS_TMRON,
+
+# 138
+TMR2_OS_STARTS_ERSRISINGEDGE,
+
+# 143
+TMR2_OS_STARTS_ERSFALLINGEDGE,
+
+# 148
+TMR2_OS_STARTS_ERSBOTHEDGE,
+
+# 154
+TMR2_OS_STARTS_ERSFIRSTRISINGEDGE,
+
+# 160
+TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE,
+
+# 166
+TMR2_OS_STARTS_ERSRISINGEDGEDETECT,
+
+# 171
+TMR2_OS_STARTS_ERSFALLINGEDGEDETECT,
+
+# 176
+TMR2_OS_STARTS_TMRON_ERSHIGH = 0x16,
+
+# 181
+TMR2_OS_STARTS_TMRON_ERSLOW = 0x17,
+
+# 190
+TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT = 0x11,
+
+# 195
+TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT = 0x12,
+
+# 201
+TMR2_MS_STARTS_TMRON_ERSBOTHEDGE = 0x13
+
+} TMR2_HLT_MODE;
+
+# 218
+typedef enum {
+
+# 221
+TMR2_T2IN,
+
+# 225
+TMR2_C1_OUT_SYNC,
+
+# 229
+TMR2_C2_OUT_SYNC,
+
+# 233
+TMR2_CCP1_OUT,
+
+# 237
+TMR2_CCP2_OUT,
+
+# 241
+TMR2_RESERVED,
+
+# 245
+TMR2_T4POSTSCALED,
+
+# 249
+TMR2_T6POSTSCALED,
+
+# 253
+TMR2_ZCD1_OUTPUT,
+
+# 257
+TMR2_LC1_OUT,
+
+# 261
+TMR2_LC2_OUT,
+
+# 265
+TMR2_LC3_OUT,
+
+# 269
+TMR2_LC4_OUT,
+
+# 273
+TMR2_PWM3_OUT,
+
+# 277
+TMR2_PWM4_OUT
+} TMR2_HLT_EXT_RESET_SOURCE;
+
+# 320
+void TMR2_Initialize(void);
+
+# 356
+void TMR2_ModeSet(TMR2_HLT_MODE mode);
+
+# 391
+void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset);
+
+# 420
+void TMR2_Start(void);
+
+# 452
+void TMR2_Stop(void);
+
+# 487
+uint8_t TMR2_Counter8BitGet(void);
+
+# 526
+void TMR2_Counter8BitSet(uint8_t timerVal);
+
+# 578
+void TMR2_Period8BitSet(uint8_t periodVal);
+
+# 616
+bool TMR2_HasOverflowOccured(void);
+
+# 72 "mcc_generated_files/adc1.h"
+typedef uint16_t adc_result_t;
+
+# 86
+typedef enum {
+channel_Temp = 0x1D,
+channel_DAC = 0x1E,
+channel_FVR = 0x1F,
+channel_photoResistor = 0x03
+} adc_channel_t;
+
+# 126
+void ADC1_Initialize(void);
+
+# 155
+void ADC1_StartConversion(adc_channel_t channel);
+
+# 187
+bool ADC1_IsConversionDone();
+
+# 220
+adc_result_t ADC1_GetConversionResult(void);
+
+# 250
+adc_result_t ADC1_GetConversion(adc_channel_t channel);
+
+# 92 "mcc_generated_files/clc4.h"
+void CLC4_Initialize(void);
+
+# 114
+bool CLC4_OutputStatusGet(void);
+
+# 92 "mcc_generated_files/clc2.h"
+void CLC2_Initialize(void);
+
+# 114
+bool CLC2_OutputStatusGet(void);
+
+# 102 "mcc_generated_files/pwm3.h"
+void PWM3_Initialize(void);
+
+# 129
+void PWM3_LoadDutyValue(uint16_t dutyValue);
+
+# 75 "mcc_generated_files/mcc.h"
+void SYSTEM_Initialize(void);
+
+# 88
+void OSCILLATOR_Initialize(void);
+
+# 52 "mcc_generated_files/interrupt_manager.c"
+void interrupt INTERRUPT_InterruptManager(void) {
+
+if (PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1) {
+EUSART_Receive_ISR();
+} else if (PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1) {
+EUSART_Transmit_ISR();
+} else if (INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1) {
+PIN_MANAGER_IOC();
 
 
-const uint8_t CMD_SET_OFF[]="SetLED Off\r\n";
-const uint8_t CMD_SET_DIRECT[]="SetLED DIRECT\r\n";
-const uint8_t CMD_SET_STARRY[]="SetLED STARRY\r\n";
-const uint8_t CMD_SET_XMAS[]="SetLED XMAS\r\n";
-const uint8_t CMD_SET_PARTY[]="SetLED PARTY\r\n";
-
-const uint8_t CMD_GET_STATE[]="GetLEDState\r\n";
-
-
-void outputString(const uint8_t *string)
-{
-for(uint8_t i =0;i<strlen(string);i++)
-{
-EUSART_Write(string[i]);
-}
-}
-
-uint8_t UART_HexSrtingToBinary(uint8_t *data)
-{
-for(uint8_t i=0; i<2; i++)
-{
-if(data[i]>=0x30 && data[i]<=0x39)
-{
-data[i] = data[i]-0x30;
-}
-else
-{
-data[i] = data[i] -0x41 +0x0A;
-}
-}
-return ((data[0]<<4)+data[1]);
-
-}
-
-void COMM_Task(void)
-{
-uint8_t receiveData,r,g,b;
-static COMM_RECEIVE_STATE UART_ReceiveState = COMM_IDEL;
-static uint8_t receiveCounter;
-
-if((eusartRxCount))
-{
-receiveData = EUSART_Read();
-
-
-
-switch(UART_ReceiveState)
-{
-case COMM_IDEL:
-memset(inputCommand,0,16);
-
-if(receiveData == 'S')
-{
-UART_ReceiveState = COMM_PROCESS_SET_COMMAND;
-inputCommand[0] = 'S';
-receiveCounter = 0;
-}
-else if(receiveData == 'G')
-{
-UART_ReceiveState = COMM_PROCESS_GET_COMMAND;
-inputCommand[0] = 'G';
-receiveCounter = 0;
-}
-else if (receiveData == 'C')
-{
-UART_ReceiveState = COMM_PROCESS_COLOR;
-receiveCounter = 0;
-}
-else if (receiveData == '\r'||receiveData =='\n')
-{
-
-}
-else
-{
-UART_ReceiveState = COMM_PROCESS_TRASH;
-}
-break;
-case COMM_PROCESS_GET_COMMAND:
-inputCommand[++receiveCounter] = receiveData;
-if(receiveData == '\n')
-{
-if(strcmp(CMD_GET_STATE,inputCommand)==0)
-{
-switch(LED_mode)
-{
-case LED_OFF:
-outputString("LED is OFF\r\n");
-break;
-case LED_DIRECT:
-outputString("Direct color\r\n");
-break;
-case LED_STARRY:
-outputString("Starry\r\n");
-break;
-case LED_XMAS:
-outputString("Xmas\r\n");
-break;
-case LED_PARTY:
-outputString("Party\r\n");
-break;
-default:
-outputString("ERROR\r\n");
-break;
-}
-}
-else
-{
-outputString("Invalid Command \r\n");
-}
-UART_ReceiveState = COMM_IDEL;
-}
-break;
-case COMM_PROCESS_SET_COMMAND:
-inputCommand[++receiveCounter] = receiveData;
-if(receiveData == '\n')
-{
-if(strcmp(CMD_SET_OFF,inputCommand)==0)
-{
-LED_mode = LED_OFF;
-outputString("DONE!\r\n");
-}
-else if(strcmp(CMD_SET_DIRECT,inputCommand)==0)
-{
-LED_mode = LED_DIRECT;
-LED_color[0] = 64;
-LED_color[1] = 64;
-LED_color[2] = 64;
-outputString("DONE!\r\n");
-}
-else if(strcmp(CMD_SET_STARRY,inputCommand)==0)
-{
-LED_mode = LED_STARRY;
-outputString("DONE!\r\n");
-}
-else if(strcmp(CMD_SET_XMAS,inputCommand)==0)
-{
-LED_mode = LED_XMAS;
-outputString("DONE!\r\n");
-}
-else if(strcmp(CMD_SET_PARTY,inputCommand)==0)
-{
-LED_mode = LED_PARTY;
-outputString("DONE!\r\n");
-}
-else
-{
-outputString("Invalid Command \r\n");
-}
-UART_ReceiveState = COMM_IDEL;
-
-}
-break;
-case COMM_PROCESS_COLOR:
-inputCommand[receiveCounter++] = receiveData;
-if(receiveCounter == 2)
-{
-r = UART_HexSrtingToBinary(inputCommand);
-}
-else if(receiveCounter == 4)
-{
-g = UART_HexSrtingToBinary(inputCommand+2);
-}
-else if(receiveCounter == 6)
-{
-b = UART_HexSrtingToBinary(inputCommand+4);
-}
-if(receiveData =='\n')
-{
-if(receiveCounter == 8)
-{
-LED_color[0] = g;
-LED_color[1] = r;
-LED_color[2] = b;
-outputString("DONE!\r\n");
-}
-else
-{
-outputString("Invalid Command \r\n");
-}
-UART_ReceiveState = COMM_IDEL;
-}
-break;
-case COMM_PROCESS_TRASH:
-if(receiveData == '\n')
-{
-UART_ReceiveState = COMM_IDEL;
-outputString("Invalid Command \r\n");
-}
-break;
-default:UART_ReceiveState = COMM_IDEL;
-}
+INTCONbits.IOCIF = 0;
+} else {
 
 }
 }
+

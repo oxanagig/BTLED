@@ -1,15 +1,35 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6 ../src/LED.c
-[c E11870 0 1 2 3 4 .. ]
-[n E11870 . LED_OFF LED_DIRECT LED_STARRY LED_XMAS LED_PARTY  ]
-"22 ../src/LED.h
-[v _ledSendByte `(v ~T0 @X0 0 ef1`uc ]
+"2380 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
+[v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
+"2459
+[v _ADCON1 `Vuc ~T0 @X0 0 e@158 ]
+"2524
+[v _ADCON2 `Vuc ~T0 @X0 0 e@159 ]
+"2342
+[v _ADRESL `Vuc ~T0 @X0 0 e@155 ]
+"2361
+[v _ADRESH `Vuc ~T0 @X0 0 e@156 ]
+"85 mcc_generated_files/adc1.c
+[c E11866 29 30 31 3 .. ]
+[n E11866 . channel_Temp channel_DAC channel_FVR channel_photoResistor  ]
+"2386 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
+[s S123 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S123 . ADON GO_nDONE CHS ]
+"2391
+[s S124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S124 . . ADGO CHS0 CHS1 CHS2 CHS3 CHS4 ]
+"2400
+[s S125 :1 `uc 1 :1 `uc 1 ]
+[n S125 . . GO ]
+"2385
+[u S122 `S123 1 `S124 1 `S125 1 ]
+[n S122 . . . . ]
+"2405
+[v _ADCON0bits `VS122 ~T0 @X0 0 e@157 ]
 [v F11832 `(v ~T0 @X0 1 tf1`ul ]
 "150 /Applications/microchip/xc8/v1.34/include/pic.h
 [v __delay `JF11832 ~T0 @X0 0 e ]
 [p i __delay ]
-"28594 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1619.h: 49: extern volatile unsigned char INDF0 @ 0x000;
@@ -10719,442 +10739,208 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LED.h: 20: void LED_Test(void);
-[; ;LED.h: 21: void LED_Task(void);
-[; ;LED.h: 22: void ledSendByte(uint8_t);
-[; ;LED.h: 24: typedef enum
-[; ;LED.h: 25: {
-[; ;LED.h: 26: LED_OFF,
-[; ;LED.h: 27: LED_DIRECT,
-[; ;LED.h: 28: LED_STARRY,
-[; ;LED.h: 29: LED_XMAS,
-[; ;LED.h: 30: LED_PARTY,
-[; ;LED.h: 31: }LED_MODE;
-[; ;LED.h: 33: extern LED_MODE LED_mode;
-[; ;LED.h: 34: extern uint8_t LED_color[3];
-[; ;pin_manager.h: 141: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 153: void PIN_MANAGER_IOC(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;adc1.h: 72: typedef uint16_t adc_result_t;
+[; ;adc1.h: 86: typedef enum {
+[; ;adc1.h: 87: channel_Temp = 0x1D,
+[; ;adc1.h: 88: channel_DAC = 0x1E,
+[; ;adc1.h: 89: channel_FVR = 0x1F,
+[; ;adc1.h: 90: channel_photoResistor = 0x03
+[; ;adc1.h: 91: } adc_channel_t;
+[; ;adc1.h: 126: void ADC1_Initialize(void);
+[; ;adc1.h: 155: void ADC1_StartConversion(adc_channel_t channel);
+[; ;adc1.h: 187: bool ADC1_IsConversionDone();
+[; ;adc1.h: 220: adc_result_t ADC1_GetConversionResult(void);
+[; ;adc1.h: 250: adc_result_t ADC1_GetConversion(adc_channel_t channel);
+[; ;pin_manager.h: 280: void PIN_MANAGER_Initialize(void);
+[; ;pin_manager.h: 292: void PIN_MANAGER_IOC(void);
 [; ;interrupt_manager.h: 111: void interrupt INTERRUPT_InterruptManager(void);
-[; ;stdio.h: 8: typedef int ptrdiff_t;
-[; ;stdio.h: 9: typedef unsigned size_t;
-[; ;stdio.h: 10: typedef unsigned short wchar_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 24: extern int errno;
-[; ;stdio.h: 55: struct __prbuf
-[; ;stdio.h: 56: {
-[; ;stdio.h: 57: char * ptr;
-[; ;stdio.h: 58: void (* func)(char);
-[; ;stdio.h: 59: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern __bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 100: extern int cprintf(char *, ...);
-[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 195: extern char * gets(char *);
-[; ;stdio.h: 196: extern int puts(const char *);
-[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 207: extern int printf(const char *, ...);
-[; ;eusart.h: 78: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 79: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 107: void EUSART_Initialize(void);
-[; ;eusart.h: 127: uint8_t EUSART_Read(void);
-[; ;eusart.h: 147: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 168: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 189: void EUSART_Receive_ISR(void);
-[; ;eusart.h: 191: void outputString(const uint8_t*);
-[; ;eusart.h: 193: void UART_Task(void);
-[; ;cmp1.h: 93: void CMP1_Initialize(void);
-[; ;cmp1.h: 133: bool CMP1_GetOutputStatus(void);
-[; ;cmp1.h: 149: void CMP1_ISR(void);
-[; ;fvr.h: 93: void FVR_Initialize(void);
-[; ;fvr.h: 127: bool FVR_IsOutputReady(void);
-[; ;memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
-[; ;memory.h: 128: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-[; ;memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-[; ;memory.h: 189: void FLASH_EraseBlock(uint16_t startAddr);
-[; ;memory.h: 220: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-[; ;memory.h: 246: uint8_t DATAEE_ReadByte(uint8_t bAdd);
-[; ;tmr1.h: 101: void TMR1_Initialize(void);
-[; ;tmr1.h: 130: void TMR1_StartTimer(void);
-[; ;tmr1.h: 162: void TMR1_StopTimer(void);
-[; ;tmr1.h: 197: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 236: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 272: void TMR1_Reload(void);
-[; ;tmr1.h: 311: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 350: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 368: void TMR1_ISR(void);
-[; ;tmr1.h: 386: void TMR1_CallBack(void);
-[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 24: extern void * memset(void *, int, size_t);
-[; ;string.h: 28: extern void * __builtin_memcpy(void *, const void *, size_t);
-[; ;string.h: 42: extern char * strcat(char *, const char *);
-[; ;string.h: 43: extern char * strcpy(char *, const char *);
-[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 46: extern char * strdup(const char *);
-[; ;string.h: 47: extern char * strtok(char *, const char *);
-[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 51: extern int strcmp(const char *, const char *);
-[; ;string.h: 52: extern int stricmp(const char *, const char *);
-[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 58: extern size_t strspn(const char *, const char *);
-[; ;string.h: 59: extern char * strstr(const char *, const char *);
-[; ;string.h: 60: extern char * stristr(const char *, const char *);
-[; ;string.h: 61: extern char * strerror(int);
-[; ;string.h: 62: extern size_t strlen(const char *);
-[; ;string.h: 63: extern char * strchr(const char *, int);
-[; ;string.h: 64: extern char * strichr(const char *, int);
-[; ;string.h: 65: extern char * strrchr(const char *, int);
-[; ;string.h: 66: extern char * strrichr(const char *, int);
+[; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
+[; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
+[; ;eusart.h: 106: void EUSART_Initialize(void);
+[; ;eusart.h: 155: uint8_t EUSART_Read(void);
+[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
+[; ;eusart.h: 201: void EUSART_Transmit_ISR(void);
+[; ;eusart.h: 222: void EUSART_Receive_ISR(void);
+[; ;stddef.h: 2: typedef int ptrdiff_t;
+[; ;stddef.h: 3: typedef unsigned size_t;
+[; ;stddef.h: 4: typedef unsigned short wchar_t;
+[; ;stddef.h: 13: extern int errno;
+[; ;spi.h: 117: void SPI_Initialize(void);
+[; ;spi.h: 152: uint8_t SPI_Exchange8bit(uint8_t data);
+[; ;spi.h: 192: uint8_t SPI_Exchange8bitBuffer(uint8_t *dataIn, uint8_t bufLen, uint8_t *dataOut);
+[; ;spi.h: 215: bool SPI_IsBufferFull(void);
+[; ;spi.h: 240: bool SPI_HasWriteCollisionOccured(void);
+[; ;spi.h: 264: void SPI_ClearWriteCollisionStatus(void);
+[; ;tmr2.h: 79: typedef enum {
+[; ;tmr2.h: 87: TMR2_ROP_STARTS_TMRON,
+[; ;tmr2.h: 92: TMR2_ROP_STARTS_TMRON_ERSHIGH,
+[; ;tmr2.h: 97: TMR2_ROP_STARTS_TMRON_ERSLOW,
+[; ;tmr2.h: 102: TMR2_ROP_RESETS_ERSBOTHEDGE,
+[; ;tmr2.h: 107: TMR2_ROP_RESETS_ERSRISINGEDGE,
+[; ;tmr2.h: 112: TMR2_ROP_RESETS_ERSFALLINGEDGE,
+[; ;tmr2.h: 117: TMR2_ROP_RESETS_ERSLOW,
+[; ;tmr2.h: 122: TMR2_ROP_RESETS_ERSHIGH,
+[; ;tmr2.h: 133: TMR2_OS_STARTS_TMRON,
+[; ;tmr2.h: 138: TMR2_OS_STARTS_ERSRISINGEDGE,
+[; ;tmr2.h: 143: TMR2_OS_STARTS_ERSFALLINGEDGE,
+[; ;tmr2.h: 148: TMR2_OS_STARTS_ERSBOTHEDGE,
+[; ;tmr2.h: 154: TMR2_OS_STARTS_ERSFIRSTRISINGEDGE,
+[; ;tmr2.h: 160: TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE,
+[; ;tmr2.h: 166: TMR2_OS_STARTS_ERSRISINGEDGEDETECT,
+[; ;tmr2.h: 171: TMR2_OS_STARTS_ERSFALLINGEDGEDETECT,
+[; ;tmr2.h: 176: TMR2_OS_STARTS_TMRON_ERSHIGH = 0x16,
+[; ;tmr2.h: 181: TMR2_OS_STARTS_TMRON_ERSLOW = 0x17,
+[; ;tmr2.h: 190: TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT = 0x11,
+[; ;tmr2.h: 195: TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT = 0x12,
+[; ;tmr2.h: 201: TMR2_MS_STARTS_TMRON_ERSBOTHEDGE = 0x13
+[; ;tmr2.h: 203: } TMR2_HLT_MODE;
+[; ;tmr2.h: 218: typedef enum {
+[; ;tmr2.h: 221: TMR2_T2IN,
+[; ;tmr2.h: 225: TMR2_C1_OUT_SYNC,
+[; ;tmr2.h: 229: TMR2_C2_OUT_SYNC,
+[; ;tmr2.h: 233: TMR2_CCP1_OUT,
+[; ;tmr2.h: 237: TMR2_CCP2_OUT,
+[; ;tmr2.h: 241: TMR2_RESERVED,
+[; ;tmr2.h: 245: TMR2_T4POSTSCALED,
+[; ;tmr2.h: 249: TMR2_T6POSTSCALED,
+[; ;tmr2.h: 253: TMR2_ZCD1_OUTPUT,
+[; ;tmr2.h: 257: TMR2_LC1_OUT,
+[; ;tmr2.h: 261: TMR2_LC2_OUT,
+[; ;tmr2.h: 265: TMR2_LC3_OUT,
+[; ;tmr2.h: 269: TMR2_LC4_OUT,
+[; ;tmr2.h: 273: TMR2_PWM3_OUT,
+[; ;tmr2.h: 277: TMR2_PWM4_OUT
+[; ;tmr2.h: 278: } TMR2_HLT_EXT_RESET_SOURCE;
+[; ;tmr2.h: 320: void TMR2_Initialize(void);
+[; ;tmr2.h: 356: void TMR2_ModeSet(TMR2_HLT_MODE mode);
+[; ;tmr2.h: 391: void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset);
+[; ;tmr2.h: 420: void TMR2_Start(void);
+[; ;tmr2.h: 452: void TMR2_Stop(void);
+[; ;tmr2.h: 487: uint8_t TMR2_Counter8BitGet(void);
+[; ;tmr2.h: 526: void TMR2_Counter8BitSet(uint8_t timerVal);
+[; ;tmr2.h: 578: void TMR2_Period8BitSet(uint8_t periodVal);
+[; ;tmr2.h: 616: bool TMR2_HasOverflowOccured(void);
+[; ;clc4.h: 92: void CLC4_Initialize(void);
+[; ;clc4.h: 114: bool CLC4_OutputStatusGet(void);
+[; ;clc2.h: 92: void CLC2_Initialize(void);
+[; ;clc2.h: 114: bool CLC2_OutputStatusGet(void);
+[; ;pwm3.h: 102: void PWM3_Initialize(void);
+[; ;pwm3.h: 129: void PWM3_LoadDutyValue(uint16_t dutyValue);
 [; ;mcc.h: 75: void SYSTEM_Initialize(void);
 [; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
-"6 ../src/LED.c
-[v _LED_mode `E11870 ~T0 @X0 1 e ]
-[i _LED_mode
-. `E11870 0
-]
-[; ;LED.c: 6: LED_MODE LED_mode = LED_OFF;
-"7
-[v _LED_color `uc ~T0 @X0 -> 3 `i e ]
-[i _LED_color
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[; ;LED.c: 7: uint8_t LED_color[3]={0,0,0};
-"8
-[v _LED_currentColor `uc ~T0 @X0 -> 3 `i s ]
-[i _LED_currentColor
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[; ;LED.c: 8: static uint8_t LED_currentColor[3]={0,0,0};
-"10
-[v _LED_Test `(v ~T0 @X0 1 ef ]
-"11
+"65 mcc_generated_files/adc1.c
+[v _ADC1_Initialize `(v ~T0 @X0 1 ef ]
 {
-[; ;LED.c: 10: void LED_Test(void)
-[; ;LED.c: 11: {
-[e :U _LED_Test ]
+[; ;adc1.c: 65: void ADC1_Initialize(void) {
+[e :U _ADC1_Initialize ]
 [f ]
-[; ;LED.c: 12: for(uint8_t i=0; i<20+1; i++)
-"12
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i + -> 20 `i -> 1 `i 1207  ]
-[e $U 1208  ]
-"13
-[e :U 1207 ]
-[; ;LED.c: 13: {
-{
-[; ;LED.c: 14: for(uint16_t j=0;j<20;j++)
-"14
-{
-[v _j `ui ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 20 `i `ui 1210  ]
-[e $U 1211  ]
-"15
-[e :U 1210 ]
-[; ;LED.c: 15: {
-{
-[; ;LED.c: 16: if(j==i)
-"16
-[e $ ! == _j -> _i `ui 1213  ]
-[; ;LED.c: 17: {
-"17
-{
-[; ;LED.c: 18: ledSendByte(255);
-"18
-[e ( _ledSendByte (1 -> -> 255 `i `uc ]
-[; ;LED.c: 19: ledSendByte(255);
-"19
-[e ( _ledSendByte (1 -> -> 255 `i `uc ]
-[; ;LED.c: 20: ledSendByte(255);
-"20
-[e ( _ledSendByte (1 -> -> 255 `i `uc ]
-"21
+[; ;adc1.c: 69: ADCON0 = 0x01;
+"69
+[e = _ADCON0 -> -> 1 `i `uc ]
+[; ;adc1.c: 72: ADCON1 = 0xA0;
+"72
+[e = _ADCON1 -> -> 160 `i `uc ]
+[; ;adc1.c: 75: ADCON2 = 0x00;
+"75
+[e = _ADCON2 -> -> 0 `i `uc ]
+[; ;adc1.c: 78: ADRESL = 0x00;
+"78
+[e = _ADRESL -> -> 0 `i `uc ]
+[; ;adc1.c: 81: ADRESH = 0x00;
+"81
+[e = _ADRESH -> -> 0 `i `uc ]
+[; ;adc1.c: 83: }
+"83
+[e :UE 1205 ]
 }
-[; ;LED.c: 21: }
-[e $U 1214  ]
-"22
-[e :U 1213 ]
-[; ;LED.c: 22: else
-[; ;LED.c: 23: {
-"23
+"85
+[v _ADC1_StartConversion `(v ~T0 @X0 1 ef1`E11866 ]
 {
-[; ;LED.c: 24: ledSendByte(0);
-"24
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 25: ledSendByte(0);
-"25
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 26: ledSendByte(0);
-"26
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-"27
-}
-[e :U 1214 ]
-"28
-}
-"14
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 20 `i `ui 1210  ]
-[e :U 1211 ]
-"28
-}
-[; ;LED.c: 27: }
-[; ;LED.c: 28: }
-[; ;LED.c: 29: _delay((unsigned long)((50)*(32000000/4000.0)));
-"29
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"30
-}
-"12
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i + -> 20 `i -> 1 `i 1207  ]
-[e :U 1208 ]
-"30
-}
-[; ;LED.c: 30: }
-[; ;LED.c: 32: }
-"32
+[; ;adc1.c: 85: void ADC1_StartConversion(adc_channel_t channel) {
+[e :U _ADC1_StartConversion ]
+[v _channel `E11866 ~T0 @X0 1 r1 ]
+[f ]
+[; ;adc1.c: 87: ADCON0bits.CHS = channel;
+"87
+[e = . . _ADCON0bits 0 2 -> _channel `uc ]
+[; ;adc1.c: 90: ADCON0bits.ADON = 1;
+"90
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;adc1.c: 93: _delay((unsigned long)((5)*(32000000/4000000.0)));
+"93
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
+[; ;adc1.c: 96: ADCON0bits.GO_nDONE = 1;
+"96
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;adc1.c: 97: }
+"97
 [e :UE 1206 ]
 }
-"34
-[v _LED_Task `(v ~T0 @X0 1 ef ]
-"35
+"99
+[v _ADC1_IsConversionDone `(uc ~T0 @X0 1 ef ]
 {
-[; ;LED.c: 34: void LED_Task(void)
-[; ;LED.c: 35: {
-[e :U _LED_Task ]
+[; ;adc1.c: 99: bool ADC1_IsConversionDone() {
+[e :U _ADC1_IsConversionDone ]
 [f ]
-"36
-[v F12111 `uc ~T0 @X0 1 s ledOFF ]
-[i F12111
--> -> 0 `i `uc
-]
-[; ;LED.c: 36: static uint8_t ledOFF = 0;
-[; ;LED.c: 37: switch(LED_mode)
-"37
-[e $U 1217  ]
-[; ;LED.c: 38: {
-"38
-{
-[; ;LED.c: 39: case LED_OFF:
-"39
-[e :U 1218 ]
-[; ;LED.c: 40: if(ledOFF ==0)
-"40
-[e $ ! == -> F12111 `i -> 0 `i 1219  ]
-[; ;LED.c: 41: {
-"41
-{
-[; ;LED.c: 42: GIE = 0;
-"42
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 43: for(uint16_t i=0;i<20;i++)
-"43
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1220  ]
-[e $U 1221  ]
-"44
-[e :U 1220 ]
-[; ;LED.c: 44: {
-{
-[; ;LED.c: 45: ledSendByte(0);
-"45
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 46: ledSendByte(0);
-"46
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 47: ledSendByte(0);
-"47
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-"48
+[; ;adc1.c: 101: return (!ADCON0bits.GO_nDONE);
+"101
+[e ) -> -> ! != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e $UE 1207  ]
+[; ;adc1.c: 102: }
+"102
+[e :UE 1207 ]
 }
-"43
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1220  ]
-[e :U 1221 ]
-"48
-}
-[; ;LED.c: 48: }
-[; ;LED.c: 49: GIE = 1;
-"49
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 50: ledOFF = 1;
-"50
-[e = F12111 -> -> 1 `i `uc ]
-"51
-}
-[e :U 1219 ]
-[; ;LED.c: 51: }
-[; ;LED.c: 52: break;
-"52
-[e $U 1216  ]
-[; ;LED.c: 53: case LED_DIRECT:
-"53
-[e :U 1223 ]
-[; ;LED.c: 54: if(LED_color[0]!=LED_currentColor[0]|| LED_color[1]!=LED_currentColor[1]|| LED_color[2]!=LED_currentColor[2])
-"54
-[e $ ! || || != -> *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i 1224  ]
-[; ;LED.c: 57: {
-"57
+"104
+[v _ADC1_GetConversionResult `(ui ~T0 @X0 1 ef ]
 {
-[; ;LED.c: 58: GIE = 0;
-"58
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 59: for(uint16_t i=0;i<20;i++)
-"59
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1225  ]
-[e $U 1226  ]
-"60
-[e :U 1225 ]
-[; ;LED.c: 60: {
-{
-[; ;LED.c: 61: ledSendByte(LED_color[0]);
-"61
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-[; ;LED.c: 62: ledSendByte(LED_color[1]);
-"62
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-[; ;LED.c: 63: ledSendByte(LED_color[2]);
-"63
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-"64
-}
-"59
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1225  ]
-[e :U 1226 ]
-"64
-}
-[; ;LED.c: 64: }
-[; ;LED.c: 65: GIE = 1;
-"65
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 66: for(uint8_t i=0;i<3;i++)
-"66
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 1228  ]
-[e $U 1229  ]
-"67
-[e :U 1228 ]
-[; ;LED.c: 67: LED_currentColor[i] = LED_color[i];
-[e = *U + &U _LED_currentColor * -> _i `ux -> -> # *U &U _LED_currentColor `ui `ux *U + &U _LED_color * -> _i `ux -> -> # *U &U _LED_color `ui `ux ]
-"66
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 1228  ]
-[e :U 1229 ]
-"67
-}
-[; ;LED.c: 68: ledOFF = 0;
-"68
-[e = F12111 -> -> 0 `i `uc ]
-"69
-}
-[e :U 1224 ]
-[; ;LED.c: 69: }
-[; ;LED.c: 70: break;
-"70
-[e $U 1216  ]
-[; ;LED.c: 71: case LED_STARRY:
-"71
-[e :U 1231 ]
-[; ;LED.c: 72: ledOFF = 0;
-"72
-[e = F12111 -> -> 0 `i `uc ]
-[; ;LED.c: 73: break;
-"73
-[e $U 1216  ]
-[; ;LED.c: 74: case LED_XMAS:
-"74
-[e :U 1232 ]
-[; ;LED.c: 75: ledOFF = 0;
-"75
-[e = F12111 -> -> 0 `i `uc ]
-[; ;LED.c: 76: break;
-"76
-[e $U 1216  ]
-[; ;LED.c: 77: case LED_PARTY:
-"77
-[e :U 1233 ]
-[; ;LED.c: 78: ledOFF = 0;
-"78
-[e = F12111 -> -> 0 `i `uc ]
-[; ;LED.c: 79: break;
-"79
-[e $U 1216  ]
-[; ;LED.c: 80: default:
-"80
-[e :U 1234 ]
-[; ;LED.c: 81: break;
-"81
-[e $U 1216  ]
-"82
-}
-[; ;LED.c: 82: }
-[e $U 1216  ]
-"37
-[e :U 1217 ]
-[e [\ _LED_mode , $ . `E11870 0 1218
- , $ . `E11870 1 1223
- , $ . `E11870 2 1231
- , $ . `E11870 3 1232
- , $ . `E11870 4 1233
- 1234 ]
-"82
-[e :U 1216 ]
-[; ;LED.c: 86: }
-"86
-[e :UE 1215 ]
-}
-"88
-[v _ledSendByte `(v ~T0 @X0 1 ef1`uc ]
-"89
-{
-[; ;LED.c: 88: void ledSendByte(uint8_t data)
-[; ;LED.c: 89: {
-[e :U _ledSendByte ]
-"88
-[v _data `uc ~T0 @X0 1 r1 ]
-"89
+[; ;adc1.c: 104: adc_result_t ADC1_GetConversionResult(void) {
+[e :U _ADC1_GetConversionResult ]
 [f ]
-[; ;LED.c: 126: }
-"126
-[e :UE 1235 ]
+[; ;adc1.c: 106: return ((ADRESH << 8) + ADRESL);
+"106
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 1208  ]
+[; ;adc1.c: 107: }
+"107
+[e :UE 1208 ]
+}
+"109
+[v _ADC1_GetConversion `(ui ~T0 @X0 1 ef1`E11866 ]
+{
+[; ;adc1.c: 109: adc_result_t ADC1_GetConversion(adc_channel_t channel) {
+[e :U _ADC1_GetConversion ]
+[v _channel `E11866 ~T0 @X0 1 r1 ]
+[f ]
+[; ;adc1.c: 111: ADCON0bits.CHS = channel;
+"111
+[e = . . _ADCON0bits 0 2 -> _channel `uc ]
+[; ;adc1.c: 114: ADCON0bits.ADON = 1;
+"114
+[e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;adc1.c: 117: _delay((unsigned long)((5)*(32000000/4000000.0)));
+"117
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
+[; ;adc1.c: 120: ADCON0bits.GO_nDONE = 1;
+"120
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;adc1.c: 123: while (ADCON0bits.GO_nDONE) {
+"123
+[e $U 1210  ]
+[e :U 1211 ]
+{
+"124
+}
+[e :U 1210 ]
+"123
+[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 1211  ]
+[e :U 1212 ]
+[; ;adc1.c: 124: }
+[; ;adc1.c: 127: return ((ADRESH << 8) + ADRESL);
+"127
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 1209  ]
+[; ;adc1.c: 128: }
+"128
+[e :UE 1209 ]
 }

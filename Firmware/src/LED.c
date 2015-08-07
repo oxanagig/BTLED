@@ -87,7 +87,7 @@ void LED_Task(void)
 
 void ledSendByte(uint8_t data)
 {
-#define bit_banged_protocol
+#if defined (bit_banged_protocol)
     #if defined(WS2811)
         for(uint8_t i = 0; i< 8;i++)
         {
@@ -120,7 +120,7 @@ void ledSendByte(uint8_t data)
             data = data<<1;
         }
     #endif
-#elif
+#else
 
 #endif
 }

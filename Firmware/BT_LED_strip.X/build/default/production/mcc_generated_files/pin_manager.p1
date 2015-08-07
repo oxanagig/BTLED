@@ -1,15 +1,102 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6 ../src/LED.c
-[c E11870 0 1 2 3 4 .. ]
-[n E11870 . LED_OFF LED_DIRECT LED_STARRY LED_XMAS LED_PARTY  ]
-"22 ../src/LED.h
-[v _ledSendByte `(v ~T0 @X0 0 ef1`uc ]
-[v F11832 `(v ~T0 @X0 1 tf1`ul ]
-"150 /Applications/microchip/xc8/v1.34/include/pic.h
-[v __delay `JF11832 ~T0 @X0 0 e ]
-[p i __delay ]
-"28594 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
+"2571 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
+[v _LATA `Vuc ~T0 @X0 0 e@268 ]
+"1579
+[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"3258
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"2620
+[v _LATB `Vuc ~T0 @X0 0 e@269 ]
+"1628
+[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
+"3304
+[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
+"4489
+[v _WPUB `Vuc ~T0 @X0 0 e@525 ]
+"2658
+[v _LATC `Vuc ~T0 @X0 0 e@270 ]
+"1666
+[v _TRISC `Vuc ~T0 @X0 0 e@142 ]
+"3342
+[v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
+"4527
+[v _WPUC `Vuc ~T0 @X0 0 e@526 ]
+"2016
+[s S106 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S106 . PS PSA TMR0SE TMR0CS INTEDG nWPUEN ]
+"2024
+[s S107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S107 . PS0 PS1 PS2 . T0SE T0CS ]
+"2015
+[u S105 `S106 1 `S107 1 ]
+[n S105 . . . ]
+"2033
+[v _OPTION_REGbits `VS105 ~T0 @X0 0 e@149 ]
+"28790
+[v _IOCBP6 `Vb ~T0 @X0 0 e@7334 ]
+"28792
+[v _IOCBP7 `Vb ~T0 @X0 0 e@7335 ]
+"28832
+[v _IOCCP3 `Vb ~T0 @X0 0 e@7355 ]
+"28834
+[v _IOCCP4 `Vb ~T0 @X0 0 e@7356 ]
+"28836
+[v _IOCCP5 `Vb ~T0 @X0 0 e@7357 ]
+"28838
+[v _IOCCP6 `Vb ~T0 @X0 0 e@7358 ]
+"28840
+[v _IOCCP7 `Vb ~T0 @X0 0 e@7359 ]
+"343
+[s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S27 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"353
+[s S28 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S28 . . T0IF . T0IE ]
+"342
+[u S26 `S27 1 `S28 1 ]
+[n S26 . . . ]
+"360
+[v _INTCONbits `VS26 ~T0 @X0 0 e@11 ]
+"28594
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
+"20767
+[v _PPSLOCK `Vuc ~T0 @X0 0 e@3599 ]
+"20773
+[s S924 :1 `uc 1 ]
+[n S924 . PPSLOCKED ]
+"20772
+[u S923 `S924 1 ]
+[n S923 . . ]
+"20777
+[v _PPSLOCKbits `VS923 ~T0 @X0 0 e@3599 ]
+"21646
+[v _RXPPS `Vuc ~T0 @X0 0 e@3620 ]
+"22291
+[v _RA5PPS `Vuc ~T0 @X0 0 e@3733 ]
+"22334
+[v _RB4PPS `Vuc ~T0 @X0 0 e@3740 ]
+"22506
+[v _RC0PPS `Vuc ~T0 @X0 0 e@3744 ]
+"21474
+[v _SSPCLKPPS `Vuc ~T0 @X0 0 e@3616 ]
+"22549
+[v _RC1PPS `Vuc ~T0 @X0 0 e@3745 ]
+"21517
+[v _SSPDATPPS `Vuc ~T0 @X0 0 e@3617 ]
+"28774
+[v _IOCBF6 `Vb ~T0 @X0 0 e@7350 ]
+"28776
+[v _IOCBF7 `Vb ~T0 @X0 0 e@7351 ]
+"28800
+[v _IOCCF3 `Vb ~T0 @X0 0 e@7371 ]
+"28802
+[v _IOCCF4 `Vb ~T0 @X0 0 e@7372 ]
+"28804
+[v _IOCCF5 `Vb ~T0 @X0 0 e@7373 ]
+"28806
+[v _IOCCF6 `Vb ~T0 @X0 0 e@7374 ]
+"28808
+[v _IOCCF7 `Vb ~T0 @X0 0 e@7375 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1619.h: 49: extern volatile unsigned char INDF0 @ 0x000;
@@ -10691,470 +10778,212 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LED.h: 20: void LED_Test(void);
-[; ;LED.h: 21: void LED_Task(void);
-[; ;LED.h: 22: void ledSendByte(uint8_t);
-[; ;LED.h: 24: typedef enum
-[; ;LED.h: 25: {
-[; ;LED.h: 26: LED_OFF,
-[; ;LED.h: 27: LED_DIRECT,
-[; ;LED.h: 28: LED_STARRY,
-[; ;LED.h: 29: LED_XMAS,
-[; ;LED.h: 30: LED_PARTY,
-[; ;LED.h: 31: }LED_MODE;
-[; ;LED.h: 33: extern LED_MODE LED_mode;
-[; ;LED.h: 34: extern uint8_t LED_color[3];
-[; ;pin_manager.h: 141: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 153: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 280: void PIN_MANAGER_Initialize(void);
+[; ;pin_manager.h: 292: void PIN_MANAGER_IOC(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 111: void interrupt INTERRUPT_InterruptManager(void);
-[; ;stdio.h: 8: typedef int ptrdiff_t;
-[; ;stdio.h: 9: typedef unsigned size_t;
-[; ;stdio.h: 10: typedef unsigned short wchar_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 24: extern int errno;
-[; ;stdio.h: 55: struct __prbuf
-[; ;stdio.h: 56: {
-[; ;stdio.h: 57: char * ptr;
-[; ;stdio.h: 58: void (* func)(char);
-[; ;stdio.h: 59: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern __bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 100: extern int cprintf(char *, ...);
-[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 195: extern char * gets(char *);
-[; ;stdio.h: 196: extern int puts(const char *);
-[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 207: extern int printf(const char *, ...);
-[; ;eusart.h: 78: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 79: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 107: void EUSART_Initialize(void);
-[; ;eusart.h: 127: uint8_t EUSART_Read(void);
-[; ;eusart.h: 147: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 168: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 189: void EUSART_Receive_ISR(void);
-[; ;eusart.h: 191: void outputString(const uint8_t*);
-[; ;eusart.h: 193: void UART_Task(void);
-[; ;cmp1.h: 93: void CMP1_Initialize(void);
-[; ;cmp1.h: 133: bool CMP1_GetOutputStatus(void);
-[; ;cmp1.h: 149: void CMP1_ISR(void);
-[; ;fvr.h: 93: void FVR_Initialize(void);
-[; ;fvr.h: 127: bool FVR_IsOutputReady(void);
-[; ;memory.h: 99: uint16_t FLASH_ReadWord(uint16_t flashAddr);
-[; ;memory.h: 128: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-[; ;memory.h: 164: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-[; ;memory.h: 189: void FLASH_EraseBlock(uint16_t startAddr);
-[; ;memory.h: 220: void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-[; ;memory.h: 246: uint8_t DATAEE_ReadByte(uint8_t bAdd);
-[; ;tmr1.h: 101: void TMR1_Initialize(void);
-[; ;tmr1.h: 130: void TMR1_StartTimer(void);
-[; ;tmr1.h: 162: void TMR1_StopTimer(void);
-[; ;tmr1.h: 197: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 236: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 272: void TMR1_Reload(void);
-[; ;tmr1.h: 311: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 350: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 368: void TMR1_ISR(void);
-[; ;tmr1.h: 386: void TMR1_CallBack(void);
-[; ;string.h: 22: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 23: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 24: extern void * memset(void *, int, size_t);
-[; ;string.h: 28: extern void * __builtin_memcpy(void *, const void *, size_t);
-[; ;string.h: 42: extern char * strcat(char *, const char *);
-[; ;string.h: 43: extern char * strcpy(char *, const char *);
-[; ;string.h: 44: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 45: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 46: extern char * strdup(const char *);
-[; ;string.h: 47: extern char * strtok(char *, const char *);
-[; ;string.h: 50: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 51: extern int strcmp(const char *, const char *);
-[; ;string.h: 52: extern int stricmp(const char *, const char *);
-[; ;string.h: 53: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 54: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 55: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 56: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 57: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 58: extern size_t strspn(const char *, const char *);
-[; ;string.h: 59: extern char * strstr(const char *, const char *);
-[; ;string.h: 60: extern char * stristr(const char *, const char *);
-[; ;string.h: 61: extern char * strerror(int);
-[; ;string.h: 62: extern size_t strlen(const char *);
-[; ;string.h: 63: extern char * strchr(const char *, int);
-[; ;string.h: 64: extern char * strichr(const char *, int);
-[; ;string.h: 65: extern char * strrchr(const char *, int);
-[; ;string.h: 66: extern char * strrichr(const char *, int);
-[; ;mcc.h: 75: void SYSTEM_Initialize(void);
-[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
-"6 ../src/LED.c
-[v _LED_mode `E11870 ~T0 @X0 1 e ]
-[i _LED_mode
-. `E11870 0
-]
-[; ;LED.c: 6: LED_MODE LED_mode = LED_OFF;
-"7
-[v _LED_color `uc ~T0 @X0 -> 3 `i e ]
-[i _LED_color
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[; ;LED.c: 7: uint8_t LED_color[3]={0,0,0};
-"8
-[v _LED_currentColor `uc ~T0 @X0 -> 3 `i s ]
-[i _LED_currentColor
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[; ;LED.c: 8: static uint8_t LED_currentColor[3]={0,0,0};
-"10
-[v _LED_Test `(v ~T0 @X0 1 ef ]
-"11
+"51 mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
 {
-[; ;LED.c: 10: void LED_Test(void)
-[; ;LED.c: 11: {
-[e :U _LED_Test ]
+[; ;pin_manager.c: 51: void PIN_MANAGER_Initialize(void) {
+[e :U _PIN_MANAGER_Initialize ]
 [f ]
-[; ;LED.c: 12: for(uint8_t i=0; i<20+1; i++)
-"12
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i + -> 20 `i -> 1 `i 1207  ]
-[e $U 1208  ]
-"13
-[e :U 1207 ]
-[; ;LED.c: 13: {
-{
-[; ;LED.c: 14: for(uint16_t j=0;j<20;j++)
-"14
-{
-[v _j `ui ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 20 `i `ui 1210  ]
-[e $U 1211  ]
-"15
-[e :U 1210 ]
-[; ;LED.c: 15: {
-{
-[; ;LED.c: 16: if(j==i)
-"16
-[e $ ! == _j -> _i `ui 1213  ]
-[; ;LED.c: 17: {
-"17
-{
-[; ;LED.c: 18: ledSendByte(255);
-"18
-[e ( _ledSendByte (1 -> -> 255 `i `uc ]
-[; ;LED.c: 19: ledSendByte(255);
-"19
-[e ( _ledSendByte (1 -> -> 255 `i `uc ]
-[; ;LED.c: 20: ledSendByte(255);
-"20
-[e ( _ledSendByte (1 -> -> 255 `i `uc ]
-"21
-}
-[; ;LED.c: 21: }
-[e $U 1214  ]
-"22
-[e :U 1213 ]
-[; ;LED.c: 22: else
-[; ;LED.c: 23: {
-"23
-{
-[; ;LED.c: 24: ledSendByte(0);
-"24
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 25: ledSendByte(0);
-"25
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 26: ledSendByte(0);
-"26
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-"27
-}
-[e :U 1214 ]
-"28
-}
-"14
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 20 `i `ui 1210  ]
-[e :U 1211 ]
-"28
-}
-[; ;LED.c: 27: }
-[; ;LED.c: 28: }
-[; ;LED.c: 29: _delay((unsigned long)((50)*(32000000/4000.0)));
-"29
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"30
-}
-"12
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i + -> 20 `i -> 1 `i 1207  ]
-[e :U 1208 ]
-"30
-}
-[; ;LED.c: 30: }
-[; ;LED.c: 32: }
-"32
-[e :UE 1206 ]
-}
-"34
-[v _LED_Task `(v ~T0 @X0 1 ef ]
-"35
-{
-[; ;LED.c: 34: void LED_Task(void)
-[; ;LED.c: 35: {
-[e :U _LED_Task ]
-[f ]
-"36
-[v F12111 `uc ~T0 @X0 1 s ledOFF ]
-[i F12111
--> -> 0 `i `uc
-]
-[; ;LED.c: 36: static uint8_t ledOFF = 0;
-[; ;LED.c: 37: switch(LED_mode)
-"37
-[e $U 1217  ]
-[; ;LED.c: 38: {
-"38
-{
-[; ;LED.c: 39: case LED_OFF:
-"39
-[e :U 1218 ]
-[; ;LED.c: 40: if(ledOFF ==0)
-"40
-[e $ ! == -> F12111 `i -> 0 `i 1219  ]
-[; ;LED.c: 41: {
-"41
-{
-[; ;LED.c: 42: GIE = 0;
-"42
+[; ;pin_manager.c: 52: LATA = 0x00;
+"52
+[e = _LATA -> -> 0 `i `uc ]
+[; ;pin_manager.c: 53: TRISA = 0x1F;
+"53
+[e = _TRISA -> -> 31 `i `uc ]
+[; ;pin_manager.c: 54: ANSELA = 0x13;
+"54
+[e = _ANSELA -> -> 19 `i `uc ]
+[; ;pin_manager.c: 56: LATB = 0x20;
+"56
+[e = _LATB -> -> 32 `i `uc ]
+[; ;pin_manager.c: 57: TRISB = 0xC0;
+"57
+[e = _TRISB -> -> 192 `i `uc ]
+[; ;pin_manager.c: 58: ANSELB = 0x00;
+"58
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;pin_manager.c: 59: WPUB = 0x00;
+"59
+[e = _WPUB -> -> 0 `i `uc ]
+[; ;pin_manager.c: 61: LATC = 0x00;
+"61
+[e = _LATC -> -> 0 `i `uc ]
+[; ;pin_manager.c: 62: TRISC = 0xFD;
+"62
+[e = _TRISC -> -> 253 `i `uc ]
+[; ;pin_manager.c: 63: ANSELC = 0x00;
+"63
+[e = _ANSELC -> -> 0 `i `uc ]
+[; ;pin_manager.c: 64: WPUC = 0x00;
+"64
+[e = _WPUC -> -> 0 `i `uc ]
+[; ;pin_manager.c: 66: OPTION_REGbits.nWPUEN = 0x01;
+"66
+[e = . . _OPTION_REGbits 0 5 -> -> 1 `i `uc ]
+[; ;pin_manager.c: 69: IOCBP6 = 1;
+"69
+[e = _IOCBP6 -> -> 1 `i `b ]
+[; ;pin_manager.c: 70: IOCBP7 = 1;
+"70
+[e = _IOCBP7 -> -> 1 `i `b ]
+[; ;pin_manager.c: 71: IOCCP3 = 1;
+"71
+[e = _IOCCP3 -> -> 1 `i `b ]
+[; ;pin_manager.c: 72: IOCCP4 = 1;
+"72
+[e = _IOCCP4 -> -> 1 `i `b ]
+[; ;pin_manager.c: 73: IOCCP5 = 1;
+"73
+[e = _IOCCP5 -> -> 1 `i `b ]
+[; ;pin_manager.c: 74: IOCCP6 = 1;
+"74
+[e = _IOCCP6 -> -> 1 `i `b ]
+[; ;pin_manager.c: 75: IOCCP7 = 1;
+"75
+[e = _IOCCP7 -> -> 1 `i `b ]
+[; ;pin_manager.c: 78: INTCONbits.IOCIE = 1;
+"78
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"80
+[v _state `uc ~T0 @X0 1 a ]
+[; ;pin_manager.c: 80: bool state = GIE;
+[e = _state -> -> _GIE `i `uc ]
+[; ;pin_manager.c: 81: GIE = 0;
+"81
 [e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 43: for(uint16_t i=0;i<20;i++)
-"43
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1220  ]
-[e $U 1221  ]
-"44
-[e :U 1220 ]
-[; ;LED.c: 44: {
-{
-[; ;LED.c: 45: ledSendByte(0);
-"45
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 46: ledSendByte(0);
-"46
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 47: ledSendByte(0);
-"47
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-"48
+[; ;pin_manager.c: 82: PPSLOCK = 0x55;
+"82
+[e = _PPSLOCK -> -> 85 `i `uc ]
+[; ;pin_manager.c: 83: PPSLOCK = 0xAA;
+"83
+[e = _PPSLOCK -> -> 170 `i `uc ]
+[; ;pin_manager.c: 84: PPSLOCKbits.PPSLOCKED = 0x00;
+"84
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+[; ;pin_manager.c: 86: RXPPS = 0x02;
+"86
+[e = _RXPPS -> -> 2 `i `uc ]
+[; ;pin_manager.c: 87: RA5PPS = 0x07;
+"87
+[e = _RA5PPS -> -> 7 `i `uc ]
+[; ;pin_manager.c: 88: RB4PPS = 0x11;
+"88
+[e = _RB4PPS -> -> 17 `i `uc ]
+[; ;pin_manager.c: 89: RC0PPS = 0x12;
+"89
+[e = _RC0PPS -> -> 18 `i `uc ]
+[; ;pin_manager.c: 90: SSPCLKPPS = 0x11;
+"90
+[e = _SSPCLKPPS -> -> 17 `i `uc ]
+[; ;pin_manager.c: 91: RC1PPS = 0x10;
+"91
+[e = _RC1PPS -> -> 16 `i `uc ]
+[; ;pin_manager.c: 92: SSPDATPPS = 0x12;
+"92
+[e = _SSPDATPPS -> -> 18 `i `uc ]
+[; ;pin_manager.c: 93: PPSLOCK = 0x55;
+"93
+[e = _PPSLOCK -> -> 85 `i `uc ]
+[; ;pin_manager.c: 94: PPSLOCK = 0xAA;
+"94
+[e = _PPSLOCK -> -> 170 `i `uc ]
+[; ;pin_manager.c: 95: PPSLOCKbits.PPSLOCKED = 0x01;
+"95
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+[; ;pin_manager.c: 96: GIE = state;
+"96
+[e = _GIE -> _state `b ]
+[; ;pin_manager.c: 97: }
+"97
+[e :UE 1205 ]
 }
-"43
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1220  ]
-[e :U 1221 ]
-"48
+"99
+[v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
+{
+[; ;pin_manager.c: 99: void PIN_MANAGER_IOC(void) {
+[e :U _PIN_MANAGER_IOC ]
+[f ]
+[; ;pin_manager.c: 100: if ((IOCBP6 == 1) && (IOCBF6 == 1)) {
+"100
+[e $ ! && == -> _IOCBP6 `i -> 1 `i == -> _IOCBF6 `i -> 1 `i 1207  ]
+{
+[; ;pin_manager.c: 104: IOCBF6 = 0;
+"104
+[e = _IOCBF6 -> -> 0 `i `b ]
+"105
 }
-[; ;LED.c: 48: }
-[; ;LED.c: 49: GIE = 1;
-"49
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 50: ledOFF = 1;
-"50
-[e = F12111 -> -> 1 `i `uc ]
-"51
+[; ;pin_manager.c: 105: } else if ((IOCBP7 == 1) && (IOCBF7 == 1)) {
+[e $U 1208  ]
+[e :U 1207 ]
+[e $ ! && == -> _IOCBP7 `i -> 1 `i == -> _IOCBF7 `i -> 1 `i 1209  ]
+{
+[; ;pin_manager.c: 109: IOCBF7 = 0;
+"109
+[e = _IOCBF7 -> -> 0 `i `b ]
+"110
+}
+[; ;pin_manager.c: 110: } else if ((IOCCP3 == 1) && (IOCCF3 == 1)) {
+[e $U 1210  ]
+[e :U 1209 ]
+[e $ ! && == -> _IOCCP3 `i -> 1 `i == -> _IOCCF3 `i -> 1 `i 1211  ]
+{
+[; ;pin_manager.c: 114: IOCCF3 = 0;
+"114
+[e = _IOCCF3 -> -> 0 `i `b ]
+"115
+}
+[; ;pin_manager.c: 115: } else if ((IOCCP4 == 1) && (IOCCF4 == 1)) {
+[e $U 1212  ]
+[e :U 1211 ]
+[e $ ! && == -> _IOCCP4 `i -> 1 `i == -> _IOCCF4 `i -> 1 `i 1213  ]
+{
+[; ;pin_manager.c: 119: IOCCF4 = 0;
+"119
+[e = _IOCCF4 -> -> 0 `i `b ]
+"120
+}
+[; ;pin_manager.c: 120: } else if ((IOCCP5 == 1) && (IOCCF5 == 1)) {
+[e $U 1214  ]
+[e :U 1213 ]
+[e $ ! && == -> _IOCCP5 `i -> 1 `i == -> _IOCCF5 `i -> 1 `i 1215  ]
+{
+[; ;pin_manager.c: 124: IOCCF5 = 0;
+"124
+[e = _IOCCF5 -> -> 0 `i `b ]
+"125
+}
+[; ;pin_manager.c: 125: } else if ((IOCCP6 == 1) && (IOCCF6 == 1)) {
+[e $U 1216  ]
+[e :U 1215 ]
+[e $ ! && == -> _IOCCP6 `i -> 1 `i == -> _IOCCF6 `i -> 1 `i 1217  ]
+{
+[; ;pin_manager.c: 129: IOCCF6 = 0;
+"129
+[e = _IOCCF6 -> -> 0 `i `b ]
+"130
+}
+[; ;pin_manager.c: 130: } else if ((IOCCP7 == 1) && (IOCCF7 == 1)) {
+[e $U 1218  ]
+[e :U 1217 ]
+[e $ ! && == -> _IOCCP7 `i -> 1 `i == -> _IOCCF7 `i -> 1 `i 1219  ]
+{
+[; ;pin_manager.c: 134: IOCCF7 = 0;
+"134
+[e = _IOCCF7 -> -> 0 `i `b ]
+"135
 }
 [e :U 1219 ]
-[; ;LED.c: 51: }
-[; ;LED.c: 52: break;
-"52
-[e $U 1216  ]
-[; ;LED.c: 53: case LED_DIRECT:
-"53
-[e :U 1223 ]
-[; ;LED.c: 54: if(LED_color[0]!=LED_currentColor[0]|| LED_color[1]!=LED_currentColor[1]|| LED_color[2]!=LED_currentColor[2])
-"54
-[e $ ! || || != -> *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i != -> *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux `i -> *U + &U _LED_currentColor * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_currentColor `ui `ux `i 1224  ]
-[; ;LED.c: 57: {
-"57
-{
-[; ;LED.c: 58: GIE = 0;
-"58
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 59: for(uint16_t i=0;i<20;i++)
-"59
-{
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1225  ]
-[e $U 1226  ]
-"60
-[e :U 1225 ]
-[; ;LED.c: 60: {
-{
-[; ;LED.c: 61: ledSendByte(LED_color[0]);
-"61
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-[; ;LED.c: 62: ledSendByte(LED_color[1]);
-"62
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-[; ;LED.c: 63: ledSendByte(LED_color[2]);
-"63
-[e ( _ledSendByte (1 *U + &U _LED_color * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_color `ui `ux ]
-"64
-}
-"59
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1225  ]
-[e :U 1226 ]
-"64
-}
-[; ;LED.c: 64: }
-[; ;LED.c: 65: GIE = 1;
-"65
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 66: for(uint8_t i=0;i<3;i++)
-"66
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 1228  ]
-[e $U 1229  ]
-"67
-[e :U 1228 ]
-[; ;LED.c: 67: LED_currentColor[i] = LED_color[i];
-[e = *U + &U _LED_currentColor * -> _i `ux -> -> # *U &U _LED_currentColor `ui `ux *U + &U _LED_color * -> _i `ux -> -> # *U &U _LED_color `ui `ux ]
-"66
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 1228  ]
-[e :U 1229 ]
-"67
-}
-[; ;LED.c: 68: ledOFF = 0;
-"68
-[e = F12111 -> -> 0 `i `uc ]
-"69
-}
-[e :U 1224 ]
-[; ;LED.c: 69: }
-[; ;LED.c: 70: break;
-"70
-[e $U 1216  ]
-[; ;LED.c: 71: case LED_STARRY:
-"71
-[e :U 1231 ]
-[; ;LED.c: 72: ledOFF = 0;
-"72
-[e = F12111 -> -> 0 `i `uc ]
-[; ;LED.c: 73: break;
-"73
-[e $U 1216  ]
-[; ;LED.c: 74: case LED_XMAS:
-"74
-[e :U 1232 ]
-[; ;LED.c: 75: ledOFF = 0;
-"75
-[e = F12111 -> -> 0 `i `uc ]
-[; ;LED.c: 76: break;
-"76
-[e $U 1216  ]
-[; ;LED.c: 77: case LED_PARTY:
-"77
-[e :U 1233 ]
-[; ;LED.c: 78: ledOFF = 0;
-"78
-[e = F12111 -> -> 0 `i `uc ]
-[; ;LED.c: 79: break;
-"79
-[e $U 1216  ]
-[; ;LED.c: 80: default:
-"80
-[e :U 1234 ]
-[; ;LED.c: 81: break;
-"81
-[e $U 1216  ]
-"82
-}
-[; ;LED.c: 82: }
-[e $U 1216  ]
-"37
-[e :U 1217 ]
-[e [\ _LED_mode , $ . `E11870 0 1218
- , $ . `E11870 1 1223
- , $ . `E11870 2 1231
- , $ . `E11870 3 1232
- , $ . `E11870 4 1233
- 1234 ]
-"82
+"136
+[e :U 1218 ]
 [e :U 1216 ]
-[; ;LED.c: 86: }
-"86
-[e :UE 1215 ]
-}
-"88
-[v _ledSendByte `(v ~T0 @X0 1 ef1`uc ]
-"89
-{
-[; ;LED.c: 88: void ledSendByte(uint8_t data)
-[; ;LED.c: 89: {
-[e :U _ledSendByte ]
-"88
-[v _data `uc ~T0 @X0 1 r1 ]
-"89
-[f ]
-[; ;LED.c: 126: }
-"126
-[e :UE 1235 ]
+[e :U 1214 ]
+[e :U 1212 ]
+[e :U 1210 ]
+[e :U 1208 ]
+[; ;pin_manager.c: 135: }
+[; ;pin_manager.c: 136: }
+[e :UE 1206 ]
 }

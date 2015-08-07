@@ -1,18 +1,18 @@
 [p PRO_MODE GLOBOPT AUTOSTATIC PIC14 PIC14E SPEEDOPT ]
 [d version 1.1 ]
 [d edition pro ]
-[d chip 12F1822 ]
+[d chip 16F1619 ]
 [d frameptr 6 ]
-"6 /Users/c14652/GitHub/BTLED/Firmware/src/LED.c
-[e E2211 . `uc
+"6 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
+[e E11870 . `uc
 LED_OFF 0
 LED_DIRECT 1
 LED_STARRY 2
 LED_XMAS 3
 LED_PARTY 4
 ]
-"55 /Users/c14652/GitHub/BTLED/Firmware/src/serialCommand.c
-[e E2391 . `uc
+"55 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
+[e E12050 . `uc
 COMM_IDEL 0
 COMM_PROCESS_SET_COMMAND 1
 COMM_PROCESS_GET_COMMAND 2
@@ -20,222 +20,129 @@ COMM_PROCESS_COLOR 3
 COMM_PROCESS_TRASH 4
 ]
 "101
-[e E2382 . `uc
+[e E12041 . `uc
 LED_OFF 0
 LED_DIRECT 1
 LED_STARRY 2
 LED_XMAS 3
 LED_PARTY 4
 ]
-"10 /Users/c14652/GitHub/BTLED/Firmware/src/LED.c
+"85 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+[e E11866 . `uc
+channel_Temp 29
+channel_DAC 30
+channel_FVR 31
+channel_photoResistor 3
+]
+"86 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+[e E11865 . `uc
+TMR2_ROP_STARTS_TMRON 0
+TMR2_ROP_STARTS_TMRON_ERSHIGH 1
+TMR2_ROP_STARTS_TMRON_ERSLOW 2
+TMR2_ROP_RESETS_ERSBOTHEDGE 3
+TMR2_ROP_RESETS_ERSRISINGEDGE 4
+TMR2_ROP_RESETS_ERSFALLINGEDGE 5
+TMR2_ROP_RESETS_ERSLOW 6
+TMR2_ROP_RESETS_ERSHIGH 7
+TMR2_OS_STARTS_TMRON 8
+TMR2_OS_STARTS_ERSRISINGEDGE 9
+TMR2_OS_STARTS_ERSFALLINGEDGE 10
+TMR2_OS_STARTS_ERSBOTHEDGE 11
+TMR2_OS_STARTS_ERSFIRSTRISINGEDGE 12
+TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE 13
+TMR2_OS_STARTS_ERSRISINGEDGEDETECT 14
+TMR2_OS_STARTS_ERSFALLINGEDGEDETECT 15
+TMR2_OS_STARTS_TMRON_ERSHIGH 22
+TMR2_OS_STARTS_TMRON_ERSLOW 23
+TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT 17
+TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT 18
+TMR2_MS_STARTS_TMRON_ERSBOTHEDGE 19
+]
+"91
+[e E11888 . `uc
+TMR2_T2IN 0
+TMR2_C1_OUT_SYNC 1
+TMR2_C2_OUT_SYNC 2
+TMR2_CCP1_OUT 3
+TMR2_CCP2_OUT 4
+TMR2_RESERVED 5
+TMR2_T4POSTSCALED 6
+TMR2_T6POSTSCALED 7
+TMR2_ZCD1_OUTPUT 8
+TMR2_LC1_OUT 9
+TMR2_LC2_OUT 10
+TMR2_LC3_OUT 11
+TMR2_LC4_OUT 12
+TMR2_PWM3_OUT 13
+TMR2_PWM4_OUT 14
+]
+"10 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
 [v _LED_Test LED_Test `(v  1 e 0 0 ]
 "34
 [v _LED_Task LED_Task `(v  1 e 0 0 ]
 "88
 [v _ledSendByte ledSendByte `(v  1 e 0 0 ]
-"56 /Users/c14652/GitHub/BTLED/Firmware/src/main.c
+"56 /Volumes/Files/GitHub/BTLED/Firmware/src/main.c
 [v _main main `(v  1 e 0 0 ]
-"58 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/cmp1.c
-[v _CMP1_Initialize CMP1_Initialize `(v  1 e 0 0 ]
-"84
-[v _CMP1_GetOutputStatus CMP1_GetOutputStatus `(uc  1 e 1 0 ]
-"89
-[v _CMP1_ISR CMP1_ISR `(v  1 e 0 0 ]
-"81 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-[v _EUSART_Initialize EUSART_Initialize `(v  1 e 0 0 ]
-"118
-[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
-"139
-[v _EUSART_Write EUSART_Write `(v  1 e 0 0 ]
-"162
-[v _getch getch `(uc  1 e 1 0 ]
-"167
-[v _putch putch `(v  1 e 0 0 ]
-"172
-[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 0 0 ]
-"191
-[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 0 0 ]
-"58 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/fvr.c
-[v _FVR_Initialize FVR_Initialize `(v  1 e 0 0 ]
-"64
-[v _FVR_IsOutputReady FVR_IsOutputReady `(uc  1 e 1 0 ]
-"52 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
-"70 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
-"80
-[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
-"58 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/memory.c
-[v _FLASH_ReadWord FLASH_ReadWord `(ui  1 e 2 0 ]
-"76
-[v _FLASH_WriteWord FLASH_WriteWord `(v  1 e 0 0 ]
-"95
-[v _FLASH_WriteBlock FLASH_WriteBlock `(c  1 e 1 0 ]
-"150
-[v _FLASH_EraseBlock FLASH_EraseBlock `(v  1 e 0 0 ]
-"181
-[v _DATAEE_WriteByte DATAEE_WriteByte `(v  1 e 0 0 ]
-"205
-[v _DATAEE_ReadByte DATAEE_ReadByte `(uc  1 e 1 0 ]
-"50 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"63 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr1.c
-[v _TMR1_Initialize TMR1_Initialize `(v  1 e 0 0 ]
-"92
-[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 0 0 ]
-"98
-[v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 0 0 ]
-"104
-[v _TMR1_ReadTimer TMR1_ReadTimer `(ui  1 e 2 0 ]
-"113
-[v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 0 0 ]
-"135
-[v _TMR1_Reload TMR1_Reload `(v  1 e 0 0 ]
-"142
-[v _TMR1_StartSinglePulseAcquisition TMR1_StartSinglePulseAcquisition `(v  1 e 0 0 ]
-"147
-[v _TMR1_CheckGateValueStatus TMR1_CheckGateValueStatus `(uc  1 e 1 0 ]
-"152
-[v _TMR1_ISR TMR1_ISR `(v  1 e 0 0 ]
-"174
-[v _TMR1_CallBack TMR1_CallBack `(v  1 e 0 0 ]
-"27 /Users/c14652/GitHub/BTLED/Firmware/src/serialCommand.c
+"27 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _outputString outputString `(v  1 e 0 0 ]
 "35
 [v _UART_HexSrtingToBinary UART_HexSrtingToBinary `(uc  1 e 1 0 ]
 "52
 [v _COMM_Task COMM_Task `(v  1 e 0 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/abdiv.c
-[v ___abdiv __abdiv `(c  1 e 1 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/abmod.c
-[v ___abmod __abmod `(c  1 e 1 0 ]
-"33 /Applications/microchip/xc8/v1.33/sources/common/abtoft.c
-[v ___abtoft __abtoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
-"5 /Applications/microchip/xc8/v1.33/sources/common/almod.c
-[v ___almod __almod `(l  1 e 4 0 ]
-"42 /Applications/microchip/xc8/v1.33/sources/common/altoft.c
-[v ___altoft __altoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/atdiv.c
-[v ___atdiv __atdiv `(m  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/atmod.c
-[v ___atmod __atmod `(m  1 e 3 0 ]
-"37 /Applications/microchip/xc8/v1.33/sources/common/attoft.c
-[v ___attoft __attoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-"32 /Applications/microchip/xc8/v1.33/sources/common/awtoft.c
-[v ___awtoft __awtoft `(f  1 e 3 0 ]
-"62 /Applications/microchip/xc8/v1.33/sources/common/float.c
+"62 /Applications/microchip/xc8/v1.34/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 /Applications/microchip/xc8/v1.33/sources/common/ftadd.c
+"86 /Applications/microchip/xc8/v1.34/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/ftge.c
-[v ___ftge __ftge `(b  1 e 0 0 ]
-"62 /Applications/microchip/xc8/v1.33/sources/common/ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
-"15 /Applications/microchip/xc8/v1.33/sources/common/ftneg.c
-[v ___ftneg __ftneg `(f  1 e 3 0 ]
-"18 /Applications/microchip/xc8/v1.33/sources/common/ftsub.c
-[v ___ftsub __ftsub `(f  1 e 3 0 ]
-"44 /Applications/microchip/xc8/v1.33/sources/common/fttol.c
-[v ___fttol __fttol `(l  1 e 4 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
-"27 /Applications/microchip/xc8/v1.33/sources/common/lbtoft.c
-[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/llmod.c
-[v ___llmod __llmod `(ul  1 e 4 0 ]
-"35 /Applications/microchip/xc8/v1.33/sources/common/lltoft.c
-[v ___lltoft __lltoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/ltdiv.c
-[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/ltmod.c
-[v ___ltmod __ltmod `(um  1 e 3 0 ]
-"30 /Applications/microchip/xc8/v1.33/sources/common/lttoft.c
-[v ___lttoft __lttoft `(f  1 e 3 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/common/lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"28 /Applications/microchip/xc8/v1.33/sources/common/lwtoft.c
-[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
-"8 /Applications/microchip/xc8/v1.33/sources/common/memset.c
+"8 /Applications/microchip/xc8/v1.34/sources/common/memset.c
 [v _memset memset `(*.4v  1 e 1 0 ]
-"5 /Applications/microchip/xc8/v1.33/sources/common/strcmp.c
+"5 /Applications/microchip/xc8/v1.34/sources/common/strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/strlen.c
+"4 /Applications/microchip/xc8/v1.34/sources/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
-"15 /Applications/microchip/xc8/v1.33/sources/common/Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 /Applications/microchip/xc8/v1.33/sources/common/Umul24.c
-[v ___tmul __tmul `(um  1 e 3 0 ]
-"15 /Applications/microchip/xc8/v1.33/sources/common/Umul32.c
-[v ___lmul __lmul `(ul  1 e 4 0 ]
-"4 /Applications/microchip/xc8/v1.33/sources/common/Umul8.c
-[v ___bmul __bmul `(uc  1 e 1 0 ]
-"6 /Applications/microchip/xc8/v1.33/sources/pic/eeprom.c
-[v _eecpymem eecpymem `(v  1 e 0 0 ]
-"24
-[v _memcpyee memcpyee `(v  1 e 0 0 ]
-"48
-[v ___eetoc __eetoc `(uc  1 e 1 0 ]
-"56
-[v ___eetoi __eetoi `(ui  1 e 2 0 ]
-"64
-[v ___eetom __eetom `(um  1 e 3 0 ]
-"72
-[v ___eetol __eetol `(ul  1 e 4 0 ]
-"80
-[v ___ctoee __ctoee `(uc  1 e 1 0 ]
-"87
-[v ___itoee __itoee `(ui  1 e 2 0 ]
-"94
-[v ___mtoee __mtoee `(um  1 e 3 0 ]
-"101
-[v ___ltoee __ltoee `(ul  1 e 4 0 ]
-"108
-[v ___eetoft __eetoft `(f  1 e 3 0 ]
-"116
-[v ___eetofl __eetofl `(d  1 e 3 0 ]
-"124
-[v ___fttoee __fttoee `(f  1 e 3 0 ]
-"131
-[v ___fltoee __fltoee `(d  1 e 3 0 ]
-"49 /Applications/microchip/xc8/v1.33/sources/pic/ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"6 /Users/c14652/GitHub/BTLED/Firmware/src/LED.c
-[v _LED_mode LED_mode `E2211  1 e 1 0 ]
+"65 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+[v _ADC1_Initialize ADC1_Initialize `(v  1 e 0 0 ]
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc2.c
+[v _CLC2_Initialize CLC2_Initialize `(v  1 e 0 0 ]
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+[v _CLC4_Initialize CLC4_Initialize `(v  1 e 0 0 ]
+"76 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 0 0 ]
+"112
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+"130
+[v _EUSART_Write EUSART_Write `(v  1 e 0 0 ]
+"147
+[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 0 0 ]
+"161
+[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 0 0 ]
+"52 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
+"77 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+"89
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
+"51 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
+"99
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 0 0 ]
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+[v _PWM3_Initialize PWM3_Initialize `(v  1 e 0 0 ]
+"64 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+[v _SPI_Initialize SPI_Initialize `(v  1 e 0 0 ]
+"77
+[v _SPI_Exchange8bit SPI_Exchange8bit `(uc  1 e 1 0 ]
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
+"96
+[v _TMR2_Start TMR2_Start `(v  1 e 0 0 ]
+"6 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
+[v _LED_mode LED_mode `E11870  1 e 1 0 ]
 "7
 [v _LED_color LED_color `[3]uc  1 e 3 0 ]
 "8
 [v _LED_currentColor LED_currentColor `[3]uc  1 s 3 LED_currentColor ]
-"66 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-[v _eusartTxHead eusartTxHead `uc  1 s 1 eusartTxHead ]
-"67
-[v _eusartTxTail eusartTxTail `uc  1 s 1 eusartTxTail ]
-"68
-[v _eusartTxBuffer eusartTxBuffer `[8]uc  1 s 8 eusartTxBuffer ]
-"69
-[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 e 1 0 ]
-"71
-[v _eusartRxHead eusartRxHead `uc  1 s 1 eusartRxHead ]
-"72
-[v _eusartRxTail eusartRxTail `uc  1 s 1 eusartRxTail ]
-"73
-[v _eusartRxBuffer eusartRxBuffer `[16]uc  1 s 16 eusartRxBuffer ]
-"74
-[v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
-"57 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr1.c
-[v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
-"15 /Users/c14652/GitHub/BTLED/Firmware/src/serialCommand.c
+"15 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _inputCommand inputCommand `[16]uc  1 s 16 inputCommand ]
 "18
 [v _CMD_SET_OFF CMD_SET_OFF `DCC[13]uc  1 e 13 0 ]
@@ -249,7 +156,7 @@ LED_PARTY 4
 [v _CMD_SET_PARTY CMD_SET_PARTY `DCC[15]uc  1 e 15 0 ]
 "24
 [v _CMD_GET_STATE CMD_GET_STATE `DCC[14]uc  1 e 14 0 ]
-[s S49 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S54 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -258,247 +165,377 @@ LED_PARTY 4
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-"358 /Applications/microchip/xc8/v1.33/include/pic12f1822.h
-[s S58 . 1 `uc 1 . 1 0 :2:0 
+"360 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
+[s S63 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S63 . 1 `S49 1 . 1 0 `S58 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES63  1 e 1 @11 ]
-[s S83 . 1 `uc 1 RD 1 0 :1:0 
-`uc 1 WR 1 0 :1:1 
-`uc 1 WREN 1 0 :1:2 
-`uc 1 WRERR 1 0 :1:3 
-`uc 1 FREE 1 0 :1:4 
-`uc 1 LWLO 1 0 :1:5 
-`uc 1 CFGS 1 0 :1:6 
-`uc 1 EEPGD 1 0 :1:7 
+[u S68 . 1 `S54 1 . 1 0 `S63 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES68  1 e 1 @11 ]
+[s S426 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
 ]
-"718
-[u S92 . 1 `S83 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES92  1 e 1 @17 ]
-[s S405 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 BCL1IE 1 0 :1:3 
-`uc 1 EEIE 1 0 :1:4 
-`uc 1 C1IE 1 0 :1:5 
-`uc 1 . 1 0 :1:6 
-`uc 1 OSFIE 1 0 :1:7 
+"579
+[u S435 . 1 `S426 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES435  1 e 1 @16 ]
+"1043
+[v _T2TMR T2TMR `VEuc  1 e 1 @26 ]
+"1096
+[v _T2PR T2PR `VEuc  1 e 1 @27 ]
+"1149
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
+[s S573 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 CKPS 1 0 :3:4 
+`uc 1 ON 1 0 :1:7 
 ]
-"777
-[u S412 . 1 `S405 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES412  1 e 1 @18 ]
-"826
-[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
-"845
-[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
-"864
-[v _T1CON T1CON `VEuc  1 e 1 @24 ]
-[s S260 . 1 `uc 1 TMR1ON 1 0 :1:0 
-`uc 1 . 1 0 :1:1 
-`uc 1 nT1SYNC 1 0 :1:2 
-`uc 1 T1OSCEN 1 0 :1:3 
-`uc 1 T1CKPS0 1 0 :1:4 
-`uc 1 T1CKPS1 1 0 :1:5 
-`uc 1 TMR1CS0 1 0 :1:6 
-`uc 1 TMR1CS1 1 0 :1:7 
+"1185
+[s S577 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
 ]
-"886
-[s S269 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 T1CKPS 1 0 :2:4 
-`uc 1 TMR1CS 1 0 :2:6 
+[s S585 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+`uc 1 T2CKPS 1 0 :3:4 
+`uc 1 T2ON 1 0 :1:7 
 ]
-[u S273 . 1 `S260 1 . 1 0 `S269 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES273  1 e 1 @24 ]
-"935
-[v _T1GCON T1GCON `VEuc  1 e 1 @25 ]
-[s S290 . 1 `uc 1 T1GSS0 1 0 :1:0 
-`uc 1 T1GSS1 1 0 :1:1 
-`uc 1 T1GVAL 1 0 :1:2 
-`uc 1 T1GGO_nDONE 1 0 :1:3 
-`uc 1 T1GSPM 1 0 :1:4 
-`uc 1 T1GTM 1 0 :1:5 
-`uc 1 T1GPOL 1 0 :1:6 
-`uc 1 TMR1GE 1 0 :1:7 
+[s S589 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+`uc 1 T2OUTPS1 1 0 :1:1 
+`uc 1 T2OUTPS2 1 0 :1:2 
+`uc 1 T2OUTPS3 1 0 :1:3 
+`uc 1 T2CKPS0 1 0 :1:4 
+`uc 1 T2CKPS1 1 0 :1:5 
+`uc 1 T2CKPS2 1 0 :1:6 
+`uc 1 TMR2ON 1 0 :1:7 
 ]
-"957
-[s S299 . 1 `uc 1 T1GSS 1 0 :2:0 
-`uc 1 . 1 0 :1:2 
-`uc 1 T1GGO 1 0 :1:3 
-]
-[u S303 . 1 `S290 1 . 1 0 `S299 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES303  1 e 1 @25 ]
-"1211
+[u S598 . 1 `S573 1 . 1 0 `S577 1 . 1 0 `S585 1 . 1 0 `S589 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES598  1 e 1 @28 ]
+"1294
+[v _T2HLT T2HLT `VEuc  1 e 1 @29 ]
+"1421
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @30 ]
+"1500
+[v _T2RST T2RST `VEuc  1 e 1 @31 ]
+"1579
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
-"1277
-[v _PIE1bits PIE1bits `VES92  1 e 1 @145 ]
-"1336
-[v _PIE2bits PIE2bits `VES412  1 e 1 @146 ]
-[s S168 . 1 `uc 1 PS0 1 0 :1:0 
-`uc 1 PS1 1 0 :1:1 
-`uc 1 PS2 1 0 :1:2 
+"1628
+[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+"1666
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+[s S744 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1744
+[u S753 . 1 `S744 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES753  1 e 1 @144 ]
+[s S835 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 TMR0SE 1 0 :1:4 
 `uc 1 TMR0CS 1 0 :1:5 
 `uc 1 INTEDG 1 0 :1:6 
 `uc 1 nWPUEN 1 0 :1:7 
 ]
-"1383
-[s S177 . 1 `uc 1 PS 1 0 :3:0 
+"2033
+[s S842 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S182 . 1 `S168 1 . 1 0 `S177 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES182  1 e 1 @149 ]
-"1550
+[u S849 . 1 `S835 1 . 1 0 `S842 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES849  1 e 1 @149 ]
+"2153
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @152 ]
-"1607
+"2210
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
-"1678
+"2281
 [v _OSCSTAT OSCSTAT `VEuc  1 e 1 @154 ]
-"1936
+"2342
+[v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
+"2361
+[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
+"2380
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+"2459
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"2524
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @159 ]
+"2571
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-"1980
-[v _CM1CON0 CM1CON0 `VEuc  1 e 1 @273 ]
-"1997
-[v _CM1CON0bits CM1CON0bits `VES92  1 e 1 @273 ]
-"2036
-[v _CM1CON1 CM1CON1 `VEuc  1 e 1 @274 ]
-"2134
-[v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
-[s S582 . 1 `uc 1 ADFVR0 1 0 :1:0 
-`uc 1 ADFVR1 1 0 :1:1 
-`uc 1 CDAFVR0 1 0 :1:2 
-`uc 1 CDAFVR1 1 0 :1:3 
-`uc 1 TSRNG 1 0 :1:4 
-`uc 1 TSEN 1 0 :1:5 
-`uc 1 FVRRDY 1 0 :1:6 
-`uc 1 FVREN 1 0 :1:7 
-]
-"2155
-[s S591 . 1 `uc 1 ADFVR 1 0 :2:0 
-`uc 1 CDAFVR 1 0 :2:2 
-]
-[u S594 . 1 `S582 1 . 1 0 `S591 1 . 1 0 ]
-[v _FVRCONbits FVRCONbits `VES594  1 e 1 @279 ]
-"2435
-[v _APFCON APFCON `VEuc  1 e 1 @285 ]
-"2576
+"2620
+[v _LATB LATB `VEuc  1 e 1 @269 ]
+"2658
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"3258
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
-"2622
-[v _EEADR EEADR `VEus  1 e 2 @401 ]
-"2628
-[v _EEADRL EEADRL `VEuc  1 e 1 @401 ]
-"2647
-[v _EEADRH EEADRH `VEuc  1 e 1 @402 ]
-"2672
-[v _EEDATL EEDATL `VEuc  1 e 1 @403 ]
-"2677
-[v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
-"2709
-[v _EEDATH EEDATH `VEuc  1 e 1 @404 ]
-"2728
-[v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
-"2745
-[v _EECON1bits EECON1bits `VES92  1 e 1 @405 ]
-"2789
-[v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
-"2808
-[v _RCREG RCREG `VEuc  1 e 1 @409 ]
-"2827
-[v _TXREG TXREG `VEuc  1 e 1 @410 ]
-"2861
+"3304
+[v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"3342
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"3595
+[v _RC1REG RC1REG `VEuc  1 e 1 @409 ]
+"3648
+[v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
+"3720
 [v _SPBRGL SPBRGL `VEuc  1 e 1 @411 ]
-"2910
+"3781
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
-"2942
-[v _RCSTA RCSTA `VEuc  1 e 1 @413 ]
-"2959
-[v _RCSTAbits RCSTAbits `VES92  1 e 1 @413 ]
-"3003
-[v _TXSTA TXSTA `VEuc  1 e 1 @414 ]
-"3064
-[v _BAUDCON BAUDCON `VEuc  1 e 1 @415 ]
-"3115
-[v _WPUA WPUA `VEuc  1 e 1 @524 ]
-"5062
-[v _CARRY CARRY `VEb  1 e 0 @24 ]
-"5208
+"3829
+[v _RC1STA RC1STA `VEuc  1 e 1 @413 ]
+[s S771 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3855
+[u S780 . 1 `S771 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES780  1 e 1 @413 ]
+"4008
+[v _TX1STA TX1STA `VEuc  1 e 1 @414 ]
+"4187
+[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @415 ]
+"4489
+[v _WPUB WPUB `VEuc  1 e 1 @525 ]
+"4527
+[v _WPUC WPUC `VEuc  1 e 1 @526 ]
+"4849
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"5355
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"5476
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+[s S188 . 1 `uc 1 CCP1TSEL 1 0 :2:0 
+`uc 1 CCP2TSEL 1 0 :2:2 
+`uc 1 P3TSEL 1 0 :2:4 
+`uc 1 P4TSEL 1 0 :2:6 
+]
+"6809
+[s S193 . 1 `uc 1 CCP1TSEL0 1 0 :1:0 
+`uc 1 CCP1TSEL1 1 0 :1:1 
+`uc 1 CCP2TSEL0 1 0 :1:2 
+`uc 1 CCP2TSEL1 1 0 :1:3 
+`uc 1 P3TSEL0 1 0 :1:4 
+`uc 1 P3TSEL1 1 0 :1:5 
+`uc 1 P4TSEL0 1 0 :1:6 
+`uc 1 P4TSEL1 1 0 :1:7 
+]
+[u S202 . 1 `S188 1 . 1 0 `S193 1 . 1 0 ]
+[v _CCPTMRSbits CCPTMRSbits `VES202  1 e 1 @670 ]
+"11835
+[v _PWM3DCL PWM3DCL `VEuc  1 e 1 @1559 ]
+"11885
+[v _PWM3DCH PWM3DCH `VEuc  1 e 1 @1560 ]
+"12004
+[v _PWM3CON PWM3CON `VEuc  1 e 1 @1561 ]
+"20767
+[v _PPSLOCK PPSLOCK `VEuc  1 e 1 @3599 ]
+[s S894 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+]
+"20777
+[u S896 . 1 `S894 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES896  1 e 1 @3599 ]
+"21474
+[v _SSPCLKPPS SSPCLKPPS `VEuc  1 e 1 @3616 ]
+"21517
+[v _SSPDATPPS SSPDATPPS `VEuc  1 e 1 @3617 ]
+"21646
+[v _RXPPS RXPPS `VEuc  1 e 1 @3620 ]
+"22291
+[v _RA5PPS RA5PPS `VEuc  1 e 1 @3733 ]
+"22334
+[v _RB4PPS RB4PPS `VEuc  1 e 1 @3740 ]
+"22506
+[v _RC0PPS RC0PPS `VEuc  1 e 1 @3744 ]
+"22549
+[v _RC1PPS RC1PPS `VEuc  1 e 1 @3745 ]
+"23937
+[v _CLC2CON CLC2CON `VEuc  1 e 1 @3866 ]
+"24054
+[v _CLC2POL CLC2POL `VEuc  1 e 1 @3867 ]
+"24131
+[v _CLC2SEL0 CLC2SEL0 `VEuc  1 e 1 @3868 ]
+"24234
+[v _CLC2SEL1 CLC2SEL1 `VEuc  1 e 1 @3869 ]
+"24337
+[v _CLC2SEL2 CLC2SEL2 `VEuc  1 e 1 @3870 ]
+"24440
+[v _CLC2SEL3 CLC2SEL3 `VEuc  1 e 1 @3871 ]
+"24543
+[v _CLC2GLS0 CLC2GLS0 `VEuc  1 e 1 @3872 ]
+"24654
+[v _CLC2GLS1 CLC2GLS1 `VEuc  1 e 1 @3873 ]
+"24765
+[v _CLC2GLS2 CLC2GLS2 `VEuc  1 e 1 @3874 ]
+"24876
+[v _CLC2GLS3 CLC2GLS3 `VEuc  1 e 1 @3875 ]
+"26037
+[v _CLC4CON CLC4CON `VEuc  1 e 1 @3886 ]
+"26154
+[v _CLC4POL CLC4POL `VEuc  1 e 1 @3887 ]
+"26231
+[v _CLC4SEL0 CLC4SEL0 `VEuc  1 e 1 @3888 ]
+"26334
+[v _CLC4SEL1 CLC4SEL1 `VEuc  1 e 1 @3889 ]
+"26437
+[v _CLC4SEL2 CLC4SEL2 `VEuc  1 e 1 @3890 ]
+"26540
+[v _CLC4SEL3 CLC4SEL3 `VEuc  1 e 1 @3891 ]
+"26643
+[v _CLC4GLS0 CLC4GLS0 `VEuc  1 e 1 @3892 ]
+"26754
+[v _CLC4GLS1 CLC4GLS1 `VEuc  1 e 1 @3893 ]
+"26865
+[v _CLC4GLS2 CLC4GLS2 `VEuc  1 e 1 @3894 ]
+"26976
+[v _CLC4GLS3 CLC4GLS3 `VEuc  1 e 1 @3895 ]
+"28594
 [v _GIE GIE `VEb  1 e 0 @95 ]
-"5278
-[v _LATA2 LATA2 `VEb  1 e 0 @2146 ]
-"5386
+"28774
+[v _IOCBF6 IOCBF6 `VEb  1 e 0 @7350 ]
+"28776
+[v _IOCBF7 IOCBF7 `VEb  1 e 0 @7351 ]
+"28790
+[v _IOCBP6 IOCBP6 `VEb  1 e 0 @7334 ]
+"28792
+[v _IOCBP7 IOCBP7 `VEb  1 e 0 @7335 ]
+"28800
+[v _IOCCF3 IOCCF3 `VEb  1 e 0 @7371 ]
+"28802
+[v _IOCCF4 IOCCF4 `VEb  1 e 0 @7372 ]
+"28804
+[v _IOCCF5 IOCCF5 `VEb  1 e 0 @7373 ]
+"28806
+[v _IOCCF6 IOCCF6 `VEb  1 e 0 @7374 ]
+"28808
+[v _IOCCF7 IOCCF7 `VEb  1 e 0 @7375 ]
+"28832
+[v _IOCCP3 IOCCP3 `VEb  1 e 0 @7355 ]
+"28834
+[v _IOCCP4 IOCCP4 `VEb  1 e 0 @7356 ]
+"28836
+[v _IOCCP5 IOCCP5 `VEb  1 e 0 @7357 ]
+"28838
+[v _IOCCP6 IOCCP6 `VEb  1 e 0 @7358 ]
+"28840
+[v _IOCCP7 IOCCP7 `VEb  1 e 0 @7359 ]
+"30236
 [v _PLLR PLLR `VEb  1 e 0 @1238 ]
-"5424
-[v _RD RD `VEb  1 e 0 @3240 ]
-"5700
-[v _WR WR `VEb  1 e 0 @3241 ]
-"5702
-[v _WREN WREN `VEb  1 e 0 @3242 ]
-"56 /Users/c14652/GitHub/BTLED/Firmware/src/main.c
+"62 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+[v _eusartTxHead eusartTxHead `uc  1 s 1 eusartTxHead ]
+"63
+[v _eusartTxTail eusartTxTail `uc  1 s 1 eusartTxTail ]
+"64
+[v _eusartTxBuffer eusartTxBuffer `[8]uc  1 s 8 eusartTxBuffer ]
+"65
+[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 e 1 0 ]
+"67
+[v _eusartRxHead eusartRxHead `uc  1 s 1 eusartRxHead ]
+"68
+[v _eusartRxTail eusartRxTail `uc  1 s 1 eusartRxTail ]
+"69
+[v _eusartRxBuffer eusartRxBuffer `[16]uc  1 s 16 eusartRxBuffer ]
+"70
+[v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
+"56 /Volumes/Files/GitHub/BTLED/Firmware/src/main.c
 [v _main main `(v  1 e 0 0 ]
 {
 "77
 } 0
-"70 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
+"77 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 {
-"78
+"87
 } 0
-"63 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr1.c
-[v _TMR1_Initialize TMR1_Initialize `(v  1 e 0 0 ]
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
 {
-"90
+"84
 } 0
-"92
-[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 0 0 ]
-{
 "96
+[v _TMR2_Start TMR2_Start `(v  1 e 0 0 ]
+{
+"99
 } 0
-"50 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
+"64 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+[v _SPI_Initialize SPI_Initialize `(v  1 e 0 0 ]
+{
+"75
+} 0
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+[v _PWM3_Initialize PWM3_Initialize `(v  1 e 0 0 ]
+{
+"72
+} 0
+"51 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
 {
-"60
+"80
+[v PIN_MANAGER_Initialize@state state `uc  1 a 1 0 ]
+"97
 } 0
-"80 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
+"89 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 {
-"94
+"101
 } 0
-"58 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/fvr.c
-[v _FVR_Initialize FVR_Initialize `(v  1 e 0 0 ]
-{
-"62
-} 0
-"81 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
+"76 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 0 0 ]
 {
-"116
+"110
 } 0
-"58 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/cmp1.c
-[v _CMP1_Initialize CMP1_Initialize `(v  1 e 0 0 ]
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+[v _CLC4_Initialize CLC4_Initialize `(v  1 e 0 0 ]
 {
-"81
+"91
 } 0
-"10 /Users/c14652/GitHub/BTLED/Firmware/src/LED.c
+"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc2.c
+[v _CLC2_Initialize CLC2_Initialize `(v  1 e 0 0 ]
+{
+"91
+} 0
+"65 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+[v _ADC1_Initialize ADC1_Initialize `(v  1 e 0 0 ]
+{
+"83
+} 0
+"10 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
 [v _LED_Test LED_Test `(v  1 e 0 0 ]
 {
 "14
-[v LED_Test@j j `ui  1 a 2 5 ]
+[v LED_Test@j j `ui  1 a 2 3 ]
 "12
-[v LED_Test@i i `uc  1 a 1 7 ]
+[v LED_Test@i i `uc  1 a 1 5 ]
 "32
 } 0
 "34
 [v _LED_Task LED_Task `(v  1 e 0 0 ]
 {
 "66
-[v LED_Task@i_650 i `uc  1 a 1 6 ]
+[v LED_Task@i_47 i `uc  1 a 1 4 ]
 "59
-[v LED_Task@i_649 i `ui  1 a 2 4 ]
+[v LED_Task@i_46 i `ui  1 a 2 2 ]
 "43
-[v LED_Task@i i `ui  1 a 2 2 ]
+[v LED_Task@i i `ui  1 a 2 0 ]
 "36
 [v LED_Task@ledOFF ledOFF `uc  1 s 1 ledOFF ]
 "86
@@ -506,30 +543,23 @@ LED_PARTY 4
 "88
 [v _ledSendByte ledSendByte `(v  1 e 0 0 ]
 {
-[v ledSendByte@data data `uc  1 a 1 wreg ]
-"105
-[v ledSendByte@i i `uc  1 a 1 1 ]
-"88
-[v ledSendByte@data data `uc  1 a 1 wreg ]
-"105
-[v ledSendByte@data data `uc  1 a 1 0 ]
-"123
+"126
 } 0
-"52 /Users/c14652/GitHub/BTLED/Firmware/src/serialCommand.c
+"52 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _COMM_Task COMM_Task `(v  1 e 0 0 ]
 {
 "54
-[v COMM_Task@receiveData receiveData `uc  1 a 1 12 ]
-[v COMM_Task@b b `uc  1 a 1 11 ]
-[v COMM_Task@g g `uc  1 a 1 10 ]
-[v COMM_Task@r r `uc  1 a 1 9 ]
+[v COMM_Task@receiveData receiveData `uc  1 a 1 13 ]
+[v COMM_Task@b b `uc  1 a 1 12 ]
+[v COMM_Task@g g `uc  1 a 1 11 ]
+[v COMM_Task@r r `uc  1 a 1 10 ]
 "55
-[v COMM_Task@UART_ReceiveState UART_ReceiveState `E2391  1 s 1 UART_ReceiveState ]
+[v COMM_Task@UART_ReceiveState UART_ReceiveState `E12050  1 s 1 UART_ReceiveState ]
 "56
 [v COMM_Task@receiveCounter receiveCounter `uc  1 s 1 receiveCounter ]
 "211
 } 0
-"5 /Applications/microchip/xc8/v1.33/sources/common/strcmp.c
+"5 /Applications/microchip/xc8/v1.34/sources/common/strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
 {
 "7
@@ -541,33 +571,33 @@ LED_PARTY 4
 [v strcmp@s2 s2 `*.4DCCuc  1 p 1 2 ]
 "30
 } 0
-"27 /Users/c14652/GitHub/BTLED/Firmware/src/serialCommand.c
+"27 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _outputString outputString `(v  1 e 0 0 ]
 {
 "29
-[v outputString@i i `uc  1 a 1 8 ]
+[v outputString@i i `uc  1 a 1 9 ]
 "27
-[v outputString@string string `*.25DCCuc  1 p 2 4 ]
+[v outputString@string string `*.25DCCuc  1 p 2 5 ]
 "33
 } 0
-"4 /Applications/microchip/xc8/v1.33/sources/common/strlen.c
+"4 /Applications/microchip/xc8/v1.34/sources/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "6
-[v strlen@cp cp `*.25DCCuc  1 a 2 2 ]
+[v strlen@cp cp `*.25DCCuc  1 a 2 3 ]
 "4
 [v strlen@s s `*.25DCCuc  1 p 2 0 ]
 "13
 } 0
-"139 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
+"130 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
 [v _EUSART_Write EUSART_Write `(v  1 e 0 0 ]
 {
 [v EUSART_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART_Write@txData txData `uc  1 a 1 0 ]
-"160
+"145
 } 0
-"8 /Applications/microchip/xc8/v1.33/sources/common/memset.c
+"8 /Applications/microchip/xc8/v1.34/sources/common/memset.c
 [v _memset memset `(*.4v  1 e 1 0 ]
 {
 [v memset@p1 p1 `*.4v  1 a 1 wreg ]
@@ -581,7 +611,7 @@ LED_PARTY 4
 [v memset@p1 p1 `*.4v  1 a 1 4 ]
 "22
 } 0
-"35 /Users/c14652/GitHub/BTLED/Firmware/src/serialCommand.c
+"35 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _UART_HexSrtingToBinary UART_HexSrtingToBinary `(uc  1 e 1 0 ]
 {
 [v UART_HexSrtingToBinary@data data `*.4uc  1 a 1 wreg ]
@@ -593,42 +623,30 @@ LED_PARTY 4
 [v UART_HexSrtingToBinary@data data `*.4uc  1 a 1 3 ]
 "50
 } 0
-"118 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
+"112 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
 [v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
 {
-"120
+"113
 [v EUSART_Read@readValue readValue `uc  1 a 1 0 ]
-"137
+"128
 } 0
-"52 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
+"52 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
 {
-"75
+"66
 } 0
-"152 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr1.c
-[v _TMR1_ISR TMR1_ISR `(v  1 e 0 0 ]
+"99 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 0 0 ]
 {
-"154
-[v TMR1_ISR@CountCallBack CountCallBack `VEui  1 s 2 CountCallBack ]
-"172
+"136
 } 0
-"174
-[v _TMR1_CallBack TMR1_CallBack `(v  1 e 0 0 ]
-{
-"178
-} 0
-"172 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
+"147 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
 [v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 0 0 ]
 {
-"189
+"159
 } 0
-"191
+"161
 [v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 0 0 ]
 {
-"208
-} 0
-"89 /Users/c14652/GitHub/BTLED/Firmware/src/mcc_generated_files/cmp1.c
-[v _CMP1_ISR CMP1_ISR `(v  1 e 0 0 ]
-{
-"93
+"175
 } 0
