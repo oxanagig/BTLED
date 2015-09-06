@@ -5,7 +5,7 @@ Linker command line:
 --edf=/Applications/microchip/xc8/v1.34/dat/en_msgs.txt -cs \
   -h+dist/default/production/BT_LED_strip.X.production.sym \
   --cmf=dist/default/production/BT_LED_strip.X.production.cmf -z -Q16F1619 \
-  -o/tmp/cgtTc0yYQ -Mdist/default/production/BT_LED_strip.X.production.map \
+  -o/tmp/cgt13o200 -Mdist/default/production/BT_LED_strip.X.production.map \
   -E1 -ver=XC8 -ASTACK=02039h-023dfh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
   -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -29,7 +29,7 @@ Linker command line:
   -ASFR31=0F80h-0FEFh -preset_vec=00h,intentry=04h,init,end_init \
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08009h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
-  -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/cgt3g4A39.obj \
+  -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/cgtkJV4j7.obj \
   dist/default/production/BT_LED_strip.X.production.obj 
 
 Object code version is 3.11
@@ -39,7 +39,7 @@ Machine type is 16F1619
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgt3g4A39.obj
+/tmp/cgtkJV4j7.obj
                 end_init                             1E       1E        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        3    1000E       0

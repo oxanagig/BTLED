@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC PRO Macro Assembler V1.34 build -361300703 
-                                                                                               Thu Aug  6 21:09:24 2015
+                                                                                               Sat Sep  5 22:49:21 2015
 
 Microchip Technology Omniscient Code Generator (PRO mode) build 201502162209
      1                           	processor	16F1619
@@ -9754,7 +9754,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.34 build -361300703 
-Symbol Table                                                                                   Thu Aug  6 21:09:24 2015
+Symbol Table                                                                                   Sat Sep  5 22:49:21 2015
 
          UART_HexSrtingToBinary@data 0073                       _SPI_Initialize 0389  
                                   pc 0002                          __CFG_CP$OFF 0000  
