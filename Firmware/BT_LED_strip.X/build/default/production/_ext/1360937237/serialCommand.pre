@@ -14589,100 +14589,29 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 7 "/Applications/microchip/xc8/v1.34/include/stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 24 "/Applications/microchip/xc8/v1.34/include/stdio.h"
-extern int errno;
-
-# 55
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 17 "/Applications/microchip/xc8/v1.34/include/conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 100 "/Applications/microchip/xc8/v1.34/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 192
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 78 "../src/mcc_generated_files/eusart.h"
+# 77 "../src/mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
 
-# 107
+# 106
 void EUSART_Initialize(void);
 
-# 127
+# 155
 uint8_t EUSART_Read(void);
 
-# 147
+# 180
 void EUSART_Write(uint8_t txData);
 
-# 168
+# 201
 void EUSART_Transmit_ISR(void);
 
-# 189
+# 222
 void EUSART_Receive_ISR(void);
-
-void outputString(const uint8_t*);
-
-void UART_Task(void);
 
 # 20 "../src/serialCommand.h"
 void COMM_Task(void);
 
 # 20 "../src/LED.h"
-void LED_Test(void);
-void LED_Task(void);
-void ledSendByte(uint8_t);
-
 typedef enum
 {
 LED_OFF,
@@ -14692,8 +14621,22 @@ LED_XMAS,
 LED_PARTY,
 }LED_MODE;
 
+typedef struct
+{
+uint8_t Red;
+uint8_t Green;
+uint8_t Blue;
+}LED_COLOR;
+
 extern LED_MODE LED_mode;
-extern uint8_t LED_color[3];
+extern LED_COLOR LED_SetColor;
+
+
+void LED_Test(void);
+void LED_Task(void);
+void ledSendByte(uint8_t);
+void ledSetColor(LED_COLOR);
+void ledStripSetColor(LED_COLOR*, uint8_t);
 
 # 6 "../src/serialCommand.c"
 typedef enum
@@ -14832,9 +14775,9 @@ outputString("DONE!\r\n");
 else if(strcmp(CMD_SET_DIRECT,inputCommand)==0)
 {
 LED_mode = LED_DIRECT;
-LED_color[0] = 64;
-LED_color[1] = 64;
-LED_color[2] = 64;
+LED_SetColor.Green = 64;
+LED_SetColor.Red = 64;
+LED_SetColor.Blue = 64;
 outputString("DONE!\r\n");
 }
 else if(strcmp(CMD_SET_STARRY,inputCommand)==0)
@@ -14878,9 +14821,9 @@ if(receiveData =='\n')
 {
 if(receiveCounter == 8)
 {
-LED_color[0] = g;
-LED_color[1] = r;
-LED_color[2] = b;
+LED_SetColor.Green = g;
+LED_SetColor.Red = r;
+LED_SetColor.Blue = b;
 outputString("DONE!\r\n");
 }
 else

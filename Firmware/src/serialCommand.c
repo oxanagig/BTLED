@@ -139,9 +139,9 @@ void COMM_Task(void)
                     else if(strcmp(CMD_SET_DIRECT,inputCommand)==0)
                     {
                         LED_mode = LED_DIRECT;
-                        LED_color[0] = 64;
-                        LED_color[1] = 64;
-                        LED_color[2] = 64;
+                        LED_SetColor.Green = 64;
+                        LED_SetColor.Red = 64;
+                        LED_SetColor.Blue = 64;
                         outputString("DONE!\r\n");
                     }
                     else if(strcmp(CMD_SET_STARRY,inputCommand)==0)
@@ -185,9 +185,9 @@ void COMM_Task(void)
                 {
                     if(receiveCounter == 8)
                     {
-                        LED_color[0] = g;
-                        LED_color[1] = r;
-                        LED_color[2] = b;
+                        LED_SetColor.Green = g;
+                        LED_SetColor.Red   = r;
+                        LED_SetColor.Blue  = b;
                         outputString("DONE!\r\n");
                     }
                     else

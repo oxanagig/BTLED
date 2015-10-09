@@ -15,16 +15,16 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10
-        Device            :  PIC12F1822
+        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Device            :  PIC16F1619
         Driver Version    :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
-*/
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
+ */
 
 /*
-Copyright (c) 2013 - 2014 released Microchip Technology Inc.  All rights reserved.
+Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 
 Microchip licenses to you the right to use, modify, copy and distribute
 Software only when embedded on a Microchip microcontroller or digital signal
@@ -44,35 +44,26 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 #include "interrupt_manager.h"
 #include "mcc.h"
 
-void interrupt INTERRUPT_InterruptManager (void)
-{
-   // interrupt handler
-    if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
-    {
+void interrupt INTERRUPT_InterruptManager(void) {
+    // interrupt handler
+    if (PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1) {
         EUSART_Receive_ISR();
-    }
-    else if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
-    {
+    } else if (PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1) {
         EUSART_Transmit_ISR();
-    }
-    else if(PIE2bits.C1IE == 1 && PIR2bits.C1IF == 1)
-    {
-        CMP1_ISR();
-    }
-    else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-    {
-        TMR1_ISR();
-    }
-    else
-    {
+    } else if (INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1) {
+        PIN_MANAGER_IOC();
+
+        // clear global interrupt-on-change flag
+        INTCONbits.IOCIF = 0;
+    } else {
         //Unhandled Interrupt
     }
 }
 /**
  End of File
-*/
+ */

@@ -3,27 +3,27 @@
 #include "LED.h"
 #include "mcc_generated_files/mcc.h"
 
-        LED_MODE LED_mode = LED_OFF;
-        uint8_t  LED_color[3]={0,0,0}; 
-static  uint8_t  LED_currentColor[3]={0,0,0};
+        LED_MODE  LED_mode = LED_OFF;
+        LED_COLOR LED_SetColor = {0,0,0}; 
+static  LED_COLOR LED_currentColor = {0,0,0};
+const   LED_COLOR ledFullOn  = {255,255,255};
+const   LED_COLOR ledFullOff = {0,0,0};
 
 void LED_Test(void)
 {
+
+    
     for(uint8_t i=0; i<NUMBER_OF_LED+1; i++)
     {
         for(uint16_t j=0;j<NUMBER_OF_LED;j++)
         {
             if(j==i)
             {
-                ledSendByte(255);        //Green
-                ledSendByte(255);        //Red
-                ledSendByte(255);        //Blue
+               ledSetColor(ledFullOn);
             }
             else
             {
-                ledSendByte(0);        //Green
-                ledSendByte(0);        //Red
-                ledSendByte(0);        //Blue
+               ledSetColor(ledFullOff);
             }
         }
         __delay_ms(50);
@@ -42,29 +42,24 @@ void LED_Task(void)
                 GIE = 0;
                 for(uint16_t i=0;i<NUMBER_OF_LED;i++)
                 {
-                    ledSendByte(0);        //Green
-                    ledSendByte(0);        //Red
-                    ledSendByte(0);        //Blue
+                    ledSetColor(ledFullOff);
                 }
                 GIE = 1;
                 ledOFF = 1;
             }
             break;
         case LED_DIRECT:
-            if(LED_color[0]!=LED_currentColor[0]||\
-               LED_color[1]!=LED_currentColor[1]||\
-               LED_color[2]!=LED_currentColor[2])
+            if(LED_currentColor.Blue!=LED_SetColor.Blue 
+            || LED_currentColor.Red!=LED_SetColor.Red
+            || LED_currentColor.Green!=LED_SetColor.Green)
             {
                 GIE = 0;
                 for(uint16_t i=0;i<NUMBER_OF_LED;i++)
                 {
-                    ledSendByte(LED_color[0]);        //Green
-                    ledSendByte(LED_color[1]);        //Red
-                    ledSendByte(LED_color[2]);        //Blue
+                    ledSetColor(LED_SetColor);
                 }
                 GIE = 1;
-                for(uint8_t i=0;i<3;i++)
-                    LED_currentColor[i] = LED_color[i];
+                LED_currentColor = LED_SetColor;
                 ledOFF = 0;
             }
             break;
@@ -83,6 +78,25 @@ void LED_Task(void)
 
 
     
+}
+
+void ledSetColor(LED_COLOR ledColor)
+{
+    ledSendByte(ledColor.Green);       //Green
+    ledSendByte(ledColor.Red);         //Red
+    ledSendByte(ledColor.Blue);        //Blue
+}
+
+void ledStripSetColor(LED_COLOR* ledColor, uint8_t numberOfLED)
+{
+    uint16_t    i;
+    
+    for(i=0;i<numberOfLED;i++)
+    {
+        if(sizeof(ledColor)<=sizeof(ledColor[0])*i)  // exit if the assigned color is less than expected
+            break;
+        ledSetColor(*(ledColor+i));
+    }
 }
 
 void ledSendByte(uint8_t data)
@@ -121,6 +135,6 @@ void ledSendByte(uint8_t data)
         }
     #endif
 #else
-
+        SPI_Exchange8bit(data);
 #endif
 }

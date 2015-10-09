@@ -3,16 +3,16 @@
 [d edition pro ]
 [d chip 16F1619 ]
 [d frameptr 6 ]
-"6 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
-[e E11870 . `uc
+"6 /Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+[e E11864 . `uc
 LED_OFF 0
 LED_DIRECT 1
 LED_STARRY 2
 LED_XMAS 3
 LED_PARTY 4
 ]
-"55 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
-[e E12050 . `uc
+"55 /Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+[e E11996 . `uc
 COMM_IDEL 0
 COMM_PROCESS_SET_COMMAND 1
 COMM_PROCESS_GET_COMMAND 2
@@ -20,21 +20,14 @@ COMM_PROCESS_COLOR 3
 COMM_PROCESS_TRASH 4
 ]
 "101
-[e E12041 . `uc
+[e E11971 . `uc
 LED_OFF 0
 LED_DIRECT 1
 LED_STARRY 2
 LED_XMAS 3
 LED_PARTY 4
 ]
-"85 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
-[e E11866 . `uc
-channel_Temp 29
-channel_DAC 30
-channel_FVR 31
-channel_photoResistor 3
-]
-"86 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+"86 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
 [e E11865 . `uc
 TMR2_ROP_STARTS_TMRON 0
 TMR2_ROP_STARTS_TMRON_ERSHIGH 1
@@ -76,15 +69,60 @@ TMR2_LC4_OUT 12
 TMR2_PWM3_OUT 13
 TMR2_PWM4_OUT 14
 ]
-"10 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
+"85 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
+[e E11866 . `uc
+channel_Temp 29
+channel_DAC 30
+channel_FVR 31
+channel_photoResistor 3
+]
+"12 /Users/xiang/GitHub/BTLED/Firmware/src/LED.c
 [v _LED_Test LED_Test `(v  1 e 0 0 ]
 "34
 [v _LED_Task LED_Task `(v  1 e 0 0 ]
-"88
+"85
+[v _ledSetColor ledSetColor `(v  1 e 0 0 ]
+"104
 [v _ledSendByte ledSendByte `(v  1 e 0 0 ]
-"56 /Volumes/Files/GitHub/BTLED/Firmware/src/main.c
+"56 /Users/xiang/GitHub/BTLED/Firmware/src/main.c
 [v _main main `(v  1 e 0 0 ]
-"27 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
+"65 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
+[v _ADC1_Initialize ADC1_Initialize `(v  1 e 0 0 ]
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
+[v _CLC2_Initialize CLC2_Initialize `(v  1 e 0 0 ]
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
+[v _CLC4_Initialize CLC4_Initialize `(v  1 e 0 0 ]
+"76 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 0 0 ]
+"112
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+"130
+[v _EUSART_Write EUSART_Write `(v  1 e 0 0 ]
+"147
+[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 0 0 ]
+"161
+[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 0 0 ]
+"52 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
+"77 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+"89
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
+"51 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
+"99
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 0 0 ]
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
+[v _PWM3_Initialize PWM3_Initialize `(v  1 e 0 0 ]
+"64 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
+[v _SPI_Initialize SPI_Initialize `(v  1 e 0 0 ]
+"77
+[v _SPI_Exchange8bit SPI_Exchange8bit `(uc  1 e 1 0 ]
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
+"96
+[v _TMR2_Start TMR2_Start `(v  1 e 0 0 ]
+"27 /Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _outputString outputString `(v  1 e 0 0 ]
 "35
 [v _UART_HexSrtingToBinary UART_HexSrtingToBinary `(uc  1 e 1 0 ]
@@ -100,49 +138,36 @@ TMR2_PWM4_OUT 14
 [v _strcmp strcmp `(i  1 e 2 0 ]
 "4 /Applications/microchip/xc8/v1.34/sources/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
-"65 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
-[v _ADC1_Initialize ADC1_Initialize `(v  1 e 0 0 ]
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc2.c
-[v _CLC2_Initialize CLC2_Initialize `(v  1 e 0 0 ]
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
-[v _CLC4_Initialize CLC4_Initialize `(v  1 e 0 0 ]
-"76 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
-[v _EUSART_Initialize EUSART_Initialize `(v  1 e 0 0 ]
-"112
-[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
-"130
-[v _EUSART_Write EUSART_Write `(v  1 e 0 0 ]
-"147
-[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 0 0 ]
-"161
-[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 0 0 ]
-"52 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
-[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
-"77 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
-"89
-[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
-"51 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"99
-[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 0 0 ]
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
-[v _PWM3_Initialize PWM3_Initialize `(v  1 e 0 0 ]
-"64 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
-[v _SPI_Initialize SPI_Initialize `(v  1 e 0 0 ]
-"77
-[v _SPI_Exchange8bit SPI_Exchange8bit `(uc  1 e 1 0 ]
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
-[v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
-"96
-[v _TMR2_Start TMR2_Start `(v  1 e 0 0 ]
-"6 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
-[v _LED_mode LED_mode `E11870  1 e 1 0 ]
+"15 /Applications/microchip/xc8/v1.34/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"6 /Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+[v _LED_mode LED_mode `E11864  1 e 1 0 ]
+[s S25 . 3 `uc 1 Red 1 0 `uc 1 Green 1 1 `uc 1 Blue 1 2 ]
 "7
-[v _LED_color LED_color `[3]uc  1 e 3 0 ]
+[v _LED_SetColor LED_SetColor `S25  1 e 3 0 ]
 "8
-[v _LED_currentColor LED_currentColor `[3]uc  1 s 3 LED_currentColor ]
-"15 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
+[v _LED_currentColor LED_currentColor `S25  1 s 3 LED_currentColor ]
+"9
+[v _ledFullOn ledFullOn `DCCS25  1 e 3 0 ]
+"10
+[v _ledFullOff ledFullOff `DCCS25  1 e 3 0 ]
+"62 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
+[v _eusartTxHead eusartTxHead `uc  1 s 1 eusartTxHead ]
+"63
+[v _eusartTxTail eusartTxTail `uc  1 s 1 eusartTxTail ]
+"64
+[v _eusartTxBuffer eusartTxBuffer `[8]uc  1 s 8 eusartTxBuffer ]
+"65
+[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 e 1 0 ]
+"67
+[v _eusartRxHead eusartRxHead `uc  1 s 1 eusartRxHead ]
+"68
+[v _eusartRxTail eusartRxTail `uc  1 s 1 eusartRxTail ]
+"69
+[v _eusartRxBuffer eusartRxBuffer `[16]uc  1 s 16 eusartRxBuffer ]
+"70
+[v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
+"15 /Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _inputCommand inputCommand `[16]uc  1 s 16 inputCommand ]
 "18
 [v _CMD_SET_OFF CMD_SET_OFF `DCC[13]uc  1 e 13 0 ]
@@ -156,7 +181,7 @@ TMR2_PWM4_OUT 14
 [v _CMD_SET_PARTY CMD_SET_PARTY `DCC[15]uc  1 e 15 0 ]
 "24
 [v _CMD_GET_STATE CMD_GET_STATE `DCC[14]uc  1 e 14 0 ]
-[s S54 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S90 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -166,14 +191,14 @@ TMR2_PWM4_OUT 14
 `uc 1 GIE 1 0 :1:7 
 ]
 "360 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
-[s S63 . 1 `uc 1 . 1 0 :2:0 
+[s S99 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S68 . 1 `S54 1 . 1 0 `S63 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES68  1 e 1 @11 ]
-[s S426 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S104 . 1 `S90 1 . 1 0 `S99 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES104  1 e 1 @11 ]
+[s S412 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -183,20 +208,20 @@ TMR2_PWM4_OUT 14
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "579
-[u S435 . 1 `S426 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES435  1 e 1 @16 ]
+[u S421 . 1 `S412 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES421  1 e 1 @16 ]
 "1043
 [v _T2TMR T2TMR `VEuc  1 e 1 @26 ]
 "1096
 [v _T2PR T2PR `VEuc  1 e 1 @27 ]
 "1149
 [v _T2CON T2CON `VEuc  1 e 1 @28 ]
-[s S573 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S559 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 CKPS 1 0 :3:4 
 `uc 1 ON 1 0 :1:7 
 ]
 "1185
-[s S577 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S563 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
@@ -204,11 +229,11 @@ TMR2_PWM4_OUT 14
 `uc 1 CKPS1 1 0 :1:5 
 `uc 1 CKPS2 1 0 :1:6 
 ]
-[s S585 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+[s S571 . 1 `uc 1 T2OUTPS 1 0 :4:0 
 `uc 1 T2CKPS 1 0 :3:4 
 `uc 1 T2ON 1 0 :1:7 
 ]
-[s S589 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+[s S575 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
 `uc 1 T2OUTPS1 1 0 :1:1 
 `uc 1 T2OUTPS2 1 0 :1:2 
 `uc 1 T2OUTPS3 1 0 :1:3 
@@ -217,8 +242,8 @@ TMR2_PWM4_OUT 14
 `uc 1 T2CKPS2 1 0 :1:6 
 `uc 1 TMR2ON 1 0 :1:7 
 ]
-[u S598 . 1 `S573 1 . 1 0 `S577 1 . 1 0 `S585 1 . 1 0 `S589 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES598  1 e 1 @28 ]
+[u S584 . 1 `S559 1 . 1 0 `S563 1 . 1 0 `S571 1 . 1 0 `S575 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES584  1 e 1 @28 ]
 "1294
 [v _T2HLT T2HLT `VEuc  1 e 1 @29 ]
 "1421
@@ -231,7 +256,7 @@ TMR2_PWM4_OUT 14
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
 "1666
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
-[s S744 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S1051 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -241,9 +266,9 @@ TMR2_PWM4_OUT 14
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1744
-[u S753 . 1 `S744 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES753  1 e 1 @144 ]
-[s S835 . 1 `uc 1 PS 1 0 :3:0 
+[u S1060 . 1 `S1051 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1060  1 e 1 @144 ]
+[s S236 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 TMR0SE 1 0 :1:4 
 `uc 1 TMR0CS 1 0 :1:5 
@@ -251,15 +276,15 @@ TMR2_PWM4_OUT 14
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "2033
-[s S842 . 1 `uc 1 PS0 1 0 :1:0 
+[s S243 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S849 . 1 `S835 1 . 1 0 `S842 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES849  1 e 1 @149 ]
+[u S250 . 1 `S236 1 . 1 0 `S243 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES250  1 e 1 @149 ]
 "2153
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @152 ]
 "2210
@@ -298,7 +323,7 @@ TMR2_PWM4_OUT 14
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
 "3829
 [v _RC1STA RC1STA `VEuc  1 e 1 @413 ]
-[s S771 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1140 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -308,8 +333,8 @@ TMR2_PWM4_OUT 14
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3855
-[u S780 . 1 `S771 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES780  1 e 1 @413 ]
+[u S1149 . 1 `S1140 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES1149  1 e 1 @413 ]
 "4008
 [v _TX1STA TX1STA `VEuc  1 e 1 @414 ]
 "4187
@@ -318,19 +343,47 @@ TMR2_PWM4_OUT 14
 [v _WPUB WPUB `VEuc  1 e 1 @525 ]
 "4527
 [v _WPUC WPUC `VEuc  1 e 1 @526 ]
+"4601
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
 "4849
 [v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
 "5355
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+[s S683 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"5377
+[u S692 . 1 `S683 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES692  1 e 1 @532 ]
 "5476
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
-[s S188 . 1 `uc 1 CCP1TSEL 1 0 :2:0 
+[s S656 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"5509
+[s S662 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S667 . 1 `S656 1 . 1 0 `S662 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES667  1 e 1 @533 ]
+[s S329 . 1 `uc 1 CCP1TSEL 1 0 :2:0 
 `uc 1 CCP2TSEL 1 0 :2:2 
 `uc 1 P3TSEL 1 0 :2:4 
 `uc 1 P4TSEL 1 0 :2:6 
 ]
 "6809
-[s S193 . 1 `uc 1 CCP1TSEL0 1 0 :1:0 
+[s S334 . 1 `uc 1 CCP1TSEL0 1 0 :1:0 
 `uc 1 CCP1TSEL1 1 0 :1:1 
 `uc 1 CCP2TSEL0 1 0 :1:2 
 `uc 1 CCP2TSEL1 1 0 :1:3 
@@ -339,8 +392,8 @@ TMR2_PWM4_OUT 14
 `uc 1 P4TSEL0 1 0 :1:6 
 `uc 1 P4TSEL1 1 0 :1:7 
 ]
-[u S202 . 1 `S188 1 . 1 0 `S193 1 . 1 0 ]
-[v _CCPTMRSbits CCPTMRSbits `VES202  1 e 1 @670 ]
+[u S343 . 1 `S329 1 . 1 0 `S334 1 . 1 0 ]
+[v _CCPTMRSbits CCPTMRSbits `VES343  1 e 1 @670 ]
 "11835
 [v _PWM3DCL PWM3DCL `VEuc  1 e 1 @1559 ]
 "11885
@@ -349,11 +402,11 @@ TMR2_PWM4_OUT 14
 [v _PWM3CON PWM3CON `VEuc  1 e 1 @1561 ]
 "20767
 [v _PPSLOCK PPSLOCK `VEuc  1 e 1 @3599 ]
-[s S894 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+[s S295 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
 ]
 "20777
-[u S896 . 1 `S894 1 . 1 0 ]
-[v _PPSLOCKbits PPSLOCKbits `VES896  1 e 1 @3599 ]
+[u S297 . 1 `S295 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES297  1 e 1 @3599 ]
 "21474
 [v _SSPCLKPPS SSPCLKPPS `VEuc  1 e 1 @3616 ]
 "21517
@@ -440,33 +493,17 @@ TMR2_PWM4_OUT 14
 [v _IOCCP7 IOCCP7 `VEb  1 e 0 @7359 ]
 "30236
 [v _PLLR PLLR `VEb  1 e 0 @1238 ]
-"62 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
-[v _eusartTxHead eusartTxHead `uc  1 s 1 eusartTxHead ]
-"63
-[v _eusartTxTail eusartTxTail `uc  1 s 1 eusartTxTail ]
-"64
-[v _eusartTxBuffer eusartTxBuffer `[8]uc  1 s 8 eusartTxBuffer ]
-"65
-[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 e 1 0 ]
-"67
-[v _eusartRxHead eusartRxHead `uc  1 s 1 eusartRxHead ]
-"68
-[v _eusartRxTail eusartRxTail `uc  1 s 1 eusartRxTail ]
-"69
-[v _eusartRxBuffer eusartRxBuffer `[16]uc  1 s 16 eusartRxBuffer ]
-"70
-[v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
-"56 /Volumes/Files/GitHub/BTLED/Firmware/src/main.c
+"56 /Users/xiang/GitHub/BTLED/Firmware/src/main.c
 [v _main main `(v  1 e 0 0 ]
 {
 "77
 } 0
-"77 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+"77 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 {
 "87
 } 0
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
 {
 "84
@@ -476,76 +513,94 @@ TMR2_PWM4_OUT 14
 {
 "99
 } 0
-"64 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+"64 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
 [v _SPI_Initialize SPI_Initialize `(v  1 e 0 0 ]
 {
 "75
 } 0
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
 [v _PWM3_Initialize PWM3_Initialize `(v  1 e 0 0 ]
 {
 "72
 } 0
-"51 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+"51 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
 {
 "80
 [v PIN_MANAGER_Initialize@state state `uc  1 a 1 0 ]
 "97
 } 0
-"89 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+"89 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 {
 "101
 } 0
-"76 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+"76 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 0 0 ]
 {
 "110
 } 0
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
 [v _CLC4_Initialize CLC4_Initialize `(v  1 e 0 0 ]
 {
 "91
 } 0
-"58 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc2.c
+"58 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
 [v _CLC2_Initialize CLC2_Initialize `(v  1 e 0 0 ]
 {
 "91
 } 0
-"65 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+"65 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
 [v _ADC1_Initialize ADC1_Initialize `(v  1 e 0 0 ]
 {
 "83
 } 0
-"10 /Volumes/Files/GitHub/BTLED/Firmware/src/LED.c
+"12 /Users/xiang/GitHub/BTLED/Firmware/src/LED.c
 [v _LED_Test LED_Test `(v  1 e 0 0 ]
 {
-"14
-[v LED_Test@j j `ui  1 a 2 3 ]
-"12
-[v LED_Test@i i `uc  1 a 1 5 ]
+"18
+[v LED_Test@j j `ui  1 a 2 8 ]
+"16
+[v LED_Test@i i `uc  1 a 1 10 ]
 "32
 } 0
 "34
 [v _LED_Task LED_Task `(v  1 e 0 0 ]
 {
-"66
-[v LED_Task@i_47 i `uc  1 a 1 4 ]
 "59
-[v LED_Task@i_46 i `ui  1 a 2 2 ]
+[v LED_Task@i_74 i `ui  1 a 2 7 ]
 "43
-[v LED_Task@i i `ui  1 a 2 0 ]
+[v LED_Task@i i `ui  1 a 2 5 ]
 "36
 [v LED_Task@ledOFF ledOFF `uc  1 s 1 ledOFF ]
-"86
+"83
 } 0
-"88
+"85
+[v _ledSetColor ledSetColor `(v  1 e 0 0 ]
+{
+[s S25 . 3 `uc 1 Red 1 0 `uc 1 Green 1 1 `uc 1 Blue 1 2 ]
+[v ledSetColor@ledColor ledColor `S25  1 p 3 2 ]
+"90
+} 0
+"104
 [v _ledSendByte ledSendByte `(v  1 e 0 0 ]
 {
-"126
+[v ledSendByte@data data `uc  1 a 1 wreg ]
+[v ledSendByte@data data `uc  1 a 1 wreg ]
+"140
+[v ledSendByte@data data `uc  1 a 1 1 ]
+"142
 } 0
-"52 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
+"77 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
+[v _SPI_Exchange8bit SPI_Exchange8bit `(uc  1 e 1 0 ]
+{
+[v SPI_Exchange8bit@data data `uc  1 a 1 wreg ]
+[v SPI_Exchange8bit@data data `uc  1 a 1 wreg ]
+"79
+[v SPI_Exchange8bit@data data `uc  1 a 1 0 ]
+"87
+} 0
+"52 /Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _COMM_Task COMM_Task `(v  1 e 0 0 ]
 {
 "54
@@ -554,7 +609,7 @@ TMR2_PWM4_OUT 14
 [v COMM_Task@g g `uc  1 a 1 11 ]
 [v COMM_Task@r r `uc  1 a 1 10 ]
 "55
-[v COMM_Task@UART_ReceiveState UART_ReceiveState `E12050  1 s 1 UART_ReceiveState ]
+[v COMM_Task@UART_ReceiveState UART_ReceiveState `E11996  1 s 1 UART_ReceiveState ]
 "56
 [v COMM_Task@receiveCounter receiveCounter `uc  1 s 1 receiveCounter ]
 "211
@@ -571,7 +626,7 @@ TMR2_PWM4_OUT 14
 [v strcmp@s2 s2 `*.4DCCuc  1 p 1 2 ]
 "30
 } 0
-"27 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
+"27 /Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _outputString outputString `(v  1 e 0 0 ]
 {
 "29
@@ -589,7 +644,7 @@ TMR2_PWM4_OUT 14
 [v strlen@s s `*.25DCCuc  1 p 2 0 ]
 "13
 } 0
-"130 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+"130 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
 [v _EUSART_Write EUSART_Write `(v  1 e 0 0 ]
 {
 [v EUSART_Write@txData txData `uc  1 a 1 wreg ]
@@ -611,7 +666,7 @@ TMR2_PWM4_OUT 14
 [v memset@p1 p1 `*.4v  1 a 1 4 ]
 "22
 } 0
-"35 /Volumes/Files/GitHub/BTLED/Firmware/src/serialCommand.c
+"35 /Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
 [v _UART_HexSrtingToBinary UART_HexSrtingToBinary `(uc  1 e 1 0 ]
 {
 [v UART_HexSrtingToBinary@data data `*.4uc  1 a 1 wreg ]
@@ -623,24 +678,24 @@ TMR2_PWM4_OUT 14
 [v UART_HexSrtingToBinary@data data `*.4uc  1 a 1 3 ]
 "50
 } 0
-"112 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+"112 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
 [v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
 {
 "113
 [v EUSART_Read@readValue readValue `uc  1 a 1 0 ]
 "128
 } 0
-"52 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+"52 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
 {
 "66
 } 0
-"99 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+"99 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 0 0 ]
 {
 "136
 } 0
-"147 /Volumes/Files/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+"147 /Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
 [v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 0 0 ]
 {
 "159

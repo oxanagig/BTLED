@@ -4,16 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="MCC" projectFiles="true">
-        <itemPath>../src/mcc_generated_files/tmr1.h</itemPath>
-        <itemPath>../src/mcc_generated_files/pin_manager.h</itemPath>
-        <itemPath>../src/mcc_generated_files/memory.h</itemPath>
-        <itemPath>../src/mcc_generated_files/mcc.h</itemPath>
-        <itemPath>../src/mcc_generated_files/interrupt_manager.h</itemPath>
-        <itemPath>../src/mcc_generated_files/fvr.h</itemPath>
-        <itemPath>../src/mcc_generated_files/eusart.h</itemPath>
-        <itemPath>../src/mcc_generated_files/cmp1.h</itemPath>
-      </logicalFolder>
       <logicalFolder name="mcc_generated_files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
@@ -41,16 +31,18 @@
       <logicalFolder name="mcc_generated_files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <itemPath>mcc_generated_files/pwm3.c</itemPath>
-        <itemPath>mcc_generated_files/clc2.c</itemPath>
-        <itemPath>mcc_generated_files/clc4.c</itemPath>
-        <itemPath>mcc_generated_files/adc1.c</itemPath>
-        <itemPath>mcc_generated_files/tmr2.c</itemPath>
-        <itemPath>mcc_generated_files/spi.c</itemPath>
-        <itemPath>mcc_generated_files/eusart.c</itemPath>
-        <itemPath>mcc_generated_files/pin_manager.c</itemPath>
-        <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
-        <itemPath>mcc_generated_files/mcc.c</itemPath>
+        <itemPath>../src/mcc_generated_files/pin_manager.c</itemPath>
+        <itemPath>../src/mcc_generated_files/pwm3.c</itemPath>
+        <itemPath>../src/mcc_generated_files/mcc.c</itemPath>
+        <itemPath>../src/mcc_generated_files/tmr2.c</itemPath>
+        <itemPath>../src/mcc_generated_files/spi.c</itemPath>
+        <itemPath>../src/mcc_generated_files/clc4.c</itemPath>
+        <itemPath>../src/mcc_generated_files/adc1.c</itemPath>
+        <itemPath>../src/mcc_generated_files/clc2.c</itemPath>
+        <itemPath>../src/mcc_generated_files/cmp1.c</itemPath>
+        <itemPath>../src/mcc_generated_files/fvr.c</itemPath>
+        <itemPath>../src/mcc_generated_files/interrupt_manager.c</itemPath>
+        <itemPath>../src/mcc_generated_files/eusart.c</itemPath>
       </logicalFolder>
       <itemPath>../src/LED.c</itemPath>
       <itemPath>../src/main.c</itemPath>

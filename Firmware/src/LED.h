@@ -17,10 +17,6 @@ extern "C" {
 #define NUMBER_OF_LED       20
 
 
-void LED_Test(void);
-void LED_Task(void);
-void ledSendByte(uint8_t);
-
 typedef enum
 {
     LED_OFF,
@@ -30,8 +26,23 @@ typedef enum
     LED_PARTY,
 }LED_MODE;
 
+typedef struct
+{
+    uint8_t Red;
+    uint8_t Green;
+    uint8_t Blue;
+}LED_COLOR;
+
 extern LED_MODE LED_mode;
-extern uint8_t LED_color[3];
+extern LED_COLOR LED_SetColor;    
+    
+
+void LED_Test(void);
+void LED_Task(void);
+void ledSendByte(uint8_t);
+void ledSetColor(LED_COLOR);
+void ledStripSetColor(LED_COLOR*, uint8_t);
+
 
 #ifdef	__cplusplus
 }

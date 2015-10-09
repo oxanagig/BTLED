@@ -13,16 +13,16 @@
   @Description
     This header file provides implementations for driver APIs for EUSART.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10
-        Device            :  PIC12F1822
+        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
-*/
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
+ */
 
 /*
-Copyright (c) 2013 - 2014 released Microchip Technology Inc.  All rights reserved.
+Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 
 Microchip licenses to you the right to use, modify, copy and distribute
 Software only when embedded on a Microchip microcontroller or digital signal
@@ -42,26 +42,22 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 /**
   Section: Included Files
-*/
-
+ */
 #include "eusart.h"
-#include "string.h"
-#include "../LED.h"
 
 /**
   Section: Macro Declarations
-*/
+ */
 #define EUSART_TX_BUFFER_SIZE 8
 #define EUSART_RX_BUFFER_SIZE 16
 
-
 /**
   Section: Global Variables
-*/
+ */
 
 static uint8_t eusartTxHead = 0;
 static uint8_t eusartTxTail = 0;
@@ -73,39 +69,37 @@ static uint8_t eusartRxTail = 0;
 static uint8_t eusartRxBuffer[EUSART_RX_BUFFER_SIZE];
 volatile uint8_t eusartRxCount;
 
-
 /**
   Section: EUSART APIs
-*/
+ */
 
-void EUSART_Initialize(void)
-{
+void EUSART_Initialize(void) {
     // disable interrupts before changing states
     PIE1bits.RCIE = 0;
     PIE1bits.TXIE = 0;
 
     // Set the EUSART module to the options selected in the user interface.
 
-    // ABDEN disabled; WUE disabled; RCIDL idle; ABDOVF no_overflow; SCKP async_noninverted_sync_fallingedge; BRG16 16bit_generator;
-    BAUDCON = 0x48;
+    // ABDEN disabled; WUE disabled; RCIDL idle; ABDOVF no_overflow; SCKP async_noninverted_sync_fallingedge; BRG16 16bit_generator; 
+    BAUD1CON = 0x48;
 
-    // ADDEN disabled; RX9 8-bit; RX9D 0x0; FERR no_error; CREN enabled; SPEN enabled; SREN disabled; OERR no_error;
-    RCSTA = 0x90;
+    // ADDEN disabled; RX9 8-bit; RX9D 0x0; FERR no_error; CREN enabled; SPEN enabled; SREN disabled; OERR no_error; 
+    RC1STA = 0x90;
 
-    // CSRC slave_mode; TRMT TSR_empty; TXEN enabled; BRGH hi_speed; SYNC asynchronous; SENDB sync_break_complete; TX9D 0x0; TX9 8-bit;
-    TXSTA = 0x26;
+    // CSRC slave_mode; TRMT TSR_empty; TXEN enabled; BRGH hi_speed; SYNC asynchronous; SENDB sync_break_complete; TX9D 0x0; TX9 8-bit; 
+    TX1STA = 0x26;
 
-    // Baud Rate = 115200;
+    // Baud Rate = 115200; SP1BRGL 68; 
     SPBRGL = 0x44;
 
-    // Baud Rate = 115200; SP1BRGH 0;
+    // Baud Rate = 115200; SP1BRGH 0; 
     SPBRGH = 0x00;
 
 
     // initializing the driver state
     eusartTxHead = 0;
     eusartTxTail = 0;
-    eusartTxBufferRemaining = sizeof(eusartTxBuffer);
+    eusartTxBufferRemaining = sizeof (eusartTxBuffer);
 
     eusartRxHead = 0;
     eusartRxTail = 0;
@@ -115,19 +109,16 @@ void EUSART_Initialize(void)
     PIE1bits.RCIE = 1;
 }
 
-uint8_t EUSART_Read(void)
-{
-    uint8_t readValue  = 0;
+uint8_t EUSART_Read(void) {
+    uint8_t readValue = 0;
 
-    while(0 == eusartRxCount)
-    {
+    while (0 == eusartRxCount) {
     }
 
     PIE1bits.RCIE = 0;
 
     readValue = eusartRxBuffer[eusartRxTail++];
-    if(sizeof(eusartRxBuffer) <= eusartRxTail)
-    {
+    if (sizeof (eusartRxBuffer) <= eusartRxTail) {
         eusartRxTail = 0;
     }
     eusartRxCount--;
@@ -136,22 +127,16 @@ uint8_t EUSART_Read(void)
     return readValue;
 }
 
-void EUSART_Write(uint8_t txData)
-{
-    while(0 == eusartTxBufferRemaining)
-    {
+void EUSART_Write(uint8_t txData) {
+    while (0 == eusartTxBufferRemaining) {
     }
 
-    if(0 == PIE1bits.TXIE)
-    {
-        TXREG = txData;
-    }
-    else
-    {
+    if (0 == PIE1bits.TXIE) {
+        TX1REG = txData;
+    } else {
         PIE1bits.TXIE = 0;
         eusartTxBuffer[eusartTxHead++] = txData;
-        if(sizeof(eusartTxBuffer) <= eusartTxHead)
-        {
+        if (sizeof (eusartTxBuffer) <= eusartTxHead) {
             eusartTxHead = 0;
         }
         eusartTxBufferRemaining--;
@@ -159,57 +144,35 @@ void EUSART_Write(uint8_t txData)
     PIE1bits.TXIE = 1;
 }
 
-char getch(void)
-{
-    return EUSART_Read();
-}
-
-void putch(char txData)
-{
-    EUSART_Write(txData);
-}
-
-void EUSART_Transmit_ISR(void)
-{
+void EUSART_Transmit_ISR(void) {
 
     // add your EUSART interrupt custom code
-    if(sizeof(eusartTxBuffer) > eusartTxBufferRemaining)
-    {
-        TXREG = eusartTxBuffer[eusartTxTail++];
-        if(sizeof(eusartTxBuffer) <= eusartTxTail)
-        {
+    if (sizeof (eusartTxBuffer) > eusartTxBufferRemaining) {
+        TX1REG = eusartTxBuffer[eusartTxTail++];
+        if (sizeof (eusartTxBuffer) <= eusartTxTail) {
             eusartTxTail = 0;
         }
         eusartTxBufferRemaining++;
-    }
-    else
-    {
+    } else {
         PIE1bits.TXIE = 0;
     }
 }
 
-void EUSART_Receive_ISR(void)
-{
-    if(1 == RCSTAbits.OERR)
-    {
+void EUSART_Receive_ISR(void) {
+    if (1 == RC1STAbits.OERR) {
         // EUSART error - restart
 
-        RCSTAbits.CREN = 0;
-        RCSTAbits.CREN = 1;
+        RC1STAbits.CREN = 0;
+        RC1STAbits.CREN = 1;
     }
 
     // buffer overruns are ignored
-    eusartRxBuffer[eusartRxHead++] = RCREG;
-    if(sizeof(eusartRxBuffer) <= eusartRxHead)
-    {
+    eusartRxBuffer[eusartRxHead++] = RC1REG;
+    if (sizeof (eusartRxBuffer) <= eusartRxHead) {
         eusartRxHead = 0;
     }
     eusartRxCount++;
 }
-
-
-
-
 /**
   End of File
-*/
+ */

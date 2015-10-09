@@ -13,16 +13,16 @@
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10
-        Device            :  PIC12F1822
+        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Device            :  PIC16F1619
         Version           :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
-*/
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
+ */
 
 /*
-Copyright (c) 2013 - 2014 released Microchip Technology Inc.  All rights reserved.
+Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 
 Microchip licenses to you the right to use, modify, copy and distribute
 Software only when embedded on a Microchip microcontroller or digital signal
@@ -42,7 +42,7 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 #ifndef MCC_H
 #define	MCC_H
@@ -52,12 +52,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <stdbool.h>
 #include "interrupt_manager.h"
 #include "eusart.h"
-#include "cmp1.h"
-#include "fvr.h"
-#include "memory.h"
-#include "tmr1.h"
-#include "string.h"
-
+#include "spi.h"
+#include "tmr2.h"
+#include "adc1.h"
+#include "clc4.h"
+#include "clc2.h"
+#include "pwm3.h"
 
 #define _XTAL_FREQ  32000000
 
@@ -88,7 +88,8 @@ void SYSTEM_Initialize(void);
 void OSCILLATOR_Initialize(void);
 
 
+
 #endif	/* MCC_H */
 /**
  End of File
-*/
+ */
