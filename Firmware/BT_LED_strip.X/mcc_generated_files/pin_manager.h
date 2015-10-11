@@ -8,12 +8,12 @@
     pin_manager.h
 
   @Summary:
-    This is the Pin Manager file generated using MPLAB® Code Configurator
+    This is the Pin Manager file generated using MPLABï¿½ Code Configurator
 
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Version           :  1.01
     The generated drivers are tested against the following:
@@ -73,20 +73,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define RX_SetAnalogMode()   do { ANSA2 = 1; } while(0)
 #define RX_SetDigitalMode()   do { ANSA2 = 0; } while(0)
-// get/set channel_photoResistor aliases
-#define channel_photoResistor_TRIS               TRISA4
-#define channel_photoResistor_LAT                LATA4
-#define channel_photoResistor_PORT               RA4
-#define channel_photoResistor_ANS                ANSA4
-#define channel_photoResistor_SetHigh()    do { LATA4 = 1; } while(0)
-#define channel_photoResistor_SetLow()   do { LATA4 = 0; } while(0)
-#define channel_photoResistor_Toggle()   do { LATA4 = ~LATA4; } while(0)
-#define channel_photoResistor_GetValue()         RA4
-#define channel_photoResistor_SetDigitalInput()    do { TRISA4 = 1; } while(0)
-#define channel_photoResistor_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
+// get/set IO_RA4 aliases
+#define IO_RA4_TRIS               TRISA4
+#define IO_RA4_LAT                LATA4
+#define IO_RA4_PORT               RA4
+#define IO_RA4_ANS                ANSA4
+#define IO_RA4_SetHigh()    do { LATA4 = 1; } while(0)
+#define IO_RA4_SetLow()   do { LATA4 = 0; } while(0)
+#define IO_RA4_Toggle()   do { LATA4 = ~LATA4; } while(0)
+#define IO_RA4_GetValue()         RA4
+#define IO_RA4_SetDigitalInput()    do { TRISA4 = 1; } while(0)
+#define IO_RA4_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
 
-#define channel_photoResistor_SetAnalogMode()   do { ANSA4 = 1; } while(0)
-#define channel_photoResistor_SetDigitalMode()   do { ANSA4 = 0; } while(0)
+#define IO_RA4_SetAnalogMode()   do { ANSA4 = 1; } while(0)
+#define IO_RA4_SetDigitalMode()   do { ANSA4 = 0; } while(0)
 // get/set CLC4OUT aliases
 #define CLC4OUT_TRIS               TRISA5
 #define CLC4OUT_LAT                LATA5

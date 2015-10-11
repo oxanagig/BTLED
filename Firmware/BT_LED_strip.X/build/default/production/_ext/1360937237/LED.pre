@@ -14564,11 +14564,11 @@ extern LED_COLOR LED_SetColor;
 
 void LED_Test(void);
 void LED_Task(void);
-void ledSendByte(uint8_t);
-void ledSetColor(LED_COLOR);
+inline void ledSendByte(uint8_t);
+inline void ledSetColor(LED_COLOR);
 void ledStripSetColor(LED_COLOR*, uint8_t);
 
-# 280 "../src/mcc_generated_files/pin_manager.h"
+# 280 "../src/../BT_LED_strip.X/mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize(void);
 
 # 292
@@ -14577,10 +14577,10 @@ void PIN_MANAGER_IOC(void);
 # 12 "/Applications/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 111 "../src/mcc_generated_files/interrupt_manager.h"
+# 111 "../src/../BT_LED_strip.X/mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
 
-# 77 "../src/mcc_generated_files/eusart.h"
+# 77 "../src/../BT_LED_strip.X/mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
 
@@ -14607,7 +14607,7 @@ typedef unsigned short wchar_t;
 # 13
 extern int errno;
 
-# 117 "../src/mcc_generated_files/spi.h"
+# 117 "../src/../BT_LED_strip.X/mcc_generated_files/spi.h"
 void SPI_Initialize(void);
 
 # 152
@@ -14625,7 +14625,7 @@ bool SPI_HasWriteCollisionOccured(void);
 # 264
 void SPI_ClearWriteCollisionStatus(void);
 
-# 79 "../src/mcc_generated_files/tmr2.h"
+# 79 "../src/../BT_LED_strip.X/mcc_generated_files/tmr2.h"
 typedef enum {
 
 # 87
@@ -14769,78 +14769,76 @@ void TMR2_Period8BitSet(uint8_t periodVal);
 # 616
 bool TMR2_HasOverflowOccured(void);
 
-# 72 "../src/mcc_generated_files/adc1.h"
+# 72 "../src/../BT_LED_strip.X/mcc_generated_files/adc1.h"
 typedef uint16_t adc_result_t;
 
 # 86
 typedef enum {
 channel_Temp = 0x1D,
 channel_DAC = 0x1E,
-channel_FVR = 0x1F,
-channel_photoResistor = 0x03
+channel_FVR = 0x1F
 } adc_channel_t;
 
-# 126
+# 125
 void ADC1_Initialize(void);
 
-# 155
+# 154
 void ADC1_StartConversion(adc_channel_t channel);
 
-# 187
+# 186
 bool ADC1_IsConversionDone();
 
-# 220
+# 219
 adc_result_t ADC1_GetConversionResult(void);
 
-# 250
+# 249
 adc_result_t ADC1_GetConversion(adc_channel_t channel);
 
-# 92 "../src/mcc_generated_files/clc4.h"
+# 92 "../src/../BT_LED_strip.X/mcc_generated_files/clc4.h"
 void CLC4_Initialize(void);
 
 # 114
 bool CLC4_OutputStatusGet(void);
 
-# 92 "../src/mcc_generated_files/clc2.h"
-void CLC2_Initialize(void);
-
-# 114
-bool CLC2_OutputStatusGet(void);
-
-# 102 "../src/mcc_generated_files/pwm3.h"
+# 102 "../src/../BT_LED_strip.X/mcc_generated_files/pwm3.h"
 void PWM3_Initialize(void);
 
 # 129
 void PWM3_LoadDutyValue(uint16_t dutyValue);
 
-# 75 "../src/mcc_generated_files/mcc.h"
+# 74 "../src/../BT_LED_strip.X/mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 88
+# 87
 void OSCILLATOR_Initialize(void);
 
 # 6 "../src/LED.c"
 LED_MODE LED_mode = LED_OFF;
 LED_COLOR LED_SetColor = {0,0,0};
 static LED_COLOR LED_currentColor = {0,0,0};
-const LED_COLOR ledFullOn = {255,255,255};
+const LED_COLOR ledFullOn = {20,20,20};
 const LED_COLOR ledFullOff = {0,0,0};
+const LED_COLOR ledRed = {1,0,0};
 
 void LED_Test(void)
 {
 
 
-for(uint8_t i=0; i<20+1; i++)
+for(uint8_t i=0; i<6; i++)
 {
-for(uint16_t j=0;j<20;j++)
+for(uint8_t j=0;j<6;j++)
 {
 if(j==i)
 {
-ledSetColor(ledFullOn);
+ledSendByte(ledFullOn.Green);
+ledSendByte(ledFullOn.Red);
+ledSendByte(ledFullOn.Blue);
 }
 else
 {
-ledSetColor(ledFullOff);
+ledSendByte(ledFullOff.Green);
+ledSendByte(ledFullOff.Red);
+ledSendByte(ledFullOff.Blue);
 }
 }
 _delay((unsigned long)((50)*(32000000/4000.0)));
@@ -14857,11 +14855,9 @@ case LED_OFF:
 if(ledOFF ==0)
 {
 GIE = 0;
-for(uint16_t i=0;i<20;i++)
+for(uint16_t i=0;i<6;i++)
 {
-ledSendByte(0);
-ledSendByte(0);
-ledSendByte(0);
+ledSetColor(ledFullOff);
 }
 GIE = 1;
 ledOFF = 1;
@@ -14873,7 +14869,7 @@ if(LED_currentColor.Blue!=LED_SetColor.Blue
 || LED_currentColor.Green!=LED_SetColor.Green)
 {
 GIE = 0;
-for(uint16_t i=0;i<20;i++)
+for(uint16_t i=0;i<6;i++)
 {
 ledSetColor(LED_SetColor);
 }
@@ -14899,7 +14895,7 @@ break;
 
 }
 
-void ledSetColor(LED_COLOR ledColor)
+inline void ledSetColor(LED_COLOR ledColor)
 {
 ledSendByte(ledColor.Green);
 ledSendByte(ledColor.Red);
@@ -14918,10 +14914,12 @@ ledSetColor(*(ledColor+i));
 }
 }
 
-void ledSendByte(uint8_t data)
+
+
+inline void ledSendByte(uint8_t data)
 {
 
-# 140
+# 147
 SPI_Exchange8bit(data);
 
 }

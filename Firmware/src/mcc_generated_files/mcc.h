@@ -1,5 +1,5 @@
 /**
-  @Generated MPLAB® Code Configurator Header File
+  @Generated MPLABï¿½ Code Configurator Header File
 
   @Company:
     Microchip Technology Inc.
@@ -8,12 +8,12 @@
     mcc.h
 
   @Summary:
-    This is the mcc.h file generated using MPLAB® Code Configurator
+    This is the mcc.h file generated using MPLABï¿½ Code Configurator
 
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Version           :  1.02
     The generated drivers are tested against the following:
@@ -56,7 +56,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "tmr2.h"
 #include "adc1.h"
 #include "clc4.h"
-#include "clc2.h"
 #include "pwm3.h"
 
 #define _XTAL_FREQ  32000000

@@ -8,12 +8,12 @@
     pwm3.c
 
   @Summary
-    This is the generated driver implementation file for the PWM3 driver using MPLAB® Code Configurator
+    This is the generated driver implementation file for the PWM3 driver using MPLABï¿½ Code Configurator
 
   @Description
     This source file provides implementations for driver APIs for PWM3.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -56,12 +56,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  */
 
 void PWM3_Initialize(void) {
-    // Set the PWM to the options selected in the MPLAB® Code Configurator.
+    // Set the PWM to the options selected in the MPLABï¿½ Code Configurator.
     // PWM3EN enabled; PWM3POL active_hi; 
     PWM3CON = 0x80;
 
-    // PWM3DC8 5; 
-    PWM3DCH = 0x05;
+    // PWM3DC8 2; 
+    PWM3DCH = 0x02;
 
     // PWM3DC0 64; 
     PWM3DCL = 0x40;

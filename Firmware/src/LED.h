@@ -14,7 +14,7 @@ extern "C" {
 
 
 #define WS2812
-#define NUMBER_OF_LED       20
+#define NUMBER_OF_LED       6
 
 
 typedef enum
@@ -39,10 +39,12 @@ extern LED_COLOR LED_SetColor;
 
 void LED_Test(void);
 void LED_Task(void);
-void ledSendByte(uint8_t);
-void ledSetColor(LED_COLOR);
+inline void ledSendByte(uint8_t);
+inline void ledSetColor(LED_COLOR);
 void ledStripSetColor(LED_COLOR*, uint8_t);
 
+#define LED_DATA_SetHigh() LATA5 = 1
+#define LED_DATA_SetLow()  LATA5 = 0 
 
 #ifdef	__cplusplus
 }

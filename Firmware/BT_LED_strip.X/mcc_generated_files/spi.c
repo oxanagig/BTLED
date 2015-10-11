@@ -8,12 +8,12 @@
     mssp.c
 
   @Summary
-    This is the generated driver implementation file for the MSSP driver using MPLAB® Code Configurator
+    This is the generated driver implementation file for the MSSP driver using MPLABï¿½ Code Configurator
 
   @Description
     This source file provides APIs for MSSP.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -67,8 +67,8 @@ void SPI_Initialize(void) {
     // BF RCinprocess_TXcomplete; UA dontupdate; SMP Sample At Middle; P stopbit_notdetected; S startbit_notdetected; R_nW write_noTX; CKE Idle to Active; D_nA lastbyte_address; 
     SSP1STAT = 0x00;
 
-    // SSPEN enabled; WCOL no_collision; SSPOV no_overflow; CKP Idle:Low, Active:High; SSPM TMR2; 
-    SSP1CON1 = 0x23;
+    // SSPEN enabled; WCOL no_collision; SSPOV no_overflow; CKP Idle:High, Active:Low; SSPM TMR2; 
+    SSP1CON1 = 0x33;
 
     // SSP1ADD 0; 
     SSP1ADD = 0x00;

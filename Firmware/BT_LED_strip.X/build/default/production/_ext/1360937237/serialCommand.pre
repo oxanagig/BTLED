@@ -14634,8 +14634,8 @@ extern LED_COLOR LED_SetColor;
 
 void LED_Test(void);
 void LED_Task(void);
-void ledSendByte(uint8_t);
-void ledSetColor(LED_COLOR);
+inline void ledSendByte(uint8_t);
+inline void ledSetColor(LED_COLOR);
 void ledStripSetColor(LED_COLOR*, uint8_t);
 
 # 6 "../src/serialCommand.c"

@@ -11,5 +11,4 @@
 ../src/LED.h  \
 ../src/mcc_generated_files/pin_manager.h  \
 ../src/mcc_generated_files/spi.h  \
-../src/mcc_generated_files/clc2.h  \
 ../src/mcc_generated_files/clc4.h 

@@ -8,12 +8,12 @@
     adc1.h
 
   @Summary
-    This is the generated header file for the ADC1 driver using MPLAB® Code Configurator
+    This is the generated header file for the ADC1 driver using MPLABï¿½ Code Configurator
 
   @Description
     This header file provides APIs for driver for ADC1.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -86,8 +86,7 @@ extern "C" {
     typedef enum {
         channel_Temp = 0x1D,
         channel_DAC = 0x1E,
-        channel_FVR = 0x1F,
-        channel_photoResistor = 0x03
+        channel_FVR = 0x1F
     } adc_channel_t;
 
     /**

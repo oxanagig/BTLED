@@ -1,29 +1,34 @@
 #include <xc.h>
 #include <stdint.h>
 #include "LED.h"
-#include "mcc_generated_files/mcc.h"
+#include "../BT_LED_strip.X/mcc_generated_files/mcc.h"
 
         LED_MODE  LED_mode = LED_OFF;
         LED_COLOR LED_SetColor = {0,0,0}; 
 static  LED_COLOR LED_currentColor = {0,0,0};
-const   LED_COLOR ledFullOn  = {255,255,255};
+const   LED_COLOR ledFullOn  = {20,20,20};
 const   LED_COLOR ledFullOff = {0,0,0};
+const   LED_COLOR ledRed     = {1,0,0};
 
 void LED_Test(void)
 {
 
     
-    for(uint8_t i=0; i<NUMBER_OF_LED+1; i++)
+    for(uint8_t i=0; i<NUMBER_OF_LED; i++)
     {
-        for(uint16_t j=0;j<NUMBER_OF_LED;j++)
+        for(uint8_t j=0;j<NUMBER_OF_LED;j++)
         {
             if(j==i)
             {
-               ledSetColor(ledFullOn);
+               ledSendByte(ledFullOn.Green);
+               ledSendByte(ledFullOn.Red);
+               ledSendByte(ledFullOn.Blue);
             }
             else
             {
-               ledSetColor(ledFullOff);
+               ledSendByte(ledFullOff.Green);
+               ledSendByte(ledFullOff.Red);
+               ledSendByte(ledFullOff.Blue);
             }
         }
         __delay_ms(50);
@@ -80,7 +85,7 @@ void LED_Task(void)
     
 }
 
-void ledSetColor(LED_COLOR ledColor)
+inline void ledSetColor(LED_COLOR ledColor)
 {
     ledSendByte(ledColor.Green);       //Green
     ledSendByte(ledColor.Red);         //Red
@@ -99,7 +104,9 @@ void ledStripSetColor(LED_COLOR* ledColor, uint8_t numberOfLED)
     }
 }
 
-void ledSendByte(uint8_t data)
+//#define bit_banged_protocol
+
+inline void ledSendByte(uint8_t data)
 {
 #if defined (bit_banged_protocol)
     #if defined(WS2811)
@@ -116,6 +123,7 @@ void ledSendByte(uint8_t data)
         SCK = 0;
 
     #elif defined(WS2812)
+        GIE = 0;
         for(uint8_t i = 0; i<8;i++)
         {
             if(data&0x80)
@@ -133,6 +141,7 @@ void ledSendByte(uint8_t data)
             }
             data = data<<1;
         }
+        GIE= 1;
     #endif
 #else
         SPI_Exchange8bit(data);

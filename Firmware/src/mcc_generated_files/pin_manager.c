@@ -8,12 +8,12 @@
     pin_manager.c
 
   Summary:
-    This is the Pin Manager file generated using MPLAB® Code Configurator
+    This is the Pin Manager file generated using MPLABï¿½ Code Configurator
 
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -50,8 +50,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 void PIN_MANAGER_Initialize(void) {
     LATA = 0x00;
-    TRISA = 0x1F;
-    ANSELA = 0x13;
+    TRISA = 0x1D;
+    ANSELA = 0x11;
 
     LATB = 0x20;
     TRISB = 0xC0;
@@ -83,6 +83,7 @@ void PIN_MANAGER_Initialize(void) {
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
 
+    RA1PPS = 0x0E; // RA1->PWM3:PWM3OUT
     RXPPS = 0x02; // RA2->EUSART:RX
     RA5PPS = 0x07; // RA5->CLC4:CLC4OUT
     RB4PPS = 0x11; // RB4->MSSP:SDO

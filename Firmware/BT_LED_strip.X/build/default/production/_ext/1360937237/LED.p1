@@ -5,17 +5,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "30 ../src/LED.h
 [s S1205 `uc 1 `uc 1 `uc 1 ]
 [n S1205 . Red Green Blue ]
-"43
-[v _ledSetColor `(v ~T0 @X0 0 ef1`S1205 ]
+[v F11884 `(v ~T0 @X0 1 tf1`uc ]
+"42
+[v _ledSendByte `TF11884 ~T0 @X0 0 e ]
 [v F11832 `(v ~T0 @X0 1 tf1`ul ]
 "150 /Applications/microchip/xc8/v1.34/include/pic.h
 [v __delay `JF11832 ~T0 @X0 0 e ]
 [p i __delay ]
 "28594 /Applications/microchip/xc8/v1.34/include/pic16f1619.h
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"42 ../src/LED.h
-[v _ledSendByte `(v ~T0 @X0 0 ef1`uc ]
-"152 ../src/mcc_generated_files/spi.h
+[v F11887 `(v ~T0 @X0 1 tf1`S1205 ]
+"43 ../src/LED.h
+[v _ledSetColor `TF11887 ~T0 @X0 0 e ]
+"152 ../src/../BT_LED_strip.X/mcc_generated_files/spi.h
 [v _SPI_Exchange8bit `(uc ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -10744,8 +10746,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LED.h: 37: extern LED_COLOR LED_SetColor;
 [; ;LED.h: 40: void LED_Test(void);
 [; ;LED.h: 41: void LED_Task(void);
-[; ;LED.h: 42: void ledSendByte(uint8_t);
-[; ;LED.h: 43: void ledSetColor(LED_COLOR);
+[; ;LED.h: 42: inline void ledSendByte(uint8_t);
+[; ;LED.h: 43: inline void ledSetColor(LED_COLOR);
 [; ;LED.h: 44: void ledStripSetColor(LED_COLOR*, uint8_t);
 [; ;pin_manager.h: 280: void PIN_MANAGER_Initialize(void);
 [; ;pin_manager.h: 292: void PIN_MANAGER_IOC(void);
@@ -10821,22 +10823,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc1.h: 86: typedef enum {
 [; ;adc1.h: 87: channel_Temp = 0x1D,
 [; ;adc1.h: 88: channel_DAC = 0x1E,
-[; ;adc1.h: 89: channel_FVR = 0x1F,
-[; ;adc1.h: 90: channel_photoResistor = 0x03
-[; ;adc1.h: 91: } adc_channel_t;
-[; ;adc1.h: 126: void ADC1_Initialize(void);
-[; ;adc1.h: 155: void ADC1_StartConversion(adc_channel_t channel);
-[; ;adc1.h: 187: bool ADC1_IsConversionDone();
-[; ;adc1.h: 220: adc_result_t ADC1_GetConversionResult(void);
-[; ;adc1.h: 250: adc_result_t ADC1_GetConversion(adc_channel_t channel);
+[; ;adc1.h: 89: channel_FVR = 0x1F
+[; ;adc1.h: 90: } adc_channel_t;
+[; ;adc1.h: 125: void ADC1_Initialize(void);
+[; ;adc1.h: 154: void ADC1_StartConversion(adc_channel_t channel);
+[; ;adc1.h: 186: bool ADC1_IsConversionDone();
+[; ;adc1.h: 219: adc_result_t ADC1_GetConversionResult(void);
+[; ;adc1.h: 249: adc_result_t ADC1_GetConversion(adc_channel_t channel);
 [; ;clc4.h: 92: void CLC4_Initialize(void);
 [; ;clc4.h: 114: bool CLC4_OutputStatusGet(void);
-[; ;clc2.h: 92: void CLC2_Initialize(void);
-[; ;clc2.h: 114: bool CLC2_OutputStatusGet(void);
 [; ;pwm3.h: 102: void PWM3_Initialize(void);
 [; ;pwm3.h: 129: void PWM3_LoadDutyValue(uint16_t dutyValue);
-[; ;mcc.h: 75: void SYSTEM_Initialize(void);
-[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 74: void SYSTEM_Initialize(void);
+[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
 "6 ../src/LED.c
 [v _LED_mode `E11864 ~T0 @X0 1 e ]
 [i _LED_mode
@@ -10872,13 +10871,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _ledFullOn
 :U ..
 :U ..
--> -> 255 `i `uc
--> -> 255 `i `uc
--> -> 255 `i `uc
+-> -> 20 `i `uc
+-> -> 20 `i `uc
+-> -> 20 `i `uc
 ..
 ..
 ]
-[; ;LED.c: 9: const LED_COLOR ledFullOn = {255,255,255};
+[; ;LED.c: 9: const LED_COLOR ledFullOn = {20,20,20};
 "10
 [v _ledFullOff `CS1205 ~T0 @X0 1 e ]
 [i _ledFullOff
@@ -10891,252 +10890,270 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;LED.c: 10: const LED_COLOR ledFullOff = {0,0,0};
-"12
-[v _LED_Test `(v ~T0 @X0 1 ef ]
+"11
+[v _ledRed `CS1205 ~T0 @X0 1 e ]
+[i _ledRed
+:U ..
+:U ..
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+]
+[; ;LED.c: 11: const LED_COLOR ledRed = {1,0,0};
 "13
+[v _LED_Test `(v ~T0 @X0 1 ef ]
+"14
 {
-[; ;LED.c: 12: void LED_Test(void)
-[; ;LED.c: 13: {
+[; ;LED.c: 13: void LED_Test(void)
+[; ;LED.c: 14: {
 [e :U _LED_Test ]
 [f ]
-[; ;LED.c: 16: for(uint8_t i=0; i<20+1; i++)
-"16
+[; ;LED.c: 17: for(uint8_t i=0; i<6; i++)
+"17
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i + -> 20 `i -> 1 `i 1207  ]
+[e $ < -> _i `i -> 6 `i 1207  ]
 [e $U 1208  ]
-"17
-[e :U 1207 ]
-[; ;LED.c: 17: {
-{
-[; ;LED.c: 18: for(uint16_t j=0;j<20;j++)
 "18
+[e :U 1207 ]
+[; ;LED.c: 18: {
 {
-[v _j `ui ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `ui ]
-[e $ < _j -> -> 20 `i `ui 1210  ]
-[e $U 1211  ]
+[; ;LED.c: 19: for(uint8_t j=0;j<6;j++)
 "19
-[e :U 1210 ]
-[; ;LED.c: 19: {
 {
-[; ;LED.c: 20: if(j==i)
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 6 `i 1210  ]
+[e $U 1211  ]
 "20
-[e $ ! == _j -> _i `ui 1213  ]
-[; ;LED.c: 21: {
+[e :U 1210 ]
+[; ;LED.c: 20: {
+{
+[; ;LED.c: 21: if(j==i)
 "21
-{
-[; ;LED.c: 22: ledSetColor(ledFullOn);
+[e $ ! == -> _j `i -> _i `i 1213  ]
+[; ;LED.c: 22: {
 "22
-[e ( _ledSetColor (1 _ledFullOn ]
-"23
-}
-[; ;LED.c: 23: }
-[e $U 1214  ]
-"24
-[e :U 1213 ]
-[; ;LED.c: 24: else
-[; ;LED.c: 25: {
-"25
 {
-[; ;LED.c: 26: ledSetColor(ledFullOff);
+[; ;LED.c: 23: ledSendByte(ledFullOn.Green);
+"23
+[e ( _ledSendByte (1 . _ledFullOn 1 ]
+[; ;LED.c: 24: ledSendByte(ledFullOn.Red);
+"24
+[e ( _ledSendByte (1 . _ledFullOn 0 ]
+[; ;LED.c: 25: ledSendByte(ledFullOn.Blue);
+"25
+[e ( _ledSendByte (1 . _ledFullOn 2 ]
 "26
-[e ( _ledSetColor (1 _ledFullOff ]
+}
+[; ;LED.c: 26: }
+[e $U 1214  ]
 "27
+[e :U 1213 ]
+[; ;LED.c: 27: else
+[; ;LED.c: 28: {
+"28
+{
+[; ;LED.c: 29: ledSendByte(ledFullOff.Green);
+"29
+[e ( _ledSendByte (1 . _ledFullOff 1 ]
+[; ;LED.c: 30: ledSendByte(ledFullOff.Red);
+"30
+[e ( _ledSendByte (1 . _ledFullOff 0 ]
+[; ;LED.c: 31: ledSendByte(ledFullOff.Blue);
+"31
+[e ( _ledSendByte (1 . _ledFullOff 2 ]
+"32
 }
 [e :U 1214 ]
-"28
+"33
 }
-"18
-[e ++ _j -> -> 1 `i `ui ]
-[e $ < _j -> -> 20 `i `ui 1210  ]
+"19
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 6 `i 1210  ]
 [e :U 1211 ]
-"28
+"33
 }
-[; ;LED.c: 27: }
-[; ;LED.c: 28: }
-[; ;LED.c: 29: _delay((unsigned long)((50)*(32000000/4000.0)));
-"29
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"30
-}
-"16
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i + -> 20 `i -> 1 `i 1207  ]
-[e :U 1208 ]
-"30
-}
-[; ;LED.c: 30: }
 [; ;LED.c: 32: }
-"32
+[; ;LED.c: 33: }
+[; ;LED.c: 34: _delay((unsigned long)((50)*(32000000/4000.0)));
+"34
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"35
+}
+"17
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 6 `i 1207  ]
+[e :U 1208 ]
+"35
+}
+[; ;LED.c: 35: }
+[; ;LED.c: 37: }
+"37
 [e :UE 1206 ]
 }
-"34
+"39
 [v _LED_Task `(v ~T0 @X0 1 ef ]
-"35
+"40
 {
-[; ;LED.c: 34: void LED_Task(void)
-[; ;LED.c: 35: {
+[; ;LED.c: 39: void LED_Task(void)
+[; ;LED.c: 40: {
 [e :U _LED_Task ]
 [f ]
-"36
-[v F12025 `uc ~T0 @X0 1 s ledOFF ]
-[i F12025
+"41
+[v F12023 `uc ~T0 @X0 1 s ledOFF ]
+[i F12023
 -> -> 0 `i `uc
 ]
-[; ;LED.c: 36: static uint8_t ledOFF = 0;
-[; ;LED.c: 37: switch(LED_mode)
-"37
-[e $U 1217  ]
-[; ;LED.c: 38: {
-"38
-{
-[; ;LED.c: 39: case LED_OFF:
-"39
-[e :U 1218 ]
-[; ;LED.c: 40: if(ledOFF ==0)
-"40
-[e $ ! == -> F12025 `i -> 0 `i 1219  ]
-[; ;LED.c: 41: {
-"41
-{
-[; ;LED.c: 42: GIE = 0;
+[; ;LED.c: 41: static uint8_t ledOFF = 0;
+[; ;LED.c: 42: switch(LED_mode)
 "42
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 43: for(uint16_t i=0;i<20;i++)
+[e $U 1217  ]
+[; ;LED.c: 43: {
 "43
+{
+[; ;LED.c: 44: case LED_OFF:
+"44
+[e :U 1218 ]
+[; ;LED.c: 45: if(ledOFF ==0)
+"45
+[e $ ! == -> F12023 `i -> 0 `i 1219  ]
+[; ;LED.c: 46: {
+"46
+{
+[; ;LED.c: 47: GIE = 0;
+"47
+[e = _GIE -> -> 0 `i `b ]
+[; ;LED.c: 48: for(uint16_t i=0;i<6;i++)
+"48
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1220  ]
+[e $ < _i -> -> 6 `i `ui 1220  ]
 [e $U 1221  ]
-"44
-[e :U 1220 ]
-[; ;LED.c: 44: {
-{
-[; ;LED.c: 45: ledSendByte(0);
-"45
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 46: ledSendByte(0);
-"46
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-[; ;LED.c: 47: ledSendByte(0);
-"47
-[e ( _ledSendByte (1 -> -> 0 `i `uc ]
-"48
-}
-"43
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1220  ]
-[e :U 1221 ]
-"48
-}
-[; ;LED.c: 48: }
-[; ;LED.c: 49: GIE = 1;
 "49
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 50: ledOFF = 1;
+[e :U 1220 ]
+[; ;LED.c: 49: {
+{
+[; ;LED.c: 50: ledSetColor(ledFullOff);
 "50
-[e = F12025 -> -> 1 `i `uc ]
+[e ( _ledSetColor (1 _ledFullOff ]
 "51
 }
-[e :U 1219 ]
+"48
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 6 `i `ui 1220  ]
+[e :U 1221 ]
+"51
+}
 [; ;LED.c: 51: }
-[; ;LED.c: 52: break;
+[; ;LED.c: 52: GIE = 1;
 "52
-[e $U 1216  ]
-[; ;LED.c: 53: case LED_DIRECT:
+[e = _GIE -> -> 1 `i `b ]
+[; ;LED.c: 53: ledOFF = 1;
 "53
-[e :U 1223 ]
-[; ;LED.c: 54: if(LED_currentColor.Blue!=LED_SetColor.Blue
-[; ;LED.c: 55: || LED_currentColor.Red!=LED_SetColor.Red
-[; ;LED.c: 56: || LED_currentColor.Green!=LED_SetColor.Green)
+[e = F12023 -> -> 1 `i `uc ]
+"54
+}
+[e :U 1219 ]
+[; ;LED.c: 54: }
+[; ;LED.c: 55: break;
+"55
+[e $U 1216  ]
+[; ;LED.c: 56: case LED_DIRECT:
 "56
-[e $ ! || || != -> . _LED_currentColor 2 `i -> . _LED_SetColor 2 `i != -> . _LED_currentColor 0 `i -> . _LED_SetColor 0 `i != -> . _LED_currentColor 1 `i -> . _LED_SetColor 1 `i 1224  ]
-[; ;LED.c: 57: {
-"57
-{
-[; ;LED.c: 58: GIE = 0;
-"58
-[e = _GIE -> -> 0 `i `b ]
-[; ;LED.c: 59: for(uint16_t i=0;i<20;i++)
+[e :U 1223 ]
+[; ;LED.c: 57: if(LED_currentColor.Blue!=LED_SetColor.Blue
+[; ;LED.c: 58: || LED_currentColor.Red!=LED_SetColor.Red
+[; ;LED.c: 59: || LED_currentColor.Green!=LED_SetColor.Green)
 "59
+[e $ ! || || != -> . _LED_currentColor 2 `i -> . _LED_SetColor 2 `i != -> . _LED_currentColor 0 `i -> . _LED_SetColor 0 `i != -> . _LED_currentColor 1 `i -> . _LED_SetColor 1 `i 1224  ]
+[; ;LED.c: 60: {
+"60
+{
+[; ;LED.c: 61: GIE = 0;
+"61
+[e = _GIE -> -> 0 `i `b ]
+[; ;LED.c: 62: for(uint16_t i=0;i<6;i++)
+"62
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1225  ]
+[e $ < _i -> -> 6 `i `ui 1225  ]
 [e $U 1226  ]
-"60
-[e :U 1225 ]
-[; ;LED.c: 60: {
-{
-[; ;LED.c: 61: ledSetColor(LED_SetColor);
-"61
-[e ( _ledSetColor (1 _LED_SetColor ]
-"62
-}
-"59
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 20 `i `ui 1225  ]
-[e :U 1226 ]
-"62
-}
-[; ;LED.c: 62: }
-[; ;LED.c: 63: GIE = 1;
 "63
-[e = _GIE -> -> 1 `i `b ]
-[; ;LED.c: 64: LED_currentColor = LED_SetColor;
+[e :U 1225 ]
+[; ;LED.c: 63: {
+{
+[; ;LED.c: 64: ledSetColor(LED_SetColor);
 "64
-[e = _LED_currentColor _LED_SetColor ]
-[; ;LED.c: 65: ledOFF = 0;
+[e ( _ledSetColor (1 _LED_SetColor ]
 "65
-[e = F12025 -> -> 0 `i `uc ]
+}
+"62
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 6 `i `ui 1225  ]
+[e :U 1226 ]
+"65
+}
+[; ;LED.c: 65: }
+[; ;LED.c: 66: GIE = 1;
 "66
+[e = _GIE -> -> 1 `i `b ]
+[; ;LED.c: 67: LED_currentColor = LED_SetColor;
+"67
+[e = _LED_currentColor _LED_SetColor ]
+[; ;LED.c: 68: ledOFF = 0;
+"68
+[e = F12023 -> -> 0 `i `uc ]
+"69
 }
 [e :U 1224 ]
-[; ;LED.c: 66: }
-[; ;LED.c: 67: break;
-"67
-[e $U 1216  ]
-[; ;LED.c: 68: case LED_STARRY:
-"68
-[e :U 1228 ]
-[; ;LED.c: 69: ledOFF = 0;
-"69
-[e = F12025 -> -> 0 `i `uc ]
+[; ;LED.c: 69: }
 [; ;LED.c: 70: break;
 "70
 [e $U 1216  ]
-[; ;LED.c: 71: case LED_XMAS:
+[; ;LED.c: 71: case LED_STARRY:
 "71
-[e :U 1229 ]
+[e :U 1228 ]
 [; ;LED.c: 72: ledOFF = 0;
 "72
-[e = F12025 -> -> 0 `i `uc ]
+[e = F12023 -> -> 0 `i `uc ]
 [; ;LED.c: 73: break;
 "73
 [e $U 1216  ]
-[; ;LED.c: 74: case LED_PARTY:
+[; ;LED.c: 74: case LED_XMAS:
 "74
-[e :U 1230 ]
+[e :U 1229 ]
 [; ;LED.c: 75: ledOFF = 0;
 "75
-[e = F12025 -> -> 0 `i `uc ]
+[e = F12023 -> -> 0 `i `uc ]
 [; ;LED.c: 76: break;
 "76
 [e $U 1216  ]
-[; ;LED.c: 77: default:
+[; ;LED.c: 77: case LED_PARTY:
 "77
-[e :U 1231 ]
-[; ;LED.c: 78: break;
+[e :U 1230 ]
+[; ;LED.c: 78: ledOFF = 0;
 "78
-[e $U 1216  ]
+[e = F12023 -> -> 0 `i `uc ]
+[; ;LED.c: 79: break;
 "79
-}
-[; ;LED.c: 79: }
 [e $U 1216  ]
-"37
+[; ;LED.c: 80: default:
+"80
+[e :U 1231 ]
+[; ;LED.c: 81: break;
+"81
+[e $U 1216  ]
+"82
+}
+[; ;LED.c: 82: }
+[e $U 1216  ]
+"42
 [e :U 1217 ]
 [e [\ _LED_mode , $ . `E11864 0 1218
  , $ . `E11864 1 1223
@@ -11144,99 +11161,99 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ . `E11864 3 1229
  , $ . `E11864 4 1230
  1231 ]
-"79
+"82
 [e :U 1216 ]
-[; ;LED.c: 83: }
-"83
+[; ;LED.c: 86: }
+"86
 [e :UE 1215 ]
 }
-"85
-[v _ledSetColor `(v ~T0 @X0 1 ef1`S1205 ]
-"86
-{
-[; ;LED.c: 85: void ledSetColor(LED_COLOR ledColor)
-[; ;LED.c: 86: {
-[e :U _ledSetColor ]
-"85
-[v _ledColor `S1205 ~T0 @X0 1 r1 ]
-"86
-[f ]
-[; ;LED.c: 87: ledSendByte(ledColor.Green);
-"87
-[e ( _ledSendByte (1 . _ledColor 1 ]
-[; ;LED.c: 88: ledSendByte(ledColor.Red);
 "88
-[e ( _ledSendByte (1 . _ledColor 0 ]
-[; ;LED.c: 89: ledSendByte(ledColor.Blue);
+[v _ledSetColor `TF11887 ~T0 @X0 1 e ]
 "89
-[e ( _ledSendByte (1 . _ledColor 2 ]
-[; ;LED.c: 90: }
+{
+[; ;LED.c: 88: inline void ledSetColor(LED_COLOR ledColor)
+[; ;LED.c: 89: {
+[e :U _ledSetColor ]
+"88
+[v _ledColor `S1205 ~T0 @X0 1 r1 ]
+"89
+[f ]
+[; ;LED.c: 90: ledSendByte(ledColor.Green);
 "90
+[e ( _ledSendByte (1 . _ledColor 1 ]
+[; ;LED.c: 91: ledSendByte(ledColor.Red);
+"91
+[e ( _ledSendByte (1 . _ledColor 0 ]
+[; ;LED.c: 92: ledSendByte(ledColor.Blue);
+"92
+[e ( _ledSendByte (1 . _ledColor 2 ]
+[; ;LED.c: 93: }
+"93
 [e :UE 1232 ]
 }
-"92
+"95
 [v _ledStripSetColor `(v ~T0 @X0 1 ef2`*S1205`uc ]
-"93
+"96
 {
-[; ;LED.c: 92: void ledStripSetColor(LED_COLOR* ledColor, uint8_t numberOfLED)
-[; ;LED.c: 93: {
+[; ;LED.c: 95: void ledStripSetColor(LED_COLOR* ledColor, uint8_t numberOfLED)
+[; ;LED.c: 96: {
 [e :U _ledStripSetColor ]
-"92
+"95
 [v _ledColor `*S1205 ~T0 @X0 1 r1 ]
 [v _numberOfLED `uc ~T0 @X0 1 r2 ]
-"93
-[f ]
-"94
-[v _i `ui ~T0 @X0 1 a ]
-[; ;LED.c: 94: uint16_t i;
-[; ;LED.c: 96: for(i=0;i<numberOfLED;i++)
 "96
+[f ]
+"97
+[v _i `ui ~T0 @X0 1 a ]
+[; ;LED.c: 97: uint16_t i;
+[; ;LED.c: 99: for(i=0;i<numberOfLED;i++)
+"99
 {
 [e = _i -> -> 0 `i `ui ]
 [e $U 1237  ]
-"97
+"100
 [e :U 1234 ]
-[; ;LED.c: 97: {
+[; ;LED.c: 100: {
 {
-[; ;LED.c: 98: if(sizeof(ledColor)<=sizeof(ledColor[0])*i)
-"98
+[; ;LED.c: 101: if(sizeof(ledColor)<=sizeof(ledColor[0])*i)
+"101
 [e $ ! <= -> # _ledColor `ui * -> # *U + _ledColor * -> -> 0 `i `x -> -> # *U _ledColor `i `x `ui _i 1238  ]
-[; ;LED.c: 99: break;
-"99
+[; ;LED.c: 102: break;
+"102
 [e $U 1235  ]
 [e :U 1238 ]
-[; ;LED.c: 100: ledSetColor(*(ledColor+i));
-"100
+[; ;LED.c: 103: ledSetColor(*(ledColor+i));
+"103
 [e ( _ledSetColor (1 *U + _ledColor * -> _i `ux -> -> # *U _ledColor `ui `ux ]
-"101
+"104
 }
-"96
+"99
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 1237 ]
 [e $ < _i -> _numberOfLED `ui 1234  ]
 [e :U 1235 ]
-"101
+"104
 }
-[; ;LED.c: 101: }
-[; ;LED.c: 102: }
-"102
+[; ;LED.c: 104: }
+[; ;LED.c: 105: }
+"105
 [e :UE 1233 ]
 }
-"104
-[v _ledSendByte `(v ~T0 @X0 1 ef1`uc ]
-"105
+"109
+[v _ledSendByte `TF11884 ~T0 @X0 1 e ]
+"110
 {
-[; ;LED.c: 104: void ledSendByte(uint8_t data)
-[; ;LED.c: 105: {
+[; ;LED.c: 109: inline void ledSendByte(uint8_t data)
+[; ;LED.c: 110: {
 [e :U _ledSendByte ]
-"104
+"109
 [v _data `uc ~T0 @X0 1 r1 ]
-"105
+"110
 [f ]
-[; ;LED.c: 140: SPI_Exchange8bit(data);
-"140
+[; ;LED.c: 147: SPI_Exchange8bit(data);
+"147
 [e ( _SPI_Exchange8bit (1 _data ]
-[; ;LED.c: 142: }
-"142
+[; ;LED.c: 149: }
+"149
 [e :UE 1239 ]
 }

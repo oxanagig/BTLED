@@ -1,5 +1,5 @@
 /**
-  @Generated MPLAB® Code Configurator Source File
+  @Generated MPLABï¿½ Code Configurator Source File
 
   @Company:
     Microchip Technology Inc.
@@ -8,12 +8,12 @@
     mcc.c
 
   @Summary:
-    This is the mcc.c file generated using MPLAB® Code Configurator
+    This is the mcc.c file generated using MPLABï¿½ Code Configurator
 
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -60,7 +60,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config WRT = OFF    // Flash Memory Self-Write Protection->Write protection off
 #pragma config LPBOR = OFF    // Low-Power Brown Out Reset->Low-Power BOR is disabled
 #pragma config PPS1WAY = ON    // Peripheral Pin Select one-way control->The PPSLOCK bit cannot be cleared once it is set by software
-#pragma config LVP = OFF    // Low-Voltage Programming Enable->High-voltage on MCLR/VPP must be used for programming
+#pragma config LVP = ON    // Low-Voltage Programming Enable->Low-voltage programming enabled
 #pragma config ZCD = OFF    // Zero Cross Detect Disable Bit->ZCD disable.  ZCD can be enabled by setting the ZCDSEN bit of ZCDCON
 #pragma config STVREN = ON    // Stack Overflow/Underflow Reset Enable->Stack Overflow or Underflow will cause a Reset
 #pragma config PLLEN = ON    // PLL Enable Bit->4x PLL is always enabled
@@ -82,7 +82,6 @@ void SYSTEM_Initialize(void) {
     TMR2_Initialize();
     ADC1_Initialize();
     CLC4_Initialize();
-    CLC2_Initialize();
     PWM3_Initialize();
 }
 

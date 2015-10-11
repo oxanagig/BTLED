@@ -12,20 +12,20 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production/BT_LED_strip.X.production.obj
-cinit CODE 0 20 20 3A0 2
-text26 CODE 0 4B5 4B5 24 2
-text27 CODE 0 4D9 4D9 16 2
-text28 CODE 0 4EF 4EF 15 2
+cinit CODE 0 20 20 3BD 2
+text25 CODE 0 4B5 4B5 24 2
+text26 CODE 0 4D9 4D9 16 2
+text27 CODE 0 4EF 4EF 15 2
 cstackCOMMON COMMON 1 70 70 E 1
-cstackBANK0 BANK0 1 58 58 1 1
+cstackBANK0 BANK0 1 58 58 3 1
 intentry CODE 0 4 4 1A 2
 bssBANK0 BANK0 1 20 20 38 1
 stringtext STRCODE 0 400 400 B5 2
-swtext1 CONST 0 3C0 3C0 A 2
-swtext2 CONST 0 3CA 3CA A 2
-swtext3 CONST 0 3D4 3D4 A 2
+swtext1 CONST 0 3DD 3DD A 2
+swtext2 CONST 0 3E7 3E7 A 2
+swtext3 CONST 0 3F1 3F1 A 2
 clrtext CODE 0 504 504 6 2
-$/tmp/cgtsSHFya.obj
+$/tmp/cgt67ERDR.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 1E 1E 2 2
 config CONFIG 0 8007 8007 3 2
@@ -35,7 +35,7 @@ config CONFIG 0 8007 8007 3 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 59-6F 1
+RAM 5B-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
@@ -48,7 +48,7 @@ RAM 4A0-4EF 1
 RAM 520-56F 1
 RAM 5A0-5EF 1
 RAM 620-63F 1
-BANK0 59-6F 1
+BANK0 5B-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -59,10 +59,10 @@ BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
 CONST 2-3 2
-CONST 3DE-3FF 2
+CONST 3FB-3FF 2
 CONST 50A-1FFF 2
 ENTRY 2-3 2
-ENTRY 3DE-3FF 2
+ENTRY 3FB-3FF 2
 ENTRY 50A-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
@@ -87,9 +87,9 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 2039-23DF 1
+STACK 203B-23DF 1
 CODE 2-3 2
-CODE 3DE-3FF 2
+CODE 3FB-3FF 2
 CODE 50A-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -106,10 +106,10 @@ BANK11 5A0-5EF 1
 BANK12 620-63F 1
 BIGRAM 2000-23DF 1
 STRCODE 2-3 2
-STRCODE 3DE-3FF 2
+STRCODE 3FB-3FF 2
 STRCODE 50A-1FFF 2
 STRING 2-3 2
-STRING 3DE-3FF 2
+STRING 3FB-3FF 2
 STRING 50A-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -125,27 +125,29 @@ STRING 50A-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/BT_LED_strip.X.production.obj
-4 intentry CODE >128:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4 intentry CODE >52:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-5 intentry CODE >54:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-B intentry CODE >55:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-D intentry CODE >56:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-14 intentry CODE >57:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-16 intentry CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-1A intentry CODE >59:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-1C intentry CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-1D intentry CODE >66:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/interrupt_manager.c
-20 cinit CODE >13812:/tmp/cgtKsw5Hi
-20 cinit CODE >13815:/tmp/cgtKsw5Hi
-20 cinit CODE >13880:/tmp/cgtKsw5Hi
-21 cinit CODE >13881:/tmp/cgtKsw5Hi
-22 cinit CODE >13882:/tmp/cgtKsw5Hi
-23 cinit CODE >13883:/tmp/cgtKsw5Hi
-24 cinit CODE >13884:/tmp/cgtKsw5Hi
-25 cinit CODE >13885:/tmp/cgtKsw5Hi
-28 cinit CODE >13891:/tmp/cgtKsw5Hi
-28 cinit CODE >13892:/tmp/cgtKsw5Hi
-29 cinit CODE >13893:/tmp/cgtKsw5Hi
+0 text13 CODE >88:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+0 text14 CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+4 intentry CODE >128:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4 intentry CODE >52:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+5 intentry CODE >54:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+B intentry CODE >55:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+D intentry CODE >56:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+14 intentry CODE >57:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+16 intentry CODE >58:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+1A intentry CODE >59:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+1C intentry CODE >62:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+1D intentry CODE >66:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/interrupt_manager.c
+20 cinit CODE >11150:/tmp/cgtzh5EuO
+20 cinit CODE >11153:/tmp/cgtzh5EuO
+20 cinit CODE >11218:/tmp/cgtzh5EuO
+21 cinit CODE >11219:/tmp/cgtzh5EuO
+22 cinit CODE >11220:/tmp/cgtzh5EuO
+23 cinit CODE >11221:/tmp/cgtzh5EuO
+24 cinit CODE >11222:/tmp/cgtzh5EuO
+25 cinit CODE >11223:/tmp/cgtzh5EuO
+28 cinit CODE >11229:/tmp/cgtzh5EuO
+28 cinit CODE >11230:/tmp/cgtzh5EuO
+29 cinit CODE >11231:/tmp/cgtzh5EuO
 2A cinit CODE >56:/Users/xiang/GitHub/BTLED/Firmware/src/main.c
 2A cinit CODE >59:/Users/xiang/GitHub/BTLED/Firmware/src/main.c
 2C cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/main.c
@@ -154,361 +156,374 @@ D intentry CODE >56:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/i
 30 cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/main.c
 32 cinit CODE >73:/Users/xiang/GitHub/BTLED/Firmware/src/main.c
 34 cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/main.c
-3C cinit CODE >12:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-3C cinit CODE >16:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-3D cinit CODE >18:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-3F cinit CODE >20:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-4A cinit CODE >22:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-54 cinit CODE >26:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-60 cinit CODE >18:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-6A cinit CODE >29:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-76 cinit CODE >16:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-7C cinit CODE >85:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-7C cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-7F cinit CODE >88:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-82 cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-84 cinit CODE >34:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-84 cinit CODE >37:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-85 cinit CODE >40:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-88 cinit CODE >42:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-89 cinit CODE >43:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-8B cinit CODE >45:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-8E cinit CODE >46:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-91 cinit CODE >47:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-94 cinit CODE >43:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-9E cinit CODE >49:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-9F cinit CODE >50:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-A3 cinit CODE >56:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-AF cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-B0 cinit CODE >59:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-B2 cinit CODE >61:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-BB cinit CODE >59:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-C5 cinit CODE >63:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-C6 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-CD cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-CF cinit CODE >37:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-DA cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-DB cinit CODE >104:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-DC cinit CODE >140:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-DD cinit CODE >52:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-DD cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-E1 cinit CODE >60:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-E4 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-EF cinit CODE >211:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-F0 cinit CODE >67:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-F8 cinit CODE >69:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-FC cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-FD cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-FE cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-100 cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-101 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-104 cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-107 cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-10A cinit CODE >73:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-10B cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-10C cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-110 cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-114 cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-11C cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-120 cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-127 cinit CODE >97:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-12B cinit CODE >99:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-138 cinit CODE >104:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-13C cinit CODE >107:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-140 cinit CODE >110:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-144 cinit CODE >113:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-148 cinit CODE >116:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-14C cinit CODE >119:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-150 cinit CODE >101:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-15B cinit CODE >125:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-15C cinit CODE >136:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-15F cinit CODE >141:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-160 cinit CODE >142:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-161 cinit CODE >141:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-163 cinit CODE >142:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-164 cinit CODE >143:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-166 cinit CODE >149:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-168 cinit CODE >154:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-16A cinit CODE >159:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-16E cinit CODE >171:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-174 cinit CODE >172:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-175 cinit CODE >171:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-176 cinit CODE >172:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-179 cinit CODE >174:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-17D cinit CODE >175:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-17E cinit CODE >176:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-182 cinit CODE >178:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-186 cinit CODE >179:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-187 cinit CODE >180:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-18B cinit CODE >182:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-18F cinit CODE >184:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-193 cinit CODE >186:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-197 cinit CODE >188:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-199 cinit CODE >189:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-19B cinit CODE >190:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-19D cinit CODE >191:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1A0 cinit CODE >160:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1A2 cinit CODE >127:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1A5 cinit CODE >131:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1AC cinit CODE >132:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1B0 cinit CODE >134:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1BC cinit CODE >139:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1C8 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1D4 cinit CODE >152:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1E0 cinit CODE >157:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1EC cinit CODE >195:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1F0 cinit CODE >201:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1F4 cinit CODE >204:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1F5 cinit CODE >203:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1F6 cinit CODE >204:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-1FA cinit CODE >5:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-1FA cinit CODE >9:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-200 cinit CODE >12:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-205 cinit CODE >13:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-208 cinit CODE >15:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-20C cinit CODE >16:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-210 cinit CODE >19:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-218 cinit CODE >20:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-21C cinit CODE >22:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-21F cinit CODE >23:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-227 cinit CODE >24:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-229 cinit CODE >25:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-22E cinit CODE >29:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-235 cinit CODE >30:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
-236 cinit CODE >35:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-237 cinit CODE >37:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-238 cinit CODE >39:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-247 cinit CODE >41:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-248 cinit CODE >39:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-24A cinit CODE >41:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-255 cinit CODE >45:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-261 cinit CODE >37:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-266 cinit CODE >48:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-26F cinit CODE >50:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-270 cinit CODE >112:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-270 cinit CODE >115:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-273 cinit CODE >118:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-275 cinit CODE >120:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-27C cinit CODE >121:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-27D cinit CODE >120:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-27E cinit CODE >121:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-280 cinit CODE >122:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-281 cinit CODE >124:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-282 cinit CODE >125:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-284 cinit CODE >127:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-285 cinit CODE >128:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-286 cinit CODE >8:/Applications/microchip/xc8/v1.34/sources/common/memset.c
-287 cinit CODE >18:/Applications/microchip/xc8/v1.34/sources/common/memset.c
-288 cinit CODE >19:/Applications/microchip/xc8/v1.34/sources/common/memset.c
-291 cinit CODE >20:/Applications/microchip/xc8/v1.34/sources/common/memset.c
-297 cinit CODE >19:/Applications/microchip/xc8/v1.34/sources/common/memset.c
-298 cinit CODE >27:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-298 cinit CODE >29:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-2AA cinit CODE >31:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-2B8 cinit CODE >29:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-2BA cinit CODE >130:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2BB cinit CODE >131:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2BF cinit CODE >134:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2C2 cinit CODE >135:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2C5 cinit CODE >136:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2C6 cinit CODE >137:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2C7 cinit CODE >138:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2CE cinit CODE >139:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2CF cinit CODE >138:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2D0 cinit CODE >139:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2D2 cinit CODE >140:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2D3 cinit CODE >142:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2D4 cinit CODE >144:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2D6 cinit CODE >145:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-2D7 cinit CODE >4:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2D7 cinit CODE >8:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2DB cinit CODE >9:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2E2 cinit CODE >10:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2E5 cinit CODE >9:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2E6 cinit CODE >12:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2EC cinit CODE >13:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
-2ED cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2ED cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2EF cinit CODE >79:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2F1 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2F3 cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2F5 cinit CODE >82:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2F7 cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2F9 cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2FB cinit CODE >85:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2FD cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-2FE cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-2FE cinit CODE >69:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-301 cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-303 cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-304 cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-305 cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-306 cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/adc1.c
-307 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-307 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-30A cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-30C cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-30E cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-310 cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-312 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-314 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-316 cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-317 cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-319 cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-31B cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc4.c
-31C cinit CODE >76:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-31C cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-31E cinit CODE >79:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-31F cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-322 cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-324 cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-326 cinit CODE >93:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-328 cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-329 cinit CODE >100:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-32A cinit CODE >102:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-32B cinit CODE >100:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-32C cinit CODE >101:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-32D cinit CODE >102:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-32E cinit CODE >104:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-32F cinit CODE >105:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-330 cinit CODE >106:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-331 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-333 cinit CODE >110:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-334 cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-334 cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-337 cinit CODE >93:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-338 cinit CODE >95:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-339 cinit CODE >99:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-339 cinit CODE >100:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/mcc.c
-33C cinit CODE >51:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-33C cinit CODE >52:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-33E cinit CODE >53:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-341 cinit CODE >54:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-344 cinit CODE >56:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-347 cinit CODE >57:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-34A cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-34C cinit CODE >59:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-34E cinit CODE >61:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-350 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-353 cinit CODE >63:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-355 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-357 cinit CODE >66:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-359 cinit CODE >69:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-35B cinit CODE >70:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-35C cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-35D cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-35E cinit CODE >73:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-35F cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-360 cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-361 cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-362 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-366 cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-367 cinit CODE >82:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-36A cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-36C cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-36D cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-36F cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-372 cinit CODE >88:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-374 cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-376 cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-379 cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-37C cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-37F cinit CODE >93:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-381 cinit CODE >94:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-383 cinit CODE >95:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-384 cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-389 cinit CODE >97:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-38A cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-38A cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-38C cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-38E cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-38F cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-390 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-390 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-392 cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-394 cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-396 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-397 cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-399 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-39A cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-39B cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-39C cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-39D cinit CODE >79:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-39F cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-3A1 cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-3A1 cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-3A3 cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-3A4 cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/spi.c
-3A5 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3A5 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3A6 cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3A8 cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3A9 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3AA cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3AB cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3AD cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3AE cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3AF cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3B0 cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3B2 cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/clc2.c
-3B3 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
-3B3 cinit CODE >61:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
-3B6 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
-3B8 cinit CODE >67:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
-3BA cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
-3BD cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pwm3.c
-3BE cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-3BE cinit CODE >98:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-3BF cinit CODE >99:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/tmr2.c
-3C0 swtext1 CONST >37:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
-3CA swtext2 CONST >101:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-3D4 swtext3 CONST >64:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
-4B5 text26 CODE >99:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4B5 text26 CODE >100:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4B9 text26 CODE >104:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4BA text26 CODE >105:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4BE text26 CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4BF text26 CODE >110:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4C3 text26 CODE >114:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4C4 text26 CODE >115:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4C8 text26 CODE >119:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4C9 text26 CODE >120:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4CD text26 CODE >124:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4CE text26 CODE >125:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4D2 text26 CODE >129:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4D3 text26 CODE >130:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4D7 text26 CODE >134:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4D8 text26 CODE >136:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/pin_manager.c
-4D9 text27 CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4D9 text27 CODE >150:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4DD text27 CODE >151:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4E5 text27 CODE >152:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4E6 text27 CODE >151:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4E7 text27 CODE >152:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4E9 text27 CODE >153:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4EA text27 CODE >155:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4EB text27 CODE >156:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4EC text27 CODE >157:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4EE text27 CODE >159:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4EF text28 CODE >161:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4EF text28 CODE >162:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4F2 text28 CODE >165:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4F3 text28 CODE >166:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4F4 text28 CODE >170:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4FD text28 CODE >171:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4FE text28 CODE >170:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-4FF text28 CODE >171:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-501 text28 CODE >172:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-502 text28 CODE >174:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-503 text28 CODE >175:/Users/xiang/GitHub/BTLED/Firmware/src/mcc_generated_files/eusart.c
-504 clrtext CODE >13869:/tmp/cgtKsw5Hi
-504 clrtext CODE >13870:/tmp/cgtKsw5Hi
-505 clrtext CODE >13871:/tmp/cgtKsw5Hi
-505 clrtext CODE >13872:/tmp/cgtKsw5Hi
-506 clrtext CODE >13873:/tmp/cgtKsw5Hi
-507 clrtext CODE >13874:/tmp/cgtKsw5Hi
-508 clrtext CODE >13875:/tmp/cgtKsw5Hi
-509 clrtext CODE >13876:/tmp/cgtKsw5Hi
+41 cinit CODE >13:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+41 cinit CODE >17:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+42 cinit CODE >19:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+43 cinit CODE >21:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+47 cinit CODE >23:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+4C cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+4D cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+50 cinit CODE >24:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+55 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+56 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+59 cinit CODE >25:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+5E cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+5F cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+62 cinit CODE >19:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+67 cinit CODE >34:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+73 cinit CODE >17:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+79 cinit CODE >29:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+7E cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+7F cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+82 cinit CODE >30:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+87 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+88 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+8B cinit CODE >31:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+90 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+91 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+95 cinit CODE >39:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+95 cinit CODE >42:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+96 cinit CODE >45:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+99 cinit CODE >47:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+9A cinit CODE >48:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+9C cinit CODE >50:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+A6 cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+A7 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+A8 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+AB cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+AC cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+AD cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+B0 cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+B1 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+B2 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+B6 cinit CODE >48:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+C0 cinit CODE >52:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+C1 cinit CODE >53:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+C5 cinit CODE >59:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+D1 cinit CODE >61:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+D2 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+D4 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+DB cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+DC cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+DD cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+E0 cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+E1 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+E2 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+E5 cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+E6 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+E7 cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+EB cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+F5 cinit CODE >66:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+F6 cinit CODE >67:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+FD cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+FF cinit CODE >42:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+10A cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+10B cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+10C cinit CODE >79:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+10E cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+110 cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+110 cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+112 cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+113 cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+114 cinit CODE >52:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+114 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+118 cinit CODE >60:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+11B cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+126 cinit CODE >211:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+127 cinit CODE >67:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+12F cinit CODE >69:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+133 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+134 cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+135 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+137 cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+138 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+13B cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+13E cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+141 cinit CODE >73:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+142 cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+143 cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+147 cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+14B cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+153 cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+157 cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+15E cinit CODE >97:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+162 cinit CODE >99:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+16F cinit CODE >104:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+173 cinit CODE >107:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+177 cinit CODE >110:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+17B cinit CODE >113:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+17F cinit CODE >116:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+183 cinit CODE >119:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+187 cinit CODE >101:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+192 cinit CODE >125:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+193 cinit CODE >136:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+196 cinit CODE >141:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+197 cinit CODE >142:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+198 cinit CODE >141:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+19A cinit CODE >142:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+19B cinit CODE >143:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+19D cinit CODE >149:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+19F cinit CODE >154:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1A1 cinit CODE >159:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1A5 cinit CODE >171:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1AB cinit CODE >172:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1AC cinit CODE >171:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1AD cinit CODE >172:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1B0 cinit CODE >174:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1B4 cinit CODE >175:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1B5 cinit CODE >176:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1B9 cinit CODE >178:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1BD cinit CODE >179:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1BE cinit CODE >180:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1C2 cinit CODE >182:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1C6 cinit CODE >184:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1CA cinit CODE >186:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1CE cinit CODE >188:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1D0 cinit CODE >189:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1D2 cinit CODE >190:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1D4 cinit CODE >191:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1D7 cinit CODE >160:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1D9 cinit CODE >127:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1DC cinit CODE >131:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1E3 cinit CODE >132:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1E7 cinit CODE >134:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1F3 cinit CODE >139:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+1FF cinit CODE >147:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+20B cinit CODE >152:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+217 cinit CODE >157:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+223 cinit CODE >195:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+227 cinit CODE >201:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+22B cinit CODE >204:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+22C cinit CODE >203:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+22D cinit CODE >204:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+231 cinit CODE >5:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+231 cinit CODE >9:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+237 cinit CODE >12:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+23C cinit CODE >13:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+23F cinit CODE >15:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+243 cinit CODE >16:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+247 cinit CODE >19:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+24F cinit CODE >20:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+253 cinit CODE >22:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+256 cinit CODE >23:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+25E cinit CODE >24:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+260 cinit CODE >25:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+265 cinit CODE >29:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+26C cinit CODE >30:/Applications/microchip/xc8/v1.34/sources/common/strcmp.c
+26D cinit CODE >35:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+26E cinit CODE >37:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+26F cinit CODE >39:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+27E cinit CODE >41:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+27F cinit CODE >39:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+281 cinit CODE >41:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+28C cinit CODE >45:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+298 cinit CODE >37:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+29D cinit CODE >48:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+2A6 cinit CODE >50:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+2A7 cinit CODE >112:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2A7 cinit CODE >115:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2AA cinit CODE >118:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2AC cinit CODE >120:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2B3 cinit CODE >121:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2B4 cinit CODE >120:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2B5 cinit CODE >121:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2B7 cinit CODE >122:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2B8 cinit CODE >124:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2B9 cinit CODE >125:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2BB cinit CODE >127:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2BC cinit CODE >128:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2BD cinit CODE >8:/Applications/microchip/xc8/v1.34/sources/common/memset.c
+2BE cinit CODE >18:/Applications/microchip/xc8/v1.34/sources/common/memset.c
+2BF cinit CODE >19:/Applications/microchip/xc8/v1.34/sources/common/memset.c
+2C8 cinit CODE >20:/Applications/microchip/xc8/v1.34/sources/common/memset.c
+2CE cinit CODE >19:/Applications/microchip/xc8/v1.34/sources/common/memset.c
+2CF cinit CODE >27:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+2CF cinit CODE >29:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+2E1 cinit CODE >31:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+2EF cinit CODE >29:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+2F1 cinit CODE >130:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2F2 cinit CODE >131:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2F6 cinit CODE >134:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2F9 cinit CODE >135:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2FC cinit CODE >136:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2FD cinit CODE >137:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+2FE cinit CODE >138:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+305 cinit CODE >139:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+306 cinit CODE >138:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+307 cinit CODE >139:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+309 cinit CODE >140:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+30A cinit CODE >142:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+30B cinit CODE >144:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+30D cinit CODE >145:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+30E cinit CODE >4:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+30E cinit CODE >8:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+312 cinit CODE >9:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+319 cinit CODE >10:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+31C cinit CODE >9:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+31D cinit CODE >12:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+323 cinit CODE >13:/Applications/microchip/xc8/v1.34/sources/common/strlen.c
+324 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+324 cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+326 cinit CODE >79:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+328 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+32A cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+32C cinit CODE >82:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+32E cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+330 cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+332 cinit CODE >85:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+333 cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+333 cinit CODE >69:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+336 cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+338 cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+339 cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+33A cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+33B cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/adc1.c
+33C cinit CODE >76:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+33C cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+33E cinit CODE >79:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+33F cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+342 cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+344 cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+346 cinit CODE >93:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+348 cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+349 cinit CODE >100:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+34A cinit CODE >102:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+34B cinit CODE >100:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+34C cinit CODE >101:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+34D cinit CODE >102:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+34E cinit CODE >104:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+34F cinit CODE >105:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+350 cinit CODE >106:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+351 cinit CODE >109:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+353 cinit CODE >110:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+354 cinit CODE >88:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+354 cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+357 cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+358 cinit CODE >94:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+359 cinit CODE >98:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+359 cinit CODE >99:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/mcc.c
+35C cinit CODE >51:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+35C cinit CODE >52:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+35E cinit CODE >53:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+361 cinit CODE >54:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+364 cinit CODE >56:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+367 cinit CODE >57:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+36A cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+36C cinit CODE >59:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+36E cinit CODE >61:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+370 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+373 cinit CODE >63:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+375 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+377 cinit CODE >66:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+379 cinit CODE >69:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+37B cinit CODE >70:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+37C cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+37D cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+37E cinit CODE >73:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+37F cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+380 cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+381 cinit CODE >78:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+382 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+386 cinit CODE >81:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+387 cinit CODE >82:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+38A cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+38C cinit CODE >84:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+38D cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+38F cinit CODE >87:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+392 cinit CODE >88:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+394 cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+396 cinit CODE >90:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+399 cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+39C cinit CODE >92:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+39F cinit CODE >93:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+3A1 cinit CODE >94:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+3A3 cinit CODE >95:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+3A4 cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+3A9 cinit CODE >97:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+3AA cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+3AA cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+3AC cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+3AE cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+3AF cinit CODE >75:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/spi.c
+3B0 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B0 cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B2 cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B3 cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B5 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B6 cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B8 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3B9 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3BA cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3BB cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3BB cinit CODE >62:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3BE cinit CODE >65:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3C0 cinit CODE >68:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3C2 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3C4 cinit CODE >74:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3C6 cinit CODE >77:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3C8 cinit CODE >80:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3CA cinit CODE >83:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3CB cinit CODE >86:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3CD cinit CODE >89:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3CF cinit CODE >91:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/clc4.c
+3D0 cinit CODE >58:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+3D0 cinit CODE >61:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+3D3 cinit CODE >64:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+3D5 cinit CODE >67:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+3D7 cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+3DA cinit CODE >72:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pwm3.c
+3DB cinit CODE >96:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3DB cinit CODE >98:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3DC cinit CODE >99:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/tmr2.c
+3DD swtext1 CONST >42:/Users/xiang/GitHub/BTLED/Firmware/src/LED.c
+3E7 swtext2 CONST >101:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+3F1 swtext3 CONST >64:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
+4B5 text25 CODE >99:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4B5 text25 CODE >100:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4B9 text25 CODE >104:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4BA text25 CODE >105:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4BE text25 CODE >109:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4BF text25 CODE >110:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4C3 text25 CODE >114:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4C4 text25 CODE >115:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4C8 text25 CODE >119:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4C9 text25 CODE >120:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4CD text25 CODE >124:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4CE text25 CODE >125:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4D2 text25 CODE >129:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4D3 text25 CODE >130:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4D7 text25 CODE >134:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4D8 text25 CODE >136:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/pin_manager.c
+4D9 text26 CODE >147:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4D9 text26 CODE >150:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4DD text26 CODE >151:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4E5 text26 CODE >152:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4E6 text26 CODE >151:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4E7 text26 CODE >152:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4E9 text26 CODE >153:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4EA text26 CODE >155:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4EB text26 CODE >156:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4EC text26 CODE >157:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4EE text26 CODE >159:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4EF text27 CODE >161:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4EF text27 CODE >162:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4F2 text27 CODE >165:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4F3 text27 CODE >166:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4F4 text27 CODE >170:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4FD text27 CODE >171:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4FE text27 CODE >170:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+4FF text27 CODE >171:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+501 text27 CODE >172:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+502 text27 CODE >174:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+503 text27 CODE >175:/Users/xiang/GitHub/BTLED/Firmware/BT_LED_strip.X/mcc_generated_files/eusart.c
+504 clrtext CODE >11207:/tmp/cgtzh5EuO
+504 clrtext CODE >11208:/tmp/cgtzh5EuO
+505 clrtext CODE >11209:/tmp/cgtzh5EuO
+505 clrtext CODE >11210:/tmp/cgtzh5EuO
+506 clrtext CODE >11211:/tmp/cgtzh5EuO
+507 clrtext CODE >11212:/tmp/cgtzh5EuO
+508 clrtext CODE >11213:/tmp/cgtzh5EuO
+509 clrtext CODE >11214:/tmp/cgtzh5EuO
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -522,13 +537,11 @@ FE cinit CODE >71:/Users/xiang/GitHub/BTLED/Firmware/src/serialCommand.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_EUSART_Read 4E0 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_EUSART_Read 54E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Hspace_0 800A 0 ABS 0 - -
 __Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
-_CLC2CON F1A 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2POL F1B 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _CLC4CON F2E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _CLC4POL F2F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _SSP1STATbits 214 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -537,7 +550,7 @@ _PWM3DCH 618 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _PWM3DCL 617 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_PIN_MANAGER_IOC 9B2 0 CODE 0 text26 dist/default/production/BT_LED_strip.X.production.obj
+__end_of_PIN_MANAGER_IOC 9B2 0 CODE 0 text25 dist/default/production/BT_LED_strip.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -553,34 +566,34 @@ _PLLR 4D6 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _T2PR 1B 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _WPUB 20D 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _WPUC 20E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtsSHFya.obj
+___sp 0 0 STACK 2 stack /tmp/cgt67ERDR.obj
 _main 54 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-start 3C 0 CODE 0 init /tmp/cgtsSHFya.obj
+start 3C 0 CODE 0 init /tmp/cgt67ERDR.obj
 ttemp 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_EUSART_Write 574 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_EUSART_Write 5E2 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_ADC1_Initialize 5FC 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_ADC1_Initialize 666 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Hpa_nodes 0 0 ABS 0 pa_nodes -
-__end_of_EUSART_Initialize 668 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_EUSART_Initialize 6A8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Hpowerup 0 0 CODE 0 powerup -
-_TMR2_Initialize 720 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_TMR2_Initialize 760 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 ttemp0 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ttemp1 81 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-intlevel0 0 0 CODE 0 functab /tmp/cgtsSHFya.obj
-intlevel1 0 0 CODE 0 functab /tmp/cgtsSHFya.obj
-intlevel2 0 0 CODE 0 functab /tmp/cgtsSHFya.obj
-intlevel3 0 0 CODE 0 functab /tmp/cgtsSHFya.obj
-intlevel4 0 0 CODE 0 functab /tmp/cgtsSHFya.obj
-intlevel5 0 0 CODE 0 functab /tmp/cgtsSHFya.obj
-_UART_HexSrtingToBinary 46C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+intlevel0 0 0 CODE 0 functab /tmp/cgt67ERDR.obj
+intlevel1 0 0 CODE 0 functab /tmp/cgt67ERDR.obj
+intlevel2 0 0 CODE 0 functab /tmp/cgt67ERDR.obj
+intlevel3 0 0 CODE 0 functab /tmp/cgt67ERDR.obj
+intlevel4 0 0 CODE 0 functab /tmp/cgt67ERDR.obj
+intlevel5 0 0 CODE 0 functab /tmp/cgt67ERDR.obj
+_UART_HexSrtingToBinary 4DA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 wtemp2 82 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -590,9 +603,9 @@ wtemp5 88 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 _RC1STAbits 19D 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_PIN_MANAGER_IOC 96A 0 CODE 0 text26 dist/default/production/BT_LED_strip.X.production.obj
+_PIN_MANAGER_IOC 96A 0 CODE 0 text25 dist/default/production/BT_LED_strip.X.production.obj
 __size_of_EUSART_Write 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_EUSART_Transmit_ISR 9DE 0 CODE 0 text27 dist/default/production/BT_LED_strip.X.production.obj
+__end_of_EUSART_Transmit_ISR 9DE 0 CODE 0 text26 dist/default/production/BT_LED_strip.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 __size_of_SPI_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _eusartTxBuffer 30 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
@@ -606,7 +619,7 @@ _ANSELB 18D 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _ANSELC 18E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 UART_HexSrtingToBinary@data 73 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 __end_of_INTERRUPT_InterruptManager 3C 0 CODE 0 intentry dist/default/production/BT_LED_strip.X.production.obj
-__end_of_EUSART_Write 5AE 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_EUSART_Write 61C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
 _CMD_SET_XMAS 886 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
 __end_of_CMD_SET_OFF 8BC 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
@@ -626,20 +639,20 @@ _IOCCP4 1CBC 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _IOCCP5 1CBD 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _IOCCP6 1CBE 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _IOCCP7 1CBF 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_ledSendByte 1BA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_ledSendByte 0 0 CODE 0 text14 dist/default/production/BT_LED_strip.X.production.obj
 ?_strcmp 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 ?_strlen 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-__end_of_CLC2_Initialize 766 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 PIN_MANAGER_Initialize@state 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-_EUSART_Initialize 638 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_EUSART_Initialize 678 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __size_of_TMR2_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_PIN_MANAGER_Initialize 678 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_ledSetColor 108 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_PIN_MANAGER_Initialize 6B8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_ledSetColor 0 0 CODE 0 text13 dist/default/production/BT_LED_strip.X.production.obj
 start_initialization 40 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _CCPTMRSbits 29E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _OSCCON 99 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __end_of_CMD_SET_PARTY 86A 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
 _eusartRxBuffer 20 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
+_inlined$_ledSendByte 1 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _RA5PPS E95 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _RB4PPS E9C 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _RC0PPS EA0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -647,8 +660,8 @@ _RC1PPS EA1 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _RC1REG 199 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _RC1STA 19D 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __size_of_PIN_MANAGER_IOC 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_memset 530 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_SYSTEM_Initialize 5FC 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_memset 59E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_SYSTEM_Initialize 666 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 clear_ram0 A08 0 CODE 0 clrtext dist/default/production/BT_LED_strip.X.production.obj
 _SPBRGH 19C 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _SPBRGL 19B 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -657,11 +670,11 @@ _SSPBUF 211 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _T2CLKCON 1E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _TX1REG 19A 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _TX1STA 19E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_TMR2_Start 77C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-_CLC2_Initialize 74A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/cgtsSHFya.obj
-__end_of_EUSART_Read 50C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_PWM3_Initialize 77C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_TMR2_Start 7B6 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_inlined$_ledSetColor 1 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
+___int_sp 0 0 STACK 2 stack /tmp/cgt67ERDR.obj
+__end_of_EUSART_Read 57A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_PWM3_Initialize 7B6 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __end_of_CMD_SET_XMAS 8A2 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -673,9 +686,9 @@ __Hbank6 0 0 ABS 0 bank6 -
 __Hbank7 0 0 ABS 0 bank7 -
 __Hbank8 0 0 ABS 0 bank8 -
 __Hbank9 0 0 ABS 0 bank9 -
-__Hcinit 780 0 CODE 0 cinit -
-__end_of_strcmp 46C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_strlen 5DA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__Hcinit 7BA 0 CODE 0 cinit -
+__end_of_strcmp 4DA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_strlen 648 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Hidloc 0 0 IDLOC 0 idloc -
 __size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Hsfr10 0 0 ABS 0 sfr10 -
@@ -725,7 +738,7 @@ __Hbank30 0 0 BANK30 1 bank30 -
 __Hbank31 0 0 BANK31 1 bank31 -
 __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
-LED_Task@i_74 77 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
+LED_Task@i_80 77 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 _BAUD1CON 19F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Hcommon 0 0 ABS 0 common -
@@ -743,7 +756,7 @@ __Lbank9 0 0 ABS 0 bank9 -
 __Lcinit 40 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
 outputString@string 75 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-__end_of_UART_HexSrtingToBinary 4E0 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_UART_HexSrtingToBinary 54E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -767,7 +780,7 @@ __Lsfr29 0 0 ABS 0 sfr29 -
 __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
-_SPI_Exchange8bit 738 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_SPI_Exchange8bit 216 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _INTCONbits B 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -806,14 +819,6 @@ __CFG_WDTCWS$WDTCWSSW 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.product
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2GLS0 F20 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2GLS1 F21 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2GLS2 F22 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2GLS3 F23 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2SEL0 F1C 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2SEL1 F1D 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2SEL2 F1E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC2SEL3 F1F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _CLC4GLS0 F34 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _CLC4GLS1 F35 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _CLC4GLS2 F36 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -826,18 +831,18 @@ _GIE 5F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __S0 800A 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
-_outputString 530 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_outputString 59E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _CMD_SET_DIRECT 80C 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
 _ledFullOff 800 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
-__end_of_TMR2_Start 780 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_TMR2_Start 7BA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _inputCommand 48 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_PWM3_Initialize 766 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_EUSART_Receive_ISR A08 0 CODE 0 text28 dist/default/production/BT_LED_strip.X.production.obj
+_PWM3_Initialize 7A0 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_EUSART_Receive_ISR A08 0 CODE 0 text27 dist/default/production/BT_LED_strip.X.production.obj
 COMM_Task@b 7C 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 COMM_Task@g 7B 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 COMM_Task@r 7A 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-_SYSTEM_Initialize 5DA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_SYSTEM_Initialize 648 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __size_of_ledSendByte 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 strcmp@s1 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 strcmp@s2 72 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
@@ -846,10 +851,9 @@ strcmp@t1 75 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.prod
 strcmp@t2 74 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/cgtsSHFya.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/cgt67ERDR.obj
 EUSART_Read@readValue 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 strlen@s 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-__size_of_CLC2_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __size_of_LED_Task 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __size_of_LED_Test 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -860,28 +864,27 @@ _CMD_GET_STATE 86A 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X
 __size_of_outputString 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 UART_HexSrtingToBinary@i 72 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 _PIE1bits 90 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_memset 50C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_memset 57A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 memset@p1 74 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-__ptext10 74A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext11 5FC 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext12 78 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext13 108 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext14 F8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext15 1B6 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext16 738 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext17 1BA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext18 3F4 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext19 530 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext20 5AE 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext21 574 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext22 50C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext23 46C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext24 4E0 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext26 96A 0 CODE 0 text26 dist/default/production/BT_LED_strip.X.production.obj
-__ptext27 9B2 0 CODE 0 text27 dist/default/production/BT_LED_strip.X.production.obj
-__ptext28 9DE 0 CODE 0 text28 dist/default/production/BT_LED_strip.X.production.obj
-_EUSART_Receive_ISR 9DE 0 CODE 0 text28 dist/default/production/BT_LED_strip.X.production.obj
-__end_of_PIN_MANAGER_Initialize 714 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext10 666 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext11 82 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext12 12A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext13 0 0 CODE 0 text13 dist/default/production/BT_LED_strip.X.production.obj
+__ptext14 0 0 CODE 0 text14 dist/default/production/BT_LED_strip.X.production.obj
+__ptext15 216 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext16 228 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext17 462 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext18 59E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext19 61C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext20 5E2 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext21 57A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext22 4DA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext23 54E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext25 96A 0 CODE 0 text25 dist/default/production/BT_LED_strip.X.production.obj
+__ptext26 9B2 0 CODE 0 text26 dist/default/production/BT_LED_strip.X.production.obj
+__ptext27 9DE 0 CODE 0 text27 dist/default/production/BT_LED_strip.X.production.obj
+_EUSART_Receive_ISR 9DE 0 CODE 0 text27 dist/default/production/BT_LED_strip.X.production.obj
+__end_of_PIN_MANAGER_Initialize 754 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __end_of_CMD_SET_DIRECT 82C 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
 strlen@cp 73 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 __Lbank10 0 0 ABS 0 bank10 -
@@ -909,8 +912,8 @@ __Lbank31 0 0 BANK31 1 bank31 -
 __pmaintext 54 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Lbigram 0 0 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_SPI_Initialize 714 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_SPI_Exchange8bit 74A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_SPI_Initialize 754 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_SPI_Exchange8bit 228 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -919,25 +922,24 @@ _CMD_SET_STARRY 82C 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __end_of_ledFullOff 806 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
 __size_of_SPI_Exchange8bit 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_outputString 574 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_CLC4_Initialize 638 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-_strcmp 3F4 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-_strlen 5AE 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_outputString 5E2 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_CLC4_Initialize 7A0 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_strcmp 462 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_strlen 61C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __size_of_EUSART_Read 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-stackhi 23DF 0 ABS 0 - /tmp/cgtsSHFya.obj
-stacklo 2039 0 ABS 0 - /tmp/cgtsSHFya.obj
+stackhi 23DF 0 ABS 0 - /tmp/cgt67ERDR.obj
+stacklo 203B 0 ABS 0 - /tmp/cgt67ERDR.obj
 SPI_Exchange8bit@data 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 _OSCSTAT 9A 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _OSCTUNE 98 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 _LED_SetColor 38 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 _LED_currentColor 3B 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
-_LED_Task 108 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-_LED_Test 78 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_LED_Task 12A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_LED_Test 82 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 COMM_Task@receiveData 7D 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 _LED_mode 41 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 __size_of_memset 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -945,15 +947,16 @@ __size_of_PWM3_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.pro
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits 10 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Lend_init 3C 0 CODE 0 end_init -
+__CFG_LVP$ON 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 outputString@i 79 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __CFG_ZCD$OFF 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 end_of_initialization 50 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_LED_Task 1B6 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_LED_Test F8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_LED_Task 216 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_LED_Test 12A 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __Hintentry 3C 0 CODE 0 intentry -
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_SPI_Initialize 720 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_SPI_Initialize 760 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _PPSLOCKbits E0F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Lstrings 0 0 ABS 0 strings -
 __end_of_ledFullOn 80C 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
@@ -966,16 +969,16 @@ __size_of_UART_HexSrtingToBinary 0 0 ABS 0 - dist/default/production/BT_LED_stri
 __size_of_strcmp 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __size_of_strlen 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _SSPDATPPS E21 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_CLC4_Initialize 60E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext1 5DA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext2 720 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext3 77C 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext4 714 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext5 766 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext6 678 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext7 668 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext8 638 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__ptext9 60E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_CLC4_Initialize 776 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext1 648 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext2 760 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext3 7B6 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext4 754 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext5 7A0 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext6 6B8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext7 6A8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext8 678 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__ptext9 776 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 _eusartTxBufferRemaining 45 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
@@ -995,15 +998,15 @@ __size_of_EUSART_Transmit_ISR 0 0 ABS 0 - dist/default/production/BT_LED_strip.X
 __Lclrtext 0 0 ABS 0 clrtext -
 _SSP1CON1bits 215 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __end_of_CMD_GET_STATE 886 0 STRCODE 0 stringtext dist/default/production/BT_LED_strip.X.production.obj
-_ledSendByte 1B6 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_ledSendByte 0 0 CODE 0 text14 dist/default/production/BT_LED_strip.X.production.obj
 __size_of_EUSART_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 _SSP1ADD 212 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Hend_init 40 0 CODE 0 end_init -
 ledSendByte@data 71 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-__end_of_main 78 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_main 82 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 LED_Task@ledOFF 40 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
-_ledSetColor F8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_ledSetColor 0 0 CODE 0 text13 dist/default/production/BT_LED_strip.X.production.obj
 __Lpa_nodes 0 0 ABS 0 pa_nodes -
 _RXPPS E24 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _T2CON 1C 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
@@ -1014,25 +1017,25 @@ _TRISA 8C 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _TRISB 8D 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _TRISC 8E 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 LED_Task@i 75 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-LED_Test@i 7A 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
-LED_Test@j 78 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
+LED_Test@i 75 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
+LED_Test@j 76 0 COMMON 1 cstackCOMMON dist/default/production/BT_LED_strip.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-__end_of_COMM_Task 3F4 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_COMM_Task 462 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production/BT_LED_strip.X.production.obj
 __size_of_COMM_Task 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-__end_of_OSCILLATOR_Initialize 678 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_OSCILLATOR_Initialize 6B8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __CFG_PPS1WAY$ON 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __initialization 40 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_ADC1_Initialize 60E 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_ADC1_Initialize 678 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 __size_of_CLC4_Initialize 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _T2CONbits 1C 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 __Hstringtext 0 0 ABS 0 stringtext -
 _PPSLOCK E0F 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
-_EUSART_Transmit_ISR 9B2 0 CODE 0 text27 dist/default/production/BT_LED_strip.X.production.obj
+_EUSART_Transmit_ISR 9B2 0 CODE 0 text26 dist/default/production/BT_LED_strip.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _eusartRxHead 43 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 _eusartRxTail 44 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
@@ -1040,12 +1043,12 @@ COMM_Task@UART_ReceiveState 3E 0 BANK0 1 bssBANK0 dist/default/production/BT_LED
 __size_of_EUSART_Receive_ISR 0 0 ABS 0 - dist/default/production/BT_LED_strip.X.production.obj
 _eusartTxHead 46 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
 _eusartTxTail 47 0 BANK0 1 bssBANK0 dist/default/production/BT_LED_strip.X.production.obj
-_COMM_Task 1BA 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__pswtext1 780 0 CONST 0 swtext1 dist/default/production/BT_LED_strip.X.production.obj
-__pswtext2 794 0 CONST 0 swtext2 dist/default/production/BT_LED_strip.X.production.obj
-__pswtext3 7A8 0 CONST 0 swtext3 dist/default/production/BT_LED_strip.X.production.obj
-_OSCILLATOR_Initialize 668 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
-__end_of_TMR2_Initialize 738 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+_COMM_Task 228 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__pswtext1 7BA 0 CONST 0 swtext1 dist/default/production/BT_LED_strip.X.production.obj
+__pswtext2 7CE 0 CONST 0 swtext2 dist/default/production/BT_LED_strip.X.production.obj
+__pswtext3 7E2 0 CONST 0 swtext3 dist/default/production/BT_LED_strip.X.production.obj
+_OSCILLATOR_Initialize 6A8 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
+__end_of_TMR2_Initialize 776 0 CODE 0 cinit dist/default/production/BT_LED_strip.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1071,11 +1074,11 @@ __end_of_TMR2_Initialize 738 0 CODE 0 cinit dist/default/production/BT_LED_strip
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text26 0 4B5 96A 55 2
+text25 0 4B5 96A 55 2
 cstackCOMMON 1 70 70 E 1
-intentry 0 4 8 3BC 2
+intentry 0 4 8 3D9 2
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 39 1
+bssBANK0 1 20 20 3B 1
 stringtext 0 400 800 B5 2
-swtext1 0 3C0 780 1E 2
+swtext1 0 3DD 7BA 1E 2
 config 0 8007 1000E 3 2

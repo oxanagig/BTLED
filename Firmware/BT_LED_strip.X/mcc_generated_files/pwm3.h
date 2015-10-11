@@ -8,12 +8,12 @@
     pwm3.c
 
   @Summary
-    This is the generated driver implementation file for the PWM3 driver using MPLAB® Code Configurator
+    This is the generated driver implementation file for the PWM3 driver using MPLABï¿½ Code Configurator
 
   @Description
     This header file provides implementations for driver APIs for PWM3.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -64,7 +64,7 @@ extern "C" {
       Section: Macro Declarations
      */
 
-#define PWM3_INITIALIZE_DUTY_VALUE    21
+#define PWM3_INITIALIZE_DUTY_VALUE    9
 
     /**
       Section: PWM Module APIs

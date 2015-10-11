@@ -8,12 +8,12 @@
     pin_manager.h
 
   @Summary:
-    This is the Pin Manager file generated using MPLAB® Code Configurator
+    This is the Pin Manager file generated using MPLABï¿½ Code Configurator
 
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Version           :  1.01
     The generated drivers are tested against the following:
@@ -59,6 +59,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set PWM3OUT aliases
+#define PWM3OUT_TRIS               TRISA1
+#define PWM3OUT_LAT                LATA1
+#define PWM3OUT_PORT               RA1
+#define PWM3OUT_ANS                ANSA1
+#define PWM3OUT_SetHigh()    do { LATA1 = 1; } while(0)
+#define PWM3OUT_SetLow()   do { LATA1 = 0; } while(0)
+#define PWM3OUT_Toggle()   do { LATA1 = ~LATA1; } while(0)
+#define PWM3OUT_GetValue()         RA1
+#define PWM3OUT_SetDigitalInput()    do { TRISA1 = 1; } while(0)
+#define PWM3OUT_SetDigitalOutput()   do { TRISA1 = 0; } while(0)
+
+#define PWM3OUT_SetAnalogMode()   do { ANSA1 = 1; } while(0)
+#define PWM3OUT_SetDigitalMode()   do { ANSA1 = 0; } while(0)
 // get/set RX aliases
 #define RX_TRIS               TRISA2
 #define RX_LAT                LATA2

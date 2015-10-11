@@ -8,12 +8,12 @@
     tmr2.c
 
   @Summary
-    This is the generated driver implementation file for the TMR2 driver using MPLAB® Code Configurator
+    This is the generated driver implementation file for the TMR2 driver using MPLABï¿½ Code Configurator
 
   @Description
     This source file provides APIs for TMR2.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  1.00
     The generated drivers are tested against the following:
@@ -61,17 +61,17 @@ void TMR2_Initialize(void) {
     // TMR2ON off; T2CKPS 1:1; T2OUTPS 1:1; 
     T2CON = 0x00;
 
-    // T2CS FOSC; 
-    T2CLKCON = 0x01;
+    // T2CS FOSC/4; 
+    T2CLKCON = 0x00;
 
-    // T2CKPOL Rising Edge; T2CKSYNC Synchronized; T2MODE Software control; T2PSYNC Not Synchronized; 
-    T2HLT = 0x20;
+    // T2CKPOL Rising Edge; T2CKSYNC Synchronized; T2MODE Software control; T2PSYNC Synchronized; 
+    T2HLT = 0xA0;
 
     // T2RSEL T2; 
     T2RST = 0x00;
 
-    // T2PR 19; 
-    T2PR = 0x13;
+    // T2PR 4; 
+    T2PR = 0x04;
 
     // TMR2 0x0; 
     T2TMR = 0x00;

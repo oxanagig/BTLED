@@ -8,12 +8,12 @@
     clc4.h
 
   @Summary
-    This is the generated header file for the CLC4 driver using MPLAB® Code Configurator
+    This is the generated header file for the CLC4 driver using MPLABï¿½ Code Configurator
 
   @Description
     This header file provides APIs for driver for CLC4.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:

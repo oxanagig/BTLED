@@ -4,8 +4,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "62 /Applications/microchip/xc8/v1.34/include/string.h
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "55 ../src/serialCommand.c
-[c E11996 0 1 2 3 4 .. ]
-[n E11996 . COMM_IDEL COMM_PROCESS_SET_COMMAND COMM_PROCESS_GET_COMMAND COMM_PROCESS_COLOR COMM_PROCESS_TRASH  ]
+[c E11998 0 1 2 3 4 .. ]
+[n E11998 . COMM_IDEL COMM_PROCESS_SET_COMMAND COMM_PROCESS_GET_COMMAND COMM_PROCESS_COLOR COMM_PROCESS_TRASH  ]
 "78 ../src/mcc_generated_files/eusart.h
 [v _eusartRxCount `Vuc ~T0 @X0 0 e ]
 "155
@@ -10791,8 +10791,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LED.h: 37: extern LED_COLOR LED_SetColor;
 [; ;LED.h: 40: void LED_Test(void);
 [; ;LED.h: 41: void LED_Task(void);
-[; ;LED.h: 42: void ledSendByte(uint8_t);
-[; ;LED.h: 43: void ledSetColor(LED_COLOR);
+[; ;LED.h: 42: inline void ledSendByte(uint8_t);
+[; ;LED.h: 43: inline void ledSetColor(LED_COLOR);
 [; ;LED.h: 44: void ledStripSetColor(LED_COLOR*, uint8_t);
 [; ;serialCommand.c: 6: typedef enum
 [; ;serialCommand.c: 7: {
@@ -11052,12 +11052,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _g `uc ~T0 @X0 1 a ]
 [v _b `uc ~T0 @X0 1 a ]
 "55
-[v F12021 `E11996 ~T0 @X0 1 s UART_ReceiveState ]
-[i F12021
-. `E11996 0
+[v F12023 `E11998 ~T0 @X0 1 s UART_ReceiveState ]
+[i F12023
+. `E11998 0
 ]
 "56
-[v F12022 `uc ~T0 @X0 1 s receiveCounter ]
+[v F12024 `uc ~T0 @X0 1 s receiveCounter ]
 [; ;serialCommand.c: 54: uint8_t receiveData,r,g,b;
 [; ;serialCommand.c: 55: static COMM_RECEIVE_STATE UART_ReceiveState = COMM_IDEL;
 [; ;serialCommand.c: 56: static uint8_t receiveCounter;
@@ -11090,13 +11090,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;serialCommand.c: 71: UART_ReceiveState = COMM_PROCESS_SET_COMMAND;
 "71
-[e = F12021 . `E11996 1 ]
+[e = F12023 . `E11998 1 ]
 [; ;serialCommand.c: 72: inputCommand[0] = 'S';
 "72
 [e = *U + &U _inputCommand * -> -> -> 0 `i `ui `ux -> -> # *U &U _inputCommand `ui `ux -> -> 83 `ui `uc ]
 [; ;serialCommand.c: 73: receiveCounter = 0;
 "73
-[e = F12022 -> -> 0 `i `uc ]
+[e = F12024 -> -> 0 `i `uc ]
 "74
 }
 [; ;serialCommand.c: 74: }
@@ -11110,13 +11110,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;serialCommand.c: 77: UART_ReceiveState = COMM_PROCESS_GET_COMMAND;
 "77
-[e = F12021 . `E11996 2 ]
+[e = F12023 . `E11998 2 ]
 [; ;serialCommand.c: 78: inputCommand[0] = 'G';
 "78
 [e = *U + &U _inputCommand * -> -> -> 0 `i `ui `ux -> -> # *U &U _inputCommand `ui `ux -> -> 71 `ui `uc ]
 [; ;serialCommand.c: 79: receiveCounter = 0;
 "79
-[e = F12022 -> -> 0 `i `uc ]
+[e = F12024 -> -> 0 `i `uc ]
 "80
 }
 [; ;serialCommand.c: 80: }
@@ -11130,10 +11130,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;serialCommand.c: 83: UART_ReceiveState = COMM_PROCESS_COLOR;
 "83
-[e = F12021 . `E11996 3 ]
+[e = F12023 . `E11998 3 ]
 [; ;serialCommand.c: 84: receiveCounter = 0;
 "84
-[e = F12022 -> -> 0 `i `uc ]
+[e = F12024 -> -> 0 `i `uc ]
 "85
 }
 [; ;serialCommand.c: 85: }
@@ -11157,7 +11157,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;serialCommand.c: 92: UART_ReceiveState = COMM_PROCESS_TRASH;
 "92
-[e = F12021 . `E11996 4 ]
+[e = F12023 . `E11998 4 ]
 "93
 }
 [e :U 1229 ]
@@ -11173,7 +11173,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1230 ]
 [; ;serialCommand.c: 96: inputCommand[++receiveCounter] = receiveData;
 "96
-[e = *U + &U _inputCommand * -> =+ F12022 -> -> 1 `i `uc `ux -> -> # *U &U _inputCommand `ui `ux _receiveData ]
+[e = *U + &U _inputCommand * -> =+ F12024 -> -> 1 `i `uc `ux -> -> # *U &U _inputCommand `ui `ux _receiveData ]
 [; ;serialCommand.c: 97: if(receiveData == '\n')
 "97
 [e $ ! == -> _receiveData `ui -> 10 `ui 1231  ]
@@ -11279,7 +11279,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialCommand.c: 126: }
 [; ;serialCommand.c: 127: UART_ReceiveState = COMM_IDEL;
 "127
-[e = F12021 . `E11996 0 ]
+[e = F12023 . `E11998 0 ]
 "128
 }
 [e :U 1231 ]
@@ -11292,7 +11292,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1242 ]
 [; ;serialCommand.c: 131: inputCommand[++receiveCounter] = receiveData;
 "131
-[e = *U + &U _inputCommand * -> =+ F12022 -> -> 1 `i `uc `ux -> -> # *U &U _inputCommand `ui `ux _receiveData ]
+[e = *U + &U _inputCommand * -> =+ F12024 -> -> 1 `i `uc `ux -> -> # *U &U _inputCommand `ui `ux _receiveData ]
 [; ;serialCommand.c: 132: if(receiveData == '\n')
 "132
 [e $ ! == -> _receiveData `ui -> 10 `ui 1243  ]
@@ -11411,7 +11411,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialCommand.c: 165: }
 [; ;serialCommand.c: 166: UART_ReceiveState = COMM_IDEL;
 "166
-[e = F12021 . `E11996 0 ]
+[e = F12023 . `E11998 0 ]
 "168
 }
 [e :U 1243 ]
@@ -11424,10 +11424,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1254 ]
 [; ;serialCommand.c: 171: inputCommand[receiveCounter++] = receiveData;
 "171
-[e = *U + &U _inputCommand * -> ++ F12022 -> -> 1 `i `uc `ux -> -> # *U &U _inputCommand `ui `ux _receiveData ]
+[e = *U + &U _inputCommand * -> ++ F12024 -> -> 1 `i `uc `ux -> -> # *U &U _inputCommand `ui `ux _receiveData ]
 [; ;serialCommand.c: 172: if(receiveCounter == 2)
 "172
-[e $ ! == -> F12022 `i -> 2 `i 1255  ]
+[e $ ! == -> F12024 `i -> 2 `i 1255  ]
 [; ;serialCommand.c: 173: {
 "173
 {
@@ -11441,7 +11441,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "176
 [e :U 1255 ]
 [; ;serialCommand.c: 176: else if(receiveCounter == 4)
-[e $ ! == -> F12022 `i -> 4 `i 1257  ]
+[e $ ! == -> F12024 `i -> 4 `i 1257  ]
 [; ;serialCommand.c: 177: {
 "177
 {
@@ -11455,7 +11455,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "180
 [e :U 1257 ]
 [; ;serialCommand.c: 180: else if(receiveCounter == 6)
-[e $ ! == -> F12022 `i -> 6 `i 1259  ]
+[e $ ! == -> F12024 `i -> 6 `i 1259  ]
 [; ;serialCommand.c: 181: {
 "181
 {
@@ -11476,7 +11476,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;serialCommand.c: 186: if(receiveCounter == 8)
 "186
-[e $ ! == -> F12022 `i -> 8 `i 1261  ]
+[e $ ! == -> F12024 `i -> 8 `i 1261  ]
 [; ;serialCommand.c: 187: {
 "187
 {
@@ -11511,7 +11511,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialCommand.c: 196: }
 [; ;serialCommand.c: 197: UART_ReceiveState = COMM_IDEL;
 "197
-[e = F12021 . `E11996 0 ]
+[e = F12023 . `E11998 0 ]
 "198
 }
 [e :U 1260 ]
@@ -11530,7 +11530,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;serialCommand.c: 203: UART_ReceiveState = COMM_IDEL;
 "203
-[e = F12021 . `E11996 0 ]
+[e = F12023 . `E11998 0 ]
 [; ;serialCommand.c: 204: outputString("Invalid Command \r\n");
 "204
 [e ( _outputString (1 :s 16C ]
@@ -11544,18 +11544,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serialCommand.c: 207: default:UART_ReceiveState = COMM_IDEL;
 "207
 [e :U 1265 ]
-[e = F12021 . `E11996 0 ]
+[e = F12023 . `E11998 0 ]
 "208
 }
 [; ;serialCommand.c: 208: }
 [e $U 1219  ]
 "64
 [e :U 1220 ]
-[e [\ F12021 , $ . `E11996 0 1221
- , $ . `E11996 2 1230
- , $ . `E11996 1 1242
- , $ . `E11996 3 1254
- , $ . `E11996 4 1263
+[e [\ F12023 , $ . `E11998 0 1221
+ , $ . `E11998 2 1230
+ , $ . `E11998 1 1242
+ , $ . `E11998 3 1254
+ , $ . `E11998 4 1263
  1265 ]
 "208
 [e :U 1219 ]

@@ -8,12 +8,12 @@
     clc4.c
 
   @Summary
-    This is the generated driver implementation file for the CLC4 driver using MPLAB® Code Configurator
+    This is the generated driver implementation file for the CLC4 driver using MPLABï¿½ Code Configurator
 
   @Description
     This source file provides implementations for driver APIs for CLC4.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1619
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -58,14 +58,14 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 void CLC4_Initialize(void) {
     // Set the CLC4 to the options selected in the User Interface
 
-    // LC4G1POL not_inverted; LC4POL not_inverted; LC4G4POL not_inverted; LC4G2POL inverted; LC4G3POL not_inverted; 
-    CLC4POL = 0x02;
+    // LC4G1POL not_inverted; LC4POL not_inverted; LC4G4POL inverted; LC4G2POL inverted; LC4G3POL not_inverted; 
+    CLC4POL = 0x0A;
 
     // LC4D1S FOSC; 
     CLC4SEL0 = 0x21;
 
-    // LC4D2S LC2_out; 
-    CLC4SEL1 = 0x05;
+    // LC4D2S PWM3_out; 
+    CLC4SEL1 = 0x0E;
 
     // LC4D3S SDO from MSSP; 
     CLC4SEL2 = 0x28;
