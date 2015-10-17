@@ -3,61 +3,198 @@
 #include "serialCommand.h"
 #include "LED.h"
 
-typedef enum
-{
-    COMM_IDEL,
-    COMM_PROCESS_SET_COMMAND,
-    COMM_PROCESS_GET_COMMAND,
-    COMM_PROCESS_COLOR,
-    COMM_PROCESS_TRASH,
-}COMM_RECEIVE_STATE;
-
-static uint8_t inputCommand[INPUT_COMMAND_BUFFER_SIZE];
+static char inputCommand[INPUT_COMMAND_BUFFER_SIZE];
 
 /*Predefined Command*/
-const uint8_t CMD_SET_OFF[]="SetLED Off\r\n";
-const uint8_t CMD_SET_DIRECT[]="SetLED DIRECT\r\n";
-const uint8_t CMD_SET_STARRY[]="SetLED STARRY\r\n";
-const uint8_t CMD_SET_XMAS[]="SetLED XMAS\r\n";
-const uint8_t CMD_SET_PARTY[]="SetLED PARTY\r\n";
+const char const CMD_SET_OFF[]     = "SetLED Off\r\n";
+const char const CMD_SET_STARRY[]  = "SetLED STARRY\r\n";
+const char const CMD_SET_XMAS[]    = "SetLED XMAS\r\n";
+const char const CMD_SET_PARTY[]   = "SetLED PARTY\r\n";
+const char const CMD_SET_DIRECT[]  = "SetLED DIRECT ";
 
-const uint8_t CMD_GET_STATE[]="GetLEDState\r\n";
+const char const CMD_GET_STATE[]   = "GetLEDState\r\n";
+
+const char const CMD_TEST_LED[]    = "TEST LED\r\n";
+const char const CMD_TEST_SRAM[]   = "TEST SRAM\r\n";
 
 
-void outputString(const uint8_t *string)
+/*local function*/
+static uint8_t command_GetMinimumNameLength(const struct commandStruct*);
+static uint8_t command_GetnumberofCommands(const struct commandStruct*);
+static void setCommandProcess(char*);
+static void getCommandProcess(char*);
+static void testCommandProcess(char*);
+static uint8_t oneByte_HexSrtingToBinary(char*);
+
+
+const struct commandStruct const commands[]=
 {
-    for(uint8_t i =0;i<strlen(string);i++)
+    {"SetLED",6,&setCommandProcess, "Set LED Mode: Off,DIRECT,STARRY,XMAS,PARTY.\r\n"},
+    {"GetLED",6,&getCommandProcess, "Get the current LED status.\r\n"},
+    {"Test",  4,&testCommandProcess,"System self-test:LED, SRAM, ALL\r\n" },
+    {"",0,0,""}
+};
+
+static uint8_t command_GetMinimumNameLength(const struct commandStruct* commandArray)
+{
+    static uint8_t minimumNameLength = 0;
+    uint8_t i = 0;
+    
+    if(minimumNameLength==0)
     {
-        EUSART_Write(string[i]);
+        while(commandArray[i].nameLength !=0)
+        {
+            if(commandArray[i].nameLength>minimumNameLength)
+                minimumNameLength = commandArray[i].nameLength;
+            i++;
+        }
     }
+    return minimumNameLength;
 }
 
-uint8_t UART_HexSrtingToBinary(uint8_t *data)
+static uint8_t command_GetnumberofCommands(const struct commandStruct* commandArray)
 {
-    for(uint8_t i=0; i<2; i++)
+    static uint8_t numberofCommands = 0;
+    uint8_t i = 0;
+    
+    if(numberofCommands==0)
     {
-        if(data[i]>=0x30 && data[i]<=0x39)      /*if it is 0-9*/
+        while(commandArray[i].nameLength !=0)
         {
-            data[i] = data[i]-0x30;
+            i++;
+        }
+        numberofCommands = i;
+    }
+    return numberofCommands;
+}
+
+static void setCommandProcess(char* input)
+{
+    if(strcmp(CMD_SET_OFF,input)==0)
+    {
+        LED_mode = LED_OFF;
+        printf("DONE!\r\n");
+    }
+    else if(strcmp(CMD_SET_STARRY,input)==0)
+    {
+        LED_mode = LED_STARRY;
+        printf("DONE!\r\n");
+    }
+    else if(strcmp(CMD_SET_XMAS,input)==0)
+    {
+        LED_mode = LED_XMAS;
+        printf("DONE!\r\n");
+    }
+    else if(strcmp(CMD_SET_PARTY,input)==0)
+    {
+        LED_mode = LED_PARTY;
+        printf("DONE!\r\n");
+    }
+    else if(strncmp(CMD_SET_DIRECT,input,strlen(CMD_SET_DIRECT))==0)
+    {
+        input = input + strlen(CMD_SET_DIRECT);         /* Extract the color information form the command*/
+        
+        if(strlen(input) == COLOR_COMMAND_LENGTH)
+        {
+            LED_SetColor.Red   = oneByte_HexSrtingToBinary(input);
+            LED_SetColor.Green = oneByte_HexSrtingToBinary(input+2);
+            LED_SetColor.Blue  = oneByte_HexSrtingToBinary(input+4);
+            printf("DONE!\r\n");     
+            LED_mode = LED_DIRECT;
         }
         else
         {
-            data[i] = data[i] -0x41 +0x0A;      /*if it is A-F*/
+            printf("Invalid Command \r\n");   
         }
     }
-    return ((data[0]<<4)+data[1]);
+    else
+    {
+        printf("Invalid Command \r\n");
+    }
+}
 
+
+static void getCommandProcess(char* input)
+{
+    if(strcmp(CMD_GET_STATE,input)==0)
+    {
+        switch(LED_mode)
+        {
+            case LED_OFF:
+                printf("LED is OFF\r\n");
+                break;
+            case LED_DIRECT:
+                printf("Direct color\r\n");
+                break;
+            case LED_STARRY:
+                printf("Starry\r\n");
+                break;
+            case LED_XMAS:
+                printf("Xmas\r\n");
+                break;
+            case LED_PARTY:
+                printf("Party\r\n");
+                break;
+            default:
+                printf("ERROR\r\n");
+                break;
+        }
+    }
+    else
+    {
+        printf("Invalid Command \r\n");
+    }
+}
+
+static void testCommandProcess(char* input)
+{
+    if(strcmp(CMD_TEST_LED,input)==0)
+    {
+        LED_Test();
+    }
+    else if(strcmp(CMD_TEST_SRAM,input)==0)
+    {
+        //
+    }
+    else
+    {
+        printf("Invalid Command \r\n");
+    }
+}
+
+static uint8_t oneByte_HexSrtingToBinary(char* data)
+{
+    for(uint8_t i=0; i<2; i++)
+    {
+        if(data[i]>='0' && data[i]<='9')      /*if it is 0-9*/
+        {
+            data[i] = data[i]-'0';
+        }
+        else if(data[i]>='A' && data[i]<='F')
+        {
+            data[i] = data[i] -'A' +10;      /*if it is A-F*/
+        }
+        else if(data[i]>='a' && data[i]<='f')
+        {
+            data[i] = data[i] -'a' +10;      /*if it is a-f*/
+        }
+        else
+        {
+            data[i] = 0;
+        }
+    }
+    return ((uint8_t)(data[0]<<4)+(uint8_t)data[1]);
 }
 
 void COMM_Task(void)
 {
-    uint8_t receiveData,r,g,b;
+    uint8_t receiveData;
     static COMM_RECEIVE_STATE UART_ReceiveState = COMM_IDEL;
     static uint8_t receiveCounter;
 
     if(EUSART_DataReady)
     {
-        receiveData = EUSART_Read();    /* Receive Character from Uart*/
+        receiveData = EUSART_Read();      /* Receive Character from UART  */
         //EUSART_Write(receiveData);      /* echo back character on TX line*/
 
         /* command process state machine*/
@@ -66,21 +203,10 @@ void COMM_Task(void)
             case COMM_IDEL:
                 memset(inputCommand,0,INPUT_COMMAND_BUFFER_SIZE);   /* clear command buffer*/
 
-                if(receiveData == 'S')
+                if(receiveData == 'S' || receiveData == 'G' ||receiveData == 'T')
                 {
-                    UART_ReceiveState = COMM_PROCESS_SET_COMMAND;
-                    inputCommand[0] = 'S';
-                    receiveCounter = 0;
-                }
-                else if(receiveData == 'G')
-                {
-                    UART_ReceiveState = COMM_PROCESS_GET_COMMAND;
-                    inputCommand[0] = 'G';
-                    receiveCounter = 0;
-                }
-                else if (receiveData == 'C')
-                {
-                    UART_ReceiveState = COMM_PROCESS_COLOR;
+                    UART_ReceiveState = COMM_PROCESS_COMMAND;
+                    inputCommand[0] = receiveData;
                     receiveCounter = 0;
                 }
                 else if (receiveData == '\r'||receiveData =='\n')
@@ -92,116 +218,34 @@ void COMM_Task(void)
                     UART_ReceiveState = COMM_PROCESS_TRASH;
                 }
                 break;
-            case COMM_PROCESS_GET_COMMAND:
+            case COMM_PROCESS_COMMAND:
                 inputCommand[++receiveCounter] = receiveData;
                 if(receiveData == '\n')
                 {
-                    if(strcmp(CMD_GET_STATE,inputCommand)==0)
+                    uint8_t i = 0;
+                    do
                     {
-                        switch(LED_mode)
+                        if(strncmp(inputCommand,commands[i].name,commands[i].nameLength)>=0)
                         {
-                            case LED_OFF:
-                                outputString("LED is OFF\r\n");
-                                break;
-                            case LED_DIRECT:
-                                outputString("Direct color\r\n");
-                                break;
-                            case LED_STARRY:
-                                outputString("Starry\r\n");
-                                break;
-                            case LED_XMAS:
-                                outputString("Xmas\r\n");
-                                break;
-                            case LED_PARTY:
-                                outputString("Party\r\n");
-                                break;
-                            default:
-                                outputString("ERROR\r\n");
-                                break;
+                            commands[i].execute(inputCommand);              /*execute the receiver of matching command*/
+                            break;
                         }
-                    }
-                    else
-                    {
-                        outputString("Invalid Command \r\n");
-                    }
+                        i++;
+                    }while(commands[i].nameLength!=0);
+                    if(i>=command_GetnumberofCommands(&commands))
+                        printf("Invalid Command \r\n");
                     UART_ReceiveState = COMM_IDEL;
                 }
-                break;
-            case COMM_PROCESS_SET_COMMAND:
-                inputCommand[++receiveCounter] = receiveData;
-                if(receiveData == '\n')
+                else if(receiveCounter>=INPUT_COMMAND_BUFFER_SIZE-1)
                 {
-                    if(strcmp(CMD_SET_OFF,inputCommand)==0)
-                    {
-                        LED_mode = LED_OFF;
-                        outputString("DONE!\r\n");
-                    }
-                    else if(strcmp(CMD_SET_DIRECT,inputCommand)==0)
-                    {
-                        LED_mode = LED_DIRECT;
-                        LED_SetColor.Green = 64;
-                        LED_SetColor.Red = 64;
-                        LED_SetColor.Blue = 64;
-                        outputString("DONE!\r\n");
-                    }
-                    else if(strcmp(CMD_SET_STARRY,inputCommand)==0)
-                    {
-                        LED_mode = LED_STARRY;
-                        outputString("DONE!\r\n");
-                    }
-                    else if(strcmp(CMD_SET_XMAS,inputCommand)==0)
-                    {
-                        LED_mode = LED_XMAS;
-                        outputString("DONE!\r\n");
-                    }
-                    else if(strcmp(CMD_SET_PARTY,inputCommand)==0)
-                    {
-                        LED_mode = LED_PARTY;
-                        outputString("DONE!\r\n");
-                    }
-                    else
-                    {
-                        outputString("Invalid Command \r\n");
-                    }
-                    UART_ReceiveState = COMM_IDEL;
-
-                }
-                break;
-            case COMM_PROCESS_COLOR:
-                inputCommand[receiveCounter++] = receiveData;
-                if(receiveCounter == 2)
-                {
-                   r = UART_HexSrtingToBinary(inputCommand);
-                }
-                else if(receiveCounter == 4)
-                {
-                   g = UART_HexSrtingToBinary(inputCommand+2);
-                }
-                else if(receiveCounter == 6)
-                {
-                   b = UART_HexSrtingToBinary(inputCommand+4);
-                }
-                if(receiveData =='\n') 
-                {
-                    if(receiveCounter == 8)
-                    {
-                        LED_SetColor.Green = g;
-                        LED_SetColor.Red   = r;
-                        LED_SetColor.Blue  = b;
-                        outputString("DONE!\r\n");
-                    }
-                    else
-                    {    
-                        outputString("Invalid Command \r\n");
-                    }
-                    UART_ReceiveState = COMM_IDEL;
+                    UART_ReceiveState = COMM_PROCESS_TRASH;
                 }
                 break;
             case COMM_PROCESS_TRASH:
                 if(receiveData == '\n')
                 {
                     UART_ReceiveState = COMM_IDEL;
-                    outputString("Invalid Command \r\n");
+                    printf("Invalid Command \r\n");
                 }
                 break;
             default:UART_ReceiveState = COMM_IDEL;

@@ -12,13 +12,30 @@
 extern "C" {
 #endif
 
-#include "mcc_generated_files/eusart.h"
+#include "../BT_LED_strip.X/mcc_generated_files/mcc.h"
 
 
 #define INPUT_COMMAND_BUFFER_SIZE 16
+#define COLOR_COMMAND_LENGTH      8    /* RRGGBB\r\n*/
 
 void COMM_Task(void);
 
+typedef enum
+{
+    COMM_IDEL,
+    COMM_PROCESS_COMMAND,
+    COMM_PROCESS_TRASH,
+}COMM_RECEIVE_STATE;
+
+typedef void(*functionPointerType)(char*);
+
+struct commandStruct
+{
+    char const *name;
+    uint8_t nameLength;
+    functionPointerType execute;
+    char const *helpMessage;
+};
 
 #ifdef	__cplusplus
 }

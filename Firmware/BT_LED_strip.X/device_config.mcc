@@ -108,9 +108,9 @@
             <setting name="TXI" option="true"/>
             <setting name="inputBuffer" option="16"/>
             <setting name="outputBuffer" option="8"/>
-            <setting name="stdio" option="false"/>
-            <file checksum="2089601799" modified="false" name="eusart.c" path="mcc_generated_files/eusart.c"/>
-            <file checksum="61498593" modified="false" name="eusart.h" path="mcc_generated_files/eusart.h"/>
+            <setting name="stdio" option="true"/>
+            <file checksum="1927867113" modified="false" name="eusart.c" path="mcc_generated_files/eusart.c"/>
+            <file checksum="3363662661" modified="false" name="eusart.h" path="mcc_generated_files/eusart.h"/>
         </module>
         <module generated="true" mode="GPIO" name="GPIO" order="1" reloadPin="manual" type="GPIO">
             <resource customName="gesturePort5" digital="true" direction="INPUT" function="RB7" ioc="1" module="GPIO" name="RB7" start="false" type="pin" wpu="false"/>

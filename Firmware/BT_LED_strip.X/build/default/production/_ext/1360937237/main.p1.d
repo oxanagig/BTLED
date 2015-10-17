@@ -2,6 +2,7 @@
  build/default/production/_ext/1360937237/main.p1:  \
  ../src/main.c  \
 ../src/mcc_generated_files/mcc.h  \
+../src/../BT_LED_strip.X/mcc_generated_files/mcc.h  \
 ../src/mcc_generated_files/pwm3.h  \
 ../src/serialCommand.h  \
 ../src/mcc_generated_files/interrupt_manager.h  \
