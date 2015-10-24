@@ -4,6 +4,8 @@
 #include "LED.h"
 
 static char inputCommand[INPUT_COMMAND_BUFFER_SIZE];
+static COMM_RECEIVE_STATE UART_ReceiveState;
+static uint8_t receiveCounter;
 
 /*Predefined Command*/
 const char const CMD_SET_OFF[]     = "SetLED Off\r\n";
@@ -186,11 +188,14 @@ static uint8_t oneByte_HexSrtingToBinary(char* data)
     return ((uint8_t)(data[0]<<4)+(uint8_t)data[1]);
 }
 
+void COMM_Initialize(void)
+{
+    UART_ReceiveState = COMM_IDEL;
+}
+
 void COMM_Task(void)
 {
     uint8_t receiveData;
-    static COMM_RECEIVE_STATE UART_ReceiveState = COMM_IDEL;
-    static uint8_t receiveCounter;
 
     if(EUSART_DataReady)
     {
@@ -225,8 +230,9 @@ void COMM_Task(void)
                     uint8_t i = 0;
                     do
                     {
-                        if(strncmp(inputCommand,commands[i].name,commands[i].nameLength)>=0)
+                        if(strncmp(inputCommand,commands[i].name,commands[i].nameLength)==0)
                         {
+                            inputCommand[++receiveCounter] = '\0';          /* add string terminator for strcmp() */
                             commands[i].execute(inputCommand);              /*execute the receiver of matching command*/
                             break;
                         }
