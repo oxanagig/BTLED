@@ -19,6 +19,7 @@
       </logicalFolder>
       <itemPath>../src/LED.h</itemPath>
       <itemPath>../src/serialCommand.h</itemPath>
+      <itemPath>../src/SRAM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -43,6 +44,7 @@
       <itemPath>../src/LED.c</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/serialCommand.c</itemPath>
+      <itemPath>../src/SRAM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

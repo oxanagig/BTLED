@@ -8,11 +8,6 @@
 #ifndef LED_H
 #define	LED_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
 #define WS2812
 #define NUMBER_OF_LED       6
 
@@ -39,9 +34,7 @@ extern LED_COLOR LED_SetColor;
 
 void LED_Test(void);
 void LED_Task(void);
-inline void ledSendByte(uint8_t);
-inline void ledSetColor(LED_COLOR);
-void ledStripSetColor(LED_COLOR*, uint8_t);
+
 
 #define LED_DATA_SetHigh() LATA5 = 1
 #define LED_DATA_SetLow()  LATA5 = 0 

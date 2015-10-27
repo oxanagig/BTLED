@@ -1,19 +1,43 @@
 #include <xc.h>
 #include <stdint.h>
 #include "LED.h"
+#include "SRAM.h"
 #include "../BT_LED_strip.X/mcc_generated_files/mcc.h"
 
-        LED_MODE  LED_mode = LED_OFF;
-        LED_COLOR LED_SetColor = {0,0,0}; 
+
+/* local variable*/
 static  LED_COLOR LED_currentColor = {0,0,0};
-const   LED_COLOR ledFullOn  = {20,20,20};
+static  uint8_t currentLEDIndex;
+
+/* global variable*/
+LED_MODE  LED_mode;
+LED_COLOR LED_SetColor = {0,0,0}; 
+
+/* constant */
+const   LED_COLOR ledFullOn  = {0xFF,0xFF,0xFF};
 const   LED_COLOR ledFullOff = {0,0,0};
-const   LED_COLOR ledRed     = {1,0,0};
+
+/* local functions*/
+static void ledEnable(void);
+static void ledDisable(void);
+static inline void ledSendByte(uint8_t);
+static void ledSendColor(uint8_t,uint8_t,uint8_t);
+
+
+
+void LED_Intialization(void)
+{
+    LED_mode = LED_OFF; 
+    currentLEDIndex = 0;
+}
+
+uint8_t LED_getCurrentIndex(void)
+{
+    return currentLEDIndex;
+}
 
 void LED_Test(void)
 {
-
-    
     for(uint8_t i=0; i<NUMBER_OF_LED; i++)
     {
         for(uint8_t j=0;j<NUMBER_OF_LED;j++)
@@ -31,7 +55,17 @@ void LED_Test(void)
                ledSendByte(ledFullOff.Blue);
             }
         }
-        __delay_ms(50);
+        __delay_ms(100);
+    }
+
+}
+
+static void LED_directColor(uint8_t red,uint8_t green,uint8_t blue)
+{
+    uint8_t i;
+    for(i=0;i<NUMBER_OF_LED;i++)
+    {
+        ledSendColor(red,green,blue);
     }
 
 }
@@ -45,10 +79,7 @@ void LED_Task(void)
             if(ledOFF ==0)
             {
                 GIE = 0;
-                for(uint16_t i=0;i<NUMBER_OF_LED;i++)
-                {
-                    ledSetColor(ledFullOff);
-                }
+                
                 GIE = 1;
                 ledOFF = 1;
             }
@@ -59,10 +90,7 @@ void LED_Task(void)
             || LED_currentColor.Green!=LED_SetColor.Green)
             {
                 GIE = 0;
-                for(uint16_t i=0;i<NUMBER_OF_LED;i++)
-                {
-                    ledSetColor(LED_SetColor);
-                }
+               
                 GIE = 1;
                 LED_currentColor = LED_SetColor;
                 ledOFF = 0;
@@ -80,33 +108,40 @@ void LED_Task(void)
         default:
             break;
     }
-
-
-    
 }
 
-inline void ledSetColor(LED_COLOR ledColor)
+static void ledSetColor(uint8_t red, uint8_t green, uint8_t blue)
 {
-    ledSendByte(ledColor.Green);       //Green
-    ledSendByte(ledColor.Red);         //Red
-    ledSendByte(ledColor.Blue);        //Blue
-}
-
-void ledStripSetColor(LED_COLOR* ledColor, uint8_t numberOfLED)
-{
-    uint16_t    i;
-    
-    for(i=0;i<numberOfLED;i++)
+    currentLEDIndex++;
+    if(currentLEDIndex<NUMBER_OF_LED)
     {
-        if(sizeof(ledColor)<=sizeof(ledColor[0])*i)  // exit if the assigned color is less than expected
-            break;
-        ledSetColor(*(ledColor+i));
+        SRAMWriteByte(green);
+        SRAMWriteByte(red);
+        SRAMWriteByte(blue);
+    }
+    else
+    {
+        currentLEDIndex--;
     }
 }
 
-//#define bit_banged_protocol
+static void ledEnable(void)
+{
+    CLC4CONbits.LC4EN = 1;
+}
+static void ledDisable(void)
+{
+    CLC4CONbits.LC4EN = 0;
+}
 
-inline void ledSendByte(uint8_t data)
+static void ledSendColor(uint8_t red,uint8_t green,uint8_t blue)
+{
+    ledSendByte(green);       //Green
+    ledSendByte(red);         //Red
+    ledSendByte(blue);        //Blue
+}
+
+static inline void ledSendByte(uint8_t data)
 {
 #if defined (bit_banged_protocol)
     #if defined(WS2811)
