@@ -31,9 +31,9 @@ static uint8_t oneByte_HexSrtingToBinary(char*);
 
 const struct commandStruct const commands[]=
 {
-    {"SetLED",6,&setCommandProcess, "Set LED Mode: Off,DIRECT,STARRY,XMAS,PARTY.\r\n"},
-    {"GetLED",6,&getCommandProcess, "Get the current LED status.\r\n"},
-    {"Test",  4,&testCommandProcess,"System self-test:LED, SRAM, ALL\r\n" },
+    {"SetLED",6,setCommandProcess, "Set LED Mode: Off,DIRECT,STARRY,XMAS,PARTY.\r\n"},
+    {"GetLED",6,getCommandProcess, "Get the current LED status.\r\n"},
+    {"Test",  4,testCommandProcess,"System self-test:LED, SRAM, ALL\r\n" },
     {"",0,0,""}
 };
 
@@ -98,9 +98,7 @@ static void setCommandProcess(char* input)
         
         if(strlen(input) == COLOR_COMMAND_LENGTH)
         {
-            LED_SetColor.Red   = oneByte_HexSrtingToBinary(input);
-            LED_SetColor.Green = oneByte_HexSrtingToBinary(input+2);
-            LED_SetColor.Blue  = oneByte_HexSrtingToBinary(input+4);
+            SetRGB(LED_SetColor,oneByte_HexSrtingToBinary(input),oneByte_HexSrtingToBinary(input+2),oneByte_HexSrtingToBinary(input+4));
             printf("DONE!\r\n");     
             LED_mode = LED_DIRECT;
         }
@@ -238,7 +236,7 @@ void COMM_Task(void)
                         }
                         i++;
                     }while(commands[i].nameLength!=0);
-                    if(i>=command_GetnumberofCommands(&commands))
+                    if(i>=command_GetnumberofCommands(commands))
                         printf("Invalid Command \r\n");
                     UART_ReceiveState = COMM_IDEL;
                 }

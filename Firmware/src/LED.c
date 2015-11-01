@@ -6,29 +6,31 @@
 
 
 /* local variable*/
-static  LED_COLOR LED_currentColor = {0,0,0};
+static  RGB_t   LED_currentColor = {0,0,0};
 static  uint8_t currentLEDIndex;
 
 /* global variable*/
 LED_MODE  LED_mode;
-LED_COLOR LED_SetColor = {0,0,0}; 
+RGB_t LED_SetColor = {0,0,0}; 
 
 /* constant */
-const   LED_COLOR ledFullOn  = {0xFF,0xFF,0xFF};
-const   LED_COLOR ledFullOff = {0,0,0};
+const   RGB_t ledFullOn  = {0xFF,0xFF,0xFF};
+const   RGB_t ledFullOff = {0,0,0};
 
 /* local functions*/
 static void ledEnable(void);
 static void ledDisable(void);
 static inline void ledSendByte(uint8_t);
-static void ledSendColor(uint8_t,uint8_t,uint8_t);
-
+static inline void ledSendColor(uint8_t,uint8_t,uint8_t);
+static RGB_t HsvToRgb(HSV_t);
+static void LED_directColor(RGB_t);
 
 
 void LED_Intialization(void)
 {
     LED_mode = LED_OFF; 
     currentLEDIndex = 0;
+    ledDisable();
 }
 
 uint8_t LED_getCurrentIndex(void)
@@ -38,6 +40,7 @@ uint8_t LED_getCurrentIndex(void)
 
 void LED_Test(void)
 {
+    ledEnable();
     for(uint8_t i=0; i<NUMBER_OF_LED; i++)
     {
         for(uint8_t j=0;j<NUMBER_OF_LED;j++)
@@ -57,17 +60,7 @@ void LED_Test(void)
         }
         __delay_ms(100);
     }
-
-}
-
-static void LED_directColor(uint8_t red,uint8_t green,uint8_t blue)
-{
-    uint8_t i;
-    for(i=0;i<NUMBER_OF_LED;i++)
-    {
-        ledSendColor(red,green,blue);
-    }
-
+    ledDisable();
 }
 
 void LED_Task(void)
@@ -79,7 +72,7 @@ void LED_Task(void)
             if(ledOFF ==0)
             {
                 GIE = 0;
-                
+                LED_directColor(ledFullOff);
                 GIE = 1;
                 ledOFF = 1;
             }
@@ -90,7 +83,7 @@ void LED_Task(void)
             || LED_currentColor.Green!=LED_SetColor.Green)
             {
                 GIE = 0;
-               
+                LED_directColor(LED_SetColor);
                 GIE = 1;
                 LED_currentColor = LED_SetColor;
                 ledOFF = 0;
@@ -110,14 +103,14 @@ void LED_Task(void)
     }
 }
 
-static void ledSetColor(uint8_t red, uint8_t green, uint8_t blue)
+static void ledSetColor(RGB_t ledColor)
 {
     currentLEDIndex++;
     if(currentLEDIndex<NUMBER_OF_LED)
     {
-        SRAMWriteByte(green);
-        SRAMWriteByte(red);
-        SRAMWriteByte(blue);
+        SRAMWriteByte(ledColor.Green);
+        SRAMWriteByte(ledColor.Red);
+        SRAMWriteByte(ledColor.Blue);
     }
     else
     {
@@ -134,7 +127,7 @@ static void ledDisable(void)
     CLC4CONbits.LC4EN = 0;
 }
 
-static void ledSendColor(uint8_t red,uint8_t green,uint8_t blue)
+static inline void ledSendColor(uint8_t red,uint8_t green,uint8_t blue)
 {
     ledSendByte(green);       //Green
     ledSendByte(red);         //Red
@@ -181,4 +174,100 @@ static inline void ledSendByte(uint8_t data)
 #else
         SPI_Exchange8bit(data);
 #endif
+}
+
+
+static RGB_t HsvToRgb(HSV_t hsv)
+{
+    RGB_t rgb;
+    unsigned char region, remainder, p, q, t;
+
+    if (hsv.Saturation == 0)
+    {
+        rgb.Red = hsv.Value;
+        rgb.Green = hsv.Value;
+        rgb.Blue = hsv.Value;
+        return rgb;
+    }
+
+    region = hsv.Hue / 43;
+    remainder = (hsv.Hue - (region * 43)) * 6; 
+
+    p = (hsv.Value * (255 - hsv.Saturation)) >> 8;
+    q = (hsv.Value * (255 - ((hsv.Saturation * remainder) >> 8))) >> 8;
+    t = (hsv.Value * (255 - ((hsv.Saturation * (255 - remainder)) >> 8))) >> 8;
+
+    switch (region)
+    {
+        case 0:
+            rgb.Red = hsv.Value; rgb.Green = t; rgb.Blue = p;
+            break;
+        case 1:
+            rgb.Red = q; rgb.Green = hsv.Value; rgb.Blue = p;
+            break;
+        case 2:
+            rgb.Red = p; rgb.Green = hsv.Value; rgb.Blue = t;
+            break;
+        case 3:
+            rgb.Red = p; rgb.Green = q; rgb.Blue = hsv.Value;
+            break;
+        case 4:
+            rgb.Red = t; rgb.Green = p; rgb.Blue = hsv.Value;
+            break;
+        default:
+            rgb.Red = hsv.Value; rgb.Green = p; rgb.Blue = q;
+            break;
+    }
+
+    return rgb;
+}
+
+static void SRAMtoLED(void)
+{
+    uint8_t data;
+    while (SSP1STATbits.BF == SPI_RX_IN_PROGRESS);  /* wait the buffer to be filled with byte received from SRAM */
+    data = SSP1BUF;                                 /* Get the last received byte in the SPI buffer, which came from SRAM */
+    SSP1BUF = data;                                 /* transmit the byte from SRAM to SPI data line, which writes to LED and read a new byte from SRAM at the same time */
+}
+
+static void LED_Show()
+{
+    uint8_t i;
+    SRAMStartRead(0x00);            /* Start address*/
+    SPI_Exchange8bit(0X00);         /* Write a dummy byte to read out the first byte in SRAM */
+    
+    ledEnable();
+    
+    for(i=0;i<NUMBER_OF_LED;i++)
+    {
+        SRAMtoLED();
+    }
+    
+    ledDisable();
+}
+
+//---------------------------------------LED Patterns-----------------------------------------
+static void LED_directColor(RGB_t ledColor)
+{
+    SRAMStarWrite(0x00);
+    uint8_t i;
+    for(i=0;i<NUMBER_OF_LED;i++)
+    {
+        ledSetColor(ledColor);
+    }
+    deselectSRAM();
+    LED_Show();
+}
+
+static void LED_party(void)
+{
+    SRAMStarWrite(0x00);
+    uint8_t i;
+    RGB_t ledRGB;
+    
+    SetRGB(ledRGB,20,40,50);
+    for(i=0;i<NUMBER_OF_LED;i++)
+    {
+        ledSetColor(ledRGB);
+    }
 }

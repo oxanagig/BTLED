@@ -26,18 +26,30 @@ typedef struct
     uint8_t Red;
     uint8_t Green;
     uint8_t Blue;
-}LED_COLOR;
+}RGB_t;
+
+typedef struct
+{
+    uint8_t Hue;
+    uint8_t Saturation;
+    uint8_t Value;
+}HSV_t;
 
 extern LED_MODE LED_mode;
-extern LED_COLOR LED_SetColor;    
+extern RGB_t LED_SetColor;    
     
 
 void LED_Test(void);
 void LED_Task(void);
 
 
+#define SetRGB(RGB_color,red,green,blue)    RGB_color.Red = red; RGB_color.Green = green; RGB_color.Blue = blue
+#define SetHSV(HSV_color,hue,saturation,value)    RGB_color.Hue = hue; RGB_color.Saturation = satruation; RGB_color.Value = value
+
 #define LED_DATA_SetHigh() LATA5 = 1
 #define LED_DATA_SetLow()  LATA5 = 0 
+#define SPI_RX_IN_PROGRESS 0x00
+
 
 #ifdef	__cplusplus
 }

@@ -9,19 +9,28 @@ void SRAM_Initialization(void)
     deselectSRAM();
 }
 
-void SRAMWriteSingleByte(uint16_t addr,uint8_t data)
-{
-    SRAMStarWrite(addr);
-    SRAMWriteByte(data);
-    deselectSRAM();
-}
-
 void SRAMStarWrite(uint16_t addr)
 {
     selectSRAM();
     SRAMWriteByte(WRITE_COMMAND);    
     SRAMWriteByte((uint8_t)addr>>8);             /* Address MSB */   
     SRAMWriteByte((uint8_t)addr&0xFF);           /* Address LSB */
+}
+
+void SRAMStartRead(uint16_t addr)
+{
+    selectSRAM();
+    SRAMWriteByte(WRITE_COMMAND);    
+    SRAMWriteByte((uint8_t)addr>>8);             /* Address MSB */   
+    SRAMWriteByte((uint8_t)addr&0xFF);           /* Address LSB */
+}
+
+
+void SRAMWriteSingleByte(uint16_t addr,uint8_t data)
+{
+    SRAMStarWrite(addr);
+    SRAMWriteByte(data);
+    deselectSRAM();
 }
 
 inline void SRAMWriteByte(uint8_t data)

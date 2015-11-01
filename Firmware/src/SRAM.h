@@ -38,6 +38,7 @@
 
 
 #define WRITE_COMMAND       0x02
+#define READ_COMMAND        0x03
 
 #define selectSRAM()        nCS_SetHigh()
 #define deselectSRAM()      nCS_SetLow()
@@ -45,6 +46,7 @@
 void SRAM_Initialization(void);
 void inline SRAMWriteByte(uint8_t data);
 void SRAMStarWrite(uint16_t);
+void SRAMStartRead(uint16_t );
 void SRAMWriteSingleByte(uint16_t,uint8_t);
 
 
