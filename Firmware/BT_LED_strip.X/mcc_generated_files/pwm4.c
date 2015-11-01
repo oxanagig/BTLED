@@ -1,21 +1,21 @@
 /**
-  @Generated MPLABï¿½ Code Configurator Header File
+  PWM4 Generated Driver File
 
-  @Company:
+  @Company
     Microchip Technology Inc.
 
-  @File Name:
-    mcc.h
+  @File Name
+    pwm4.c
 
-  @Summary:
-    This is the mcc.h file generated using MPLABï¿½ Code Configurator
+  @Summary
+    This is the generated driver implementation file for the PWM4 driver using MPLAB® Code Configurator
 
-  @Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
+  @Description
+    This source file provides implementations for driver APIs for PWM4.
     Generation Information :
-        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
+        Product Revision  :  MPLAB® Code Configurator - v2.25.2
         Device            :  PIC16F1619
-        Version           :  1.02
+        Driver Version    :  2.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X v2.35 or v3.00
@@ -44,53 +44,40 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
  */
 
-#ifndef MCC_H
-#define	MCC_H
+/**
+  Section: Included Files
+ */
+
 #include <xc.h>
-#include "pin_manager.h"
-#include <stdint.h>
-#include <stdbool.h>
-#include "interrupt_manager.h"
-#include "eusart.h"
-#include "spi.h"
-#include "tmr2.h"
-#include "adc1.h"
-#include "clc4.h"
-#include "pwm3.h"
 #include "pwm4.h"
-#include "tmr4.h"
-
-#define _XTAL_FREQ  32000000
 
 /**
- * @Param
-    none
- * @Returns
-    none
- * @Description
-    Initializes the device to the default states configured in the
- *                  MCC GUI
- * @Example
-    SYSTEM_Initialize(void);
+  Section: PWM Module APIs
  */
-void SYSTEM_Initialize(void);
 
-/**
- * @Param
-    none
- * @Returns
-    none
- * @Description
-    Initializes the oscillator to the default states configured in the
- *                  MCC GUI
- * @Example
-    OSCILLATOR_Initialize(void);
- */
-void OSCILLATOR_Initialize(void);
+void PWM4_Initialize(void) {
+    // Set the PWM to the options selected in the MPLAB® Code Configurator.
+    // PWM4POL active_hi; PWM4EN enabled; 
+    PWM4CON = 0x80;
+
+    // PWM4DC8 127; 
+    PWM4DCH = 0x7F;
+
+    // PWM4DC0 192; 
+    PWM4DCL = 0xC0;
 
 
+    // Select timer
+    CCPTMRSbits.P4TSEL = 0x1;
+}
 
-#endif	/* MCC_H */
+void PWM4_LoadDutyValue(uint16_t dutyValue) {
+    // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
+    PWM4DCH = (dutyValue & 0x03FC) >> 2;
+
+    // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
+    PWM4DCL = (dutyValue & 0x0003) << 6;
+}
 /**
  End of File
  */

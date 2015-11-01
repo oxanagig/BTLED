@@ -16,6 +16,8 @@
         <itemPath>mcc_generated_files/pwm3.h</itemPath>
         <itemPath>mcc_generated_files/spi.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
+        <itemPath>mcc_generated_files/tmr4.h</itemPath>
+        <itemPath>mcc_generated_files/pwm4.h</itemPath>
       </logicalFolder>
       <itemPath>../src/LED.h</itemPath>
       <itemPath>../src/serialCommand.h</itemPath>
@@ -40,6 +42,8 @@
         <itemPath>mcc_generated_files/pwm3.c</itemPath>
         <itemPath>mcc_generated_files/spi.c</itemPath>
         <itemPath>mcc_generated_files/tmr2.c</itemPath>
+        <itemPath>mcc_generated_files/tmr4.c</itemPath>
+        <itemPath>mcc_generated_files/pwm4.c</itemPath>
       </logicalFolder>
       <itemPath>../src/LED.c</itemPath>
       <itemPath>../src/main.c</itemPath>

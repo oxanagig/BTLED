@@ -4,8 +4,9 @@
         <manager generated="true" name="Pin Manager" reloadPin="manual">
             <setting name="package" option="PDIP20"/>
             <setting name="sorting" option="true"/>
+            <resource customName="PWM4" digital="true" direction="OUTPUT" function="PWM4OUT" ioc="0" module="PWM4" name="RA1" start="false" type="pin" wpu="false"/>
             <resource customName="RX" digital="true" direction="INPUT" function="RX" ioc="0" module="EUSART" name="RA2" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RA4" digital="true" direction="INPUT" function="RA4" ioc="0" module="GPIO" name="RA4" start="false" type="pin" wpu="false"/>
+            <resource customName="Photoresistor" digital="false" direction="INPUT" function="AN3" ioc="0" module="ADC1" name="RA4" start="false" type="pin" wpu="false"/>
             <resource customName="CLC4OUT" digital="true" direction="OUTPUT" function="CLC4OUT" ioc="0" module="CLC4" name="RA5" start="false" type="pin" wpu="false"/>
             <resource customName="SDO" digital="true" direction="OUTPUT" function="SDO" ioc="0" module="MSSP" name="RB4" start="false" type="pin" wpu="false"/>
             <resource customName="nCS" digital="true" direction="OUTPUT" function="RB5" ioc="0" module="GPIO" name="RB5" start="true" type="pin" wpu="false"/>
@@ -19,8 +20,8 @@
             <resource customName="gesturePort0" digital="true" direction="INPUT" function="RC5" ioc="1" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
             <resource customName="gesturePort3" digital="true" direction="INPUT" function="RC6" ioc="1" module="GPIO" name="RC6" start="false" type="pin" wpu="false"/>
             <resource customName="gesturePort4" digital="true" direction="INPUT" function="RC7" ioc="1" module="GPIO" name="RC7" start="false" type="pin" wpu="false"/>
-            <file checksum="2330884410" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="3334794331" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="3746398877" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="3373647421" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
@@ -69,8 +70,8 @@
             <setting name="WDTE" option="OFF"/>
             <setting name="WDTCPS" option="WDTCPS1F"/>
             <setting name="generateConfigBits" option="true"/>
-            <file checksum="3841566914" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
-            <file checksum="3650302765" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+            <file checksum="592098847" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="2006662738" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
         </manager>
     </managers>
     <modules>
@@ -121,7 +122,6 @@
             <resource customName="gesturePort4" digital="true" direction="INPUT" function="RC7" ioc="1" module="GPIO" name="RC7" start="false" type="pin" wpu="false"/>
             <resource customName="nCS" digital="true" direction="OUTPUT" function="RB5" ioc="0" module="GPIO" name="RB5" start="true" type="pin" wpu="false"/>
             <resource customName="motionDetect" digital="true" direction="INPUT" function="RB6" ioc="1" module="GPIO" name="RB6" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RA4" digital="true" direction="INPUT" function="RA4" ioc="0" module="GPIO" name="RA4" start="false" type="pin" wpu="false"/>
         </module>
         <module generated="true" mode="Timer" name="TMR2" order="3" reloadPin="manual" type="tmr_mid2">
             <initializer comment="" name="Initialize">
@@ -189,8 +189,9 @@
                 <setting name="ADRESH" option="0x0" register="ADRESH"/>
             </initializer>
             <setting name="ADI" option="false"/>
+            <resource customName="Photoresistor" function="AN3" name="RA4" type="pin"/>
             <file checksum="3869572220" modified="false" name="adc1.c" path="mcc_generated_files/adc1.c"/>
-            <file checksum="2469174838" modified="false" name="adc1.h" path="mcc_generated_files/adc1.h"/>
+            <file checksum="194422393" modified="false" name="adc1.h" path="mcc_generated_files/adc1.h"/>
         </module>
         <module generated="true" mode="CLC" name="CLC4" order="5" reloadPin="auto" type="cla_clc">
             <initializer comment="" name="Initialize">
@@ -264,6 +265,51 @@
             </initializer>
             <file checksum="736100762" modified="false" name="pwm3.c" path="mcc_generated_files/pwm3.c"/>
             <file checksum="3823497768" modified="false" name="pwm3.h" path="mcc_generated_files/pwm3.h"/>
+        </module>
+        <module generated="true" mode="Timer" name="TMR4" order="8" reloadPin="manual" type="tmr_mid2">
+            <initializer comment="" name="Initialize">
+                <setting name="T4OUTPS" option="1:1" register="T4CON"/>
+                <setting name="T4CKPS" option="1:8" register="T4CON"/>
+                <setting name="TMR4ON" option="off" register="T4CON"/>
+                <setting name="T4CS" option="FOSC/4" register="T4CLKCON"/>
+                <setting name="T4CKPOL" option="Rising Edge" register="T4HLT"/>
+                <setting name="T4PSYNC" option="Not Synchronized" register="T4HLT"/>
+                <setting name="T4CKSYNC" option="Not Synchronized" register="T4HLT"/>
+                <setting name="T4MODE" option="Software control" register="T4HLT"/>
+                <setting name="T4RSEL" option="T4" register="T4RST"/>
+                <setting name="T4PR" option="255" register="T4PR"/>
+                <setting name="TMR4" option="0x0" register="T4TMR"/>
+                <additionalSetting name="4TCKPS" option="1:8"/>
+                <additionalSetting name="timerstart" option="enabled"/>
+                <additionalSetting name="maxPeriodChanged" option="32.0 us"/>
+                <additionalSetting name="minPeriodChanged" option="125.0 ns"/>
+                <additionalSetting name="modeChanged" option="Roll over pulse"/>
+                <additionalSetting name="period" option="256.0 us"/>
+            </initializer>
+            <setting name="TMRI" option="false"/>
+            <setting name="ticker" option="0"/>
+            <file checksum="590940400" modified="false" name="tmr4.c" path="mcc_generated_files/tmr4.c"/>
+            <file checksum="3733306807" modified="false" name="tmr4.h" path="mcc_generated_files/tmr4.h"/>
+        </module>
+        <module generated="true" mode="PWM" name="PWM4" order="7" reloadPin="manual" type="pwm_10bit">
+            <initializer comment="" name="Initialize">
+                <setting name="PWM4POL" option="active_hi" register="PWM4CON"/>
+                <setting name="PWM4EN" option="enabled" register="PWM4CON"/>
+                <setting name="PWM4DC8" option="127" register="PWM4DCH"/>
+                <setting name="PWM4DC0" option="192" register="PWM4DCL"/>
+                <additionalSetting name="ccpr" option="511"/>
+                <additionalSetting name="pwmperiod" option="256.000 us"/>
+                <additionalSetting name="duty" option="50"/>
+                <additionalSetting name="freq" option="3.9062 kHz"/>
+                <additionalSetting name="timerselpresence" option="timerselpresent"/>
+                <additionalSetting name="CCPTMRS" option="CCPTMRS"/>
+                <additionalSetting name="resolution" option="10"/>
+                <additionalSetting name="CTSELvalue" option="0x1"/>
+                <additionalSetting name="CTSEL" option="PWM4timer4"/>
+            </initializer>
+            <resource customName="PWM4" digital="true" direction="OUTPUT" function="PWM4OUT" ioc="0" module="PWM4" name="RA1" start="false" type="pin" wpu="false"/>
+            <file checksum="942013738" modified="false" name="pwm4.c" path="mcc_generated_files/pwm4.c"/>
+            <file checksum="4201180958" modified="false" name="pwm4.h" path="mcc_generated_files/pwm4.h"/>
         </module>
     </modules>
 </configuration>

@@ -50,8 +50,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 void PIN_MANAGER_Initialize(void) {
     LATA = 0x00;
-    TRISA = 0x1F;
-    ANSELA = 0x03;
+    TRISA = 0x1D;
+    ANSELA = 0x11;
 
     LATB = 0x20;
     TRISB = 0xC0;
@@ -83,6 +83,7 @@ void PIN_MANAGER_Initialize(void) {
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
 
+    RA1PPS = 0x0F; // RA1->PWM4:PWM4OUT
     RXPPS = 0x02; // RA2->EUSART:RX
     RA5PPS = 0x07; // RA5->CLC4:CLC4OUT
     RB4PPS = 0x11; // RB4->MSSP:SDO

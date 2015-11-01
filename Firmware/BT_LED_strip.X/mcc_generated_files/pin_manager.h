@@ -59,6 +59,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set PWM4 aliases
+#define PWM4_TRIS               TRISA1
+#define PWM4_LAT                LATA1
+#define PWM4_PORT               RA1
+#define PWM4_ANS                ANSA1
+#define PWM4_SetHigh()    do { LATA1 = 1; } while(0)
+#define PWM4_SetLow()   do { LATA1 = 0; } while(0)
+#define PWM4_Toggle()   do { LATA1 = ~LATA1; } while(0)
+#define PWM4_GetValue()         RA1
+#define PWM4_SetDigitalInput()    do { TRISA1 = 1; } while(0)
+#define PWM4_SetDigitalOutput()   do { TRISA1 = 0; } while(0)
+
+#define PWM4_SetAnalogMode()   do { ANSA1 = 1; } while(0)
+#define PWM4_SetDigitalMode()   do { ANSA1 = 0; } while(0)
 // get/set RX aliases
 #define RX_TRIS               TRISA2
 #define RX_LAT                LATA2
@@ -73,20 +87,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define RX_SetAnalogMode()   do { ANSA2 = 1; } while(0)
 #define RX_SetDigitalMode()   do { ANSA2 = 0; } while(0)
-// get/set IO_RA4 aliases
-#define IO_RA4_TRIS               TRISA4
-#define IO_RA4_LAT                LATA4
-#define IO_RA4_PORT               RA4
-#define IO_RA4_ANS                ANSA4
-#define IO_RA4_SetHigh()    do { LATA4 = 1; } while(0)
-#define IO_RA4_SetLow()   do { LATA4 = 0; } while(0)
-#define IO_RA4_Toggle()   do { LATA4 = ~LATA4; } while(0)
-#define IO_RA4_GetValue()         RA4
-#define IO_RA4_SetDigitalInput()    do { TRISA4 = 1; } while(0)
-#define IO_RA4_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
+// get/set Photoresistor aliases
+#define Photoresistor_TRIS               TRISA4
+#define Photoresistor_LAT                LATA4
+#define Photoresistor_PORT               RA4
+#define Photoresistor_ANS                ANSA4
+#define Photoresistor_SetHigh()    do { LATA4 = 1; } while(0)
+#define Photoresistor_SetLow()   do { LATA4 = 0; } while(0)
+#define Photoresistor_Toggle()   do { LATA4 = ~LATA4; } while(0)
+#define Photoresistor_GetValue()         RA4
+#define Photoresistor_SetDigitalInput()    do { TRISA4 = 1; } while(0)
+#define Photoresistor_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
 
-#define IO_RA4_SetAnalogMode()   do { ANSA4 = 1; } while(0)
-#define IO_RA4_SetDigitalMode()   do { ANSA4 = 0; } while(0)
+#define Photoresistor_SetAnalogMode()   do { ANSA4 = 1; } while(0)
+#define Photoresistor_SetDigitalMode()   do { ANSA4 = 0; } while(0)
 // get/set CLC4OUT aliases
 #define CLC4OUT_TRIS               TRISA5
 #define CLC4OUT_LAT                LATA5

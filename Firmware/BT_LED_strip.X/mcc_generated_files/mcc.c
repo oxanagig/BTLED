@@ -83,6 +83,8 @@ void SYSTEM_Initialize(void) {
     ADC1_Initialize();
     CLC4_Initialize();
     PWM3_Initialize();
+    PWM4_Initialize();
+    TMR4_Initialize();
 }
 
 void OSCILLATOR_Initialize(void) {
