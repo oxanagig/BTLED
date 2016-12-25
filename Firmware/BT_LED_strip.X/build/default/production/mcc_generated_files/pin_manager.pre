@@ -14451,10 +14451,10 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 280 "mcc_generated_files/pin_manager.h"
+# 294 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize(void);
 
-# 292
+# 306
 void PIN_MANAGER_IOC(void);
 
 # 12 "/Applications/microchip/xc8/v1.34/include/stdbool.h"
@@ -14463,8 +14463,8 @@ typedef unsigned char bool;
 # 51 "mcc_generated_files/pin_manager.c"
 void PIN_MANAGER_Initialize(void) {
 LATA = 0x00;
-TRISA = 0x1F;
-ANSELA = 0x03;
+TRISA = 0x1D;
+ANSELA = 0x11;
 
 LATB = 0x20;
 TRISB = 0xC0;
@@ -14474,9 +14474,9 @@ WPUB = 0x00;
 LATC = 0x00;
 TRISC = 0xFD;
 ANSELC = 0x00;
-WPUC = 0x00;
+WPUC = 0x04;
 
-OPTION_REGbits.nWPUEN = 0x01;
+OPTION_REGbits.nWPUEN = 0x00;
 
 
 IOCBP6 = 1;
@@ -14496,6 +14496,7 @@ PPSLOCK = 0x55;
 PPSLOCK = 0xAA;
 PPSLOCKbits.PPSLOCKED = 0x00;
 
+RA1PPS = 0x0F;
 RXPPS = 0x02;
 RA5PPS = 0x07;
 RB4PPS = 0x11;
@@ -14510,6 +14511,7 @@ GIE = state;
 }
 
 void PIN_MANAGER_IOC(void) {
+static volatile char counter = 0;
 if ((IOCBP6 == 1) && (IOCBF6 == 1)) {
 
 
@@ -14517,7 +14519,7 @@ if ((IOCBP6 == 1) && (IOCBF6 == 1)) {
 IOCBF6 = 0;
 } else if ((IOCBP7 == 1) && (IOCBF7 == 1)) {
 
-
+counter++;
 
 IOCBF7 = 0;
 } else if ((IOCCP3 == 1) && (IOCCF3 == 1)) {

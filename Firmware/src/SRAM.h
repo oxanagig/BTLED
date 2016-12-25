@@ -33,6 +33,7 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "mcc_generated_files/pin_manager.h"
 
@@ -40,14 +41,15 @@
 #define WRITE_COMMAND       0x02
 #define READ_COMMAND        0x03
 
-#define selectSRAM()        nCS_SetHigh()
-#define deselectSRAM()      nCS_SetLow()
+#define selectSRAM()        nCS_SetLow()
+#define deselectSRAM()      nCS_SetHigh()
 
 void SRAM_Initialization(void);
-void inline SRAMWriteByte(uint8_t data);
+uint8_t inline SRAMWriteByte(uint8_t data);
 void SRAMStarWrite(uint16_t);
 void SRAMStartRead(uint16_t );
 void SRAMWriteSingleByte(uint16_t,uint8_t);
+bool SRAM_Test(void);
 
 
 #endif	/* XC_HEADER_TEMPLATE_H */

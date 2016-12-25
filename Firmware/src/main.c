@@ -47,6 +47,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "mcc_generated_files/mcc.h"
 #include "LED.h"
 #include "serialCommand.h"
+#include "SRAM.h"
 
 /*
 Main application
@@ -66,6 +67,7 @@ void main(void)
 
 
     LED_Test();
+    SRAM_Test();
 
     while (1)
     {

@@ -72,7 +72,7 @@ void LED_Task(void)
             if(ledOFF ==0)
             {
                 GIE = 0;
-                LED_directColor(ledFullOff);
+                LED_directColor(ledFullOn);
                 GIE = 1;
                 ledOFF = 1;
             }
@@ -224,31 +224,33 @@ static RGB_t HsvToRgb(HSV_t hsv)
 
 static void SRAMtoLED(void)
 {
-    uint8_t data;
+    static uint8_t data;
+    SSP1BUF = data;                                 /* transmit the byte from SRAM to SPI data line, which writes to LED and read a new byte from SRAM at the same time */
     while (SSP1STATbits.BF == SPI_RX_IN_PROGRESS);  /* wait the buffer to be filled with byte received from SRAM */
     data = SSP1BUF;                                 /* Get the last received byte in the SPI buffer, which came from SRAM */
-    SSP1BUF = data;                                 /* transmit the byte from SRAM to SPI data line, which writes to LED and read a new byte from SRAM at the same time */
+    
 }
 
 static void LED_Show()
 {
-    uint8_t i;
+    uint8_t i,receivedBtye;
     SRAMStartRead(0x00);            /* Start address*/
-    SPI_Exchange8bit(0X00);         /* Write a dummy byte to read out the first byte in SRAM */
-    
     ledEnable();
-    
-    for(i=0;i<NUMBER_OF_LED;i++)
+    receivedBtye = SPI_Exchange8bit(0x00);         /* Write a dummy byte to read out the first byte in SRAM */
+    __delay_ms(1);
+    for(i=0;i<NUMBER_OF_LED*3;i++)
     {
-        SRAMtoLED();
+        receivedBtye = SPI_Exchange8bit(receivedBtye);
+        //SRAMtoLED();
     }
-    
+    deselectSRAM();
     ledDisable();
 }
 
 //---------------------------------------LED Patterns-----------------------------------------
 static void LED_directColor(RGB_t ledColor)
-{
+{ 
+    currentLEDIndex = 0;
     SRAMStarWrite(0x00);
     uint8_t i;
     for(i=0;i<NUMBER_OF_LED;i++)

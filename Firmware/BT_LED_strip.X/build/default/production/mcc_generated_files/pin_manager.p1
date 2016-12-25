@@ -69,6 +69,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S923 . . ]
 "20777
 [v _PPSLOCKbits `VS923 ~T0 @X0 0 e@3599 ]
+"22162
+[v _RA1PPS `Vuc ~T0 @X0 0 e@3729 ]
 "21646
 [v _RXPPS `Vuc ~T0 @X0 0 e@3620 ]
 "22291
@@ -10778,8 +10780,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;pin_manager.h: 280: void PIN_MANAGER_Initialize(void);
-[; ;pin_manager.h: 292: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 294: void PIN_MANAGER_Initialize(void);
+[; ;pin_manager.h: 306: void PIN_MANAGER_IOC(void);
 [; ;stdbool.h: 12: typedef unsigned char bool;
 "51 mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
@@ -10790,12 +10792,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 52: LATA = 0x00;
 "52
 [e = _LATA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 53: TRISA = 0x1F;
+[; ;pin_manager.c: 53: TRISA = 0x1D;
 "53
-[e = _TRISA -> -> 31 `i `uc ]
-[; ;pin_manager.c: 54: ANSELA = 0x03;
+[e = _TRISA -> -> 29 `i `uc ]
+[; ;pin_manager.c: 54: ANSELA = 0x11;
 "54
-[e = _ANSELA -> -> 3 `i `uc ]
+[e = _ANSELA -> -> 17 `i `uc ]
 [; ;pin_manager.c: 56: LATB = 0x20;
 "56
 [e = _LATB -> -> 32 `i `uc ]
@@ -10817,12 +10819,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 63: ANSELC = 0x00;
 "63
 [e = _ANSELC -> -> 0 `i `uc ]
-[; ;pin_manager.c: 64: WPUC = 0x00;
+[; ;pin_manager.c: 64: WPUC = 0x04;
 "64
-[e = _WPUC -> -> 0 `i `uc ]
-[; ;pin_manager.c: 66: OPTION_REGbits.nWPUEN = 0x01;
+[e = _WPUC -> -> 4 `i `uc ]
+[; ;pin_manager.c: 66: OPTION_REGbits.nWPUEN = 0x00;
 "66
-[e = . . _OPTION_REGbits 0 5 -> -> 1 `i `uc ]
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
 [; ;pin_manager.c: 69: IOCBP6 = 1;
 "69
 [e = _IOCBP6 -> -> 1 `i `b ]
@@ -10863,127 +10865,139 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 84: PPSLOCKbits.PPSLOCKED = 0x00;
 "84
 [e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 86: RXPPS = 0x02;
+[; ;pin_manager.c: 86: RA1PPS = 0x0F;
 "86
-[e = _RXPPS -> -> 2 `i `uc ]
-[; ;pin_manager.c: 87: RA5PPS = 0x07;
+[e = _RA1PPS -> -> 15 `i `uc ]
+[; ;pin_manager.c: 87: RXPPS = 0x02;
 "87
-[e = _RA5PPS -> -> 7 `i `uc ]
-[; ;pin_manager.c: 88: RB4PPS = 0x11;
+[e = _RXPPS -> -> 2 `i `uc ]
+[; ;pin_manager.c: 88: RA5PPS = 0x07;
 "88
-[e = _RB4PPS -> -> 17 `i `uc ]
-[; ;pin_manager.c: 89: RC0PPS = 0x12;
+[e = _RA5PPS -> -> 7 `i `uc ]
+[; ;pin_manager.c: 89: RB4PPS = 0x11;
 "89
-[e = _RC0PPS -> -> 18 `i `uc ]
-[; ;pin_manager.c: 90: SSPCLKPPS = 0x11;
+[e = _RB4PPS -> -> 17 `i `uc ]
+[; ;pin_manager.c: 90: RC0PPS = 0x12;
 "90
-[e = _SSPCLKPPS -> -> 17 `i `uc ]
-[; ;pin_manager.c: 91: RC1PPS = 0x10;
+[e = _RC0PPS -> -> 18 `i `uc ]
+[; ;pin_manager.c: 91: SSPCLKPPS = 0x11;
 "91
-[e = _RC1PPS -> -> 16 `i `uc ]
-[; ;pin_manager.c: 92: SSPDATPPS = 0x12;
+[e = _SSPCLKPPS -> -> 17 `i `uc ]
+[; ;pin_manager.c: 92: RC1PPS = 0x10;
 "92
-[e = _SSPDATPPS -> -> 18 `i `uc ]
-[; ;pin_manager.c: 93: PPSLOCK = 0x55;
+[e = _RC1PPS -> -> 16 `i `uc ]
+[; ;pin_manager.c: 93: SSPDATPPS = 0x12;
 "93
-[e = _PPSLOCK -> -> 85 `i `uc ]
-[; ;pin_manager.c: 94: PPSLOCK = 0xAA;
+[e = _SSPDATPPS -> -> 18 `i `uc ]
+[; ;pin_manager.c: 94: PPSLOCK = 0x55;
 "94
-[e = _PPSLOCK -> -> 170 `i `uc ]
-[; ;pin_manager.c: 95: PPSLOCKbits.PPSLOCKED = 0x01;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+[; ;pin_manager.c: 95: PPSLOCK = 0xAA;
 "95
-[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 96: GIE = state;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+[; ;pin_manager.c: 96: PPSLOCKbits.PPSLOCKED = 0x01;
 "96
-[e = _GIE -> _state `b ]
-[; ;pin_manager.c: 97: }
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+[; ;pin_manager.c: 97: GIE = state;
 "97
+[e = _GIE -> _state `b ]
+[; ;pin_manager.c: 98: }
+"98
 [e :UE 1205 ]
 }
-"99
+"100
 [v _PIN_MANAGER_IOC `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 99: void PIN_MANAGER_IOC(void) {
+[; ;pin_manager.c: 100: void PIN_MANAGER_IOC(void) {
 [e :U _PIN_MANAGER_IOC ]
 [f ]
-[; ;pin_manager.c: 100: if ((IOCBP6 == 1) && (IOCBF6 == 1)) {
-"100
+"101
+[v F11844 `Vuc ~T0 @X0 1 s counter ]
+[i F11844
+-> -> 0 `i `uc
+]
+[; ;pin_manager.c: 101: static volatile char counter = 0;
+[; ;pin_manager.c: 102: if ((IOCBP6 == 1) && (IOCBF6 == 1)) {
+"102
 [e $ ! && == -> _IOCBP6 `i -> 1 `i == -> _IOCBF6 `i -> 1 `i 1207  ]
 {
-[; ;pin_manager.c: 104: IOCBF6 = 0;
-"104
+[; ;pin_manager.c: 106: IOCBF6 = 0;
+"106
 [e = _IOCBF6 -> -> 0 `i `b ]
-"105
+"107
 }
-[; ;pin_manager.c: 105: } else if ((IOCBP7 == 1) && (IOCBF7 == 1)) {
+[; ;pin_manager.c: 107: } else if ((IOCBP7 == 1) && (IOCBF7 == 1)) {
 [e $U 1208  ]
 [e :U 1207 ]
 [e $ ! && == -> _IOCBP7 `i -> 1 `i == -> _IOCBF7 `i -> 1 `i 1209  ]
 {
-[; ;pin_manager.c: 109: IOCBF7 = 0;
+[; ;pin_manager.c: 109: counter++;
 "109
+[e ++ F11844 -> -> 1 `i `uc ]
+[; ;pin_manager.c: 111: IOCBF7 = 0;
+"111
 [e = _IOCBF7 -> -> 0 `i `b ]
-"110
+"112
 }
-[; ;pin_manager.c: 110: } else if ((IOCCP3 == 1) && (IOCCF3 == 1)) {
+[; ;pin_manager.c: 112: } else if ((IOCCP3 == 1) && (IOCCF3 == 1)) {
 [e $U 1210  ]
 [e :U 1209 ]
 [e $ ! && == -> _IOCCP3 `i -> 1 `i == -> _IOCCF3 `i -> 1 `i 1211  ]
 {
-[; ;pin_manager.c: 114: IOCCF3 = 0;
-"114
+[; ;pin_manager.c: 116: IOCCF3 = 0;
+"116
 [e = _IOCCF3 -> -> 0 `i `b ]
-"115
+"117
 }
-[; ;pin_manager.c: 115: } else if ((IOCCP4 == 1) && (IOCCF4 == 1)) {
+[; ;pin_manager.c: 117: } else if ((IOCCP4 == 1) && (IOCCF4 == 1)) {
 [e $U 1212  ]
 [e :U 1211 ]
 [e $ ! && == -> _IOCCP4 `i -> 1 `i == -> _IOCCF4 `i -> 1 `i 1213  ]
 {
-[; ;pin_manager.c: 119: IOCCF4 = 0;
-"119
+[; ;pin_manager.c: 121: IOCCF4 = 0;
+"121
 [e = _IOCCF4 -> -> 0 `i `b ]
-"120
+"122
 }
-[; ;pin_manager.c: 120: } else if ((IOCCP5 == 1) && (IOCCF5 == 1)) {
+[; ;pin_manager.c: 122: } else if ((IOCCP5 == 1) && (IOCCF5 == 1)) {
 [e $U 1214  ]
 [e :U 1213 ]
 [e $ ! && == -> _IOCCP5 `i -> 1 `i == -> _IOCCF5 `i -> 1 `i 1215  ]
 {
-[; ;pin_manager.c: 124: IOCCF5 = 0;
-"124
+[; ;pin_manager.c: 126: IOCCF5 = 0;
+"126
 [e = _IOCCF5 -> -> 0 `i `b ]
-"125
+"127
 }
-[; ;pin_manager.c: 125: } else if ((IOCCP6 == 1) && (IOCCF6 == 1)) {
+[; ;pin_manager.c: 127: } else if ((IOCCP6 == 1) && (IOCCF6 == 1)) {
 [e $U 1216  ]
 [e :U 1215 ]
 [e $ ! && == -> _IOCCP6 `i -> 1 `i == -> _IOCCF6 `i -> 1 `i 1217  ]
 {
-[; ;pin_manager.c: 129: IOCCF6 = 0;
-"129
+[; ;pin_manager.c: 131: IOCCF6 = 0;
+"131
 [e = _IOCCF6 -> -> 0 `i `b ]
-"130
+"132
 }
-[; ;pin_manager.c: 130: } else if ((IOCCP7 == 1) && (IOCCF7 == 1)) {
+[; ;pin_manager.c: 132: } else if ((IOCCP7 == 1) && (IOCCF7 == 1)) {
 [e $U 1218  ]
 [e :U 1217 ]
 [e $ ! && == -> _IOCCP7 `i -> 1 `i == -> _IOCCF7 `i -> 1 `i 1219  ]
 {
-[; ;pin_manager.c: 134: IOCCF7 = 0;
-"134
+[; ;pin_manager.c: 136: IOCCF7 = 0;
+"136
 [e = _IOCCF7 -> -> 0 `i `b ]
-"135
+"137
 }
 [e :U 1219 ]
-"136
+"138
 [e :U 1218 ]
 [e :U 1216 ]
 [e :U 1214 ]
 [e :U 1212 ]
 [e :U 1210 ]
 [e :U 1208 ]
-[; ;pin_manager.c: 135: }
-[; ;pin_manager.c: 136: }
+[; ;pin_manager.c: 137: }
+[; ;pin_manager.c: 138: }
 [e :UE 1206 ]
 }

@@ -61,9 +61,9 @@ void PIN_MANAGER_Initialize(void) {
     LATC = 0x00;
     TRISC = 0xFD;
     ANSELC = 0x00;
-    WPUC = 0x00;
+    WPUC = 0x04;
 
-    OPTION_REGbits.nWPUEN = 0x01;
+    OPTION_REGbits.nWPUEN = 0x00;
 
     // enable interrupt-on-change individually    
     IOCBP6 = 1;
@@ -98,6 +98,7 @@ void PIN_MANAGER_Initialize(void) {
 }
 
 void PIN_MANAGER_IOC(void) {
+    static volatile char counter = 0;
     if ((IOCBP6 == 1) && (IOCBF6 == 1)) {
         //@TODO Add handling code for IOC on pin RB6
 
@@ -105,7 +106,7 @@ void PIN_MANAGER_IOC(void) {
         IOCBF6 = 0;
     } else if ((IOCBP7 == 1) && (IOCBF7 == 1)) {
         //@TODO Add handling code for IOC on pin RB7
-
+        counter++;
         // clear interrupt-on-change flag
         IOCBF7 = 0;
     } else if ((IOCCP3 == 1) && (IOCCF3 == 1)) {
