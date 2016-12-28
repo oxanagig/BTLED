@@ -14634,12 +14634,12 @@ void EUSART_Receive_ISR(void);
 # 62 "mcc_generated_files/eusart.c"
 static uint8_t eusartTxHead = 0;
 static uint8_t eusartTxTail = 0;
-static uint8_t eusartTxBuffer[8];
+static uint8_t eusartTxBuffer[16];
 volatile uint8_t eusartTxBufferRemaining;
 
 static uint8_t eusartRxHead = 0;
 static uint8_t eusartRxTail = 0;
-static uint8_t eusartRxBuffer[16];
+static uint8_t eusartRxBuffer[32];
 volatile uint8_t eusartRxCount;
 
 # 76

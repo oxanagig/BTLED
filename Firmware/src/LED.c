@@ -1,8 +1,13 @@
 #include <xc.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include "LED.h"
 #include "SRAM.h"
 #include "../BT_LED_strip.X/mcc_generated_files/mcc.h"
+
+
+/* enum */
+enum ledSource_t{INTNERNAL,SRAM};
 
 
 /* local variable*/
@@ -10,8 +15,8 @@ static  RGB_t   LED_currentColor = {0,0,0};
 static  uint8_t currentLEDIndex;
 
 /* global variable*/
-LED_MODE  LED_mode;
-RGB_t LED_SetColor = {0,0,0}; 
+LED_MODE    LED_mode;
+RGB_t       LED_SetColor = {0,0,0}; 
 
 /* constant */
 const   RGB_t ledFullOn  = {0xFF,0xFF,0xFF};
@@ -23,7 +28,8 @@ static void ledDisable(void);
 static inline void ledSendByte(uint8_t);
 static inline void ledSendColor(uint8_t,uint8_t,uint8_t);
 static RGB_t HsvToRgb(HSV_t);
-static void LED_directColor(RGB_t);
+static void ledSetColorInSRAM(RGB_t);
+static void ledShow(enum ledSource_t);
 
 
 void LED_Intialization(void)
@@ -71,9 +77,8 @@ void LED_Task(void)
         case LED_OFF:
             if(ledOFF ==0)
             {
-                GIE = 0;
-                LED_directColor(ledFullOn);
-                GIE = 1;
+                LED_currentColor = ledFullOff;
+                ledShow(INTNERNAL);
                 ledOFF = 1;
             }
             break;
@@ -82,10 +87,8 @@ void LED_Task(void)
             || LED_currentColor.Red!=LED_SetColor.Red
             || LED_currentColor.Green!=LED_SetColor.Green)
             {
-                GIE = 0;
-                LED_directColor(LED_SetColor);
-                GIE = 1;
                 LED_currentColor = LED_SetColor;
+                ledShow(INTNERNAL);
                 ledOFF = 0;
             }
             break;
@@ -96,6 +99,9 @@ void LED_Task(void)
             ledOFF = 0;
             break;
         case LED_PARTY:
+            SetRGB(LED_currentColor,(uint8_t)rand(),(uint8_t)rand(),(uint8_t)rand());
+            ledShow(INTNERNAL);
+            __delay_ms(50);
             ledOFF = 0;
             break;
         default:
@@ -222,33 +228,45 @@ static RGB_t HsvToRgb(HSV_t hsv)
     return rgb;
 }
 
-static void SRAMtoLED(void)
-{
-    static uint8_t data;
-    SSP1BUF = data;                                 /* transmit the byte from SRAM to SPI data line, which writes to LED and read a new byte from SRAM at the same time */
-    while (SSP1STATbits.BF == SPI_RX_IN_PROGRESS);  /* wait the buffer to be filled with byte received from SRAM */
-    data = SSP1BUF;                                 /* Get the last received byte in the SPI buffer, which came from SRAM */
-    
-}
-
-static void LED_Show()
+static void ledShow(enum ledSource_t source)
 {
     uint8_t i,receivedBtye;
-    SRAMStartRead(0x00);            /* Start address*/
-    ledEnable();
-    receivedBtye = SPI_Exchange8bit(0x00);         /* Write a dummy byte to read out the first byte in SRAM */
-    __delay_ms(1);
-    for(i=0;i<NUMBER_OF_LED*3;i++)
+    
+    GIE = 0;
+    if(source == INTNERNAL)
     {
-        receivedBtye = SPI_Exchange8bit(receivedBtye);
-        //SRAMtoLED();
+        ledEnable();
+        for(i=0;i<NUMBER_OF_LED;i++)
+        {
+            ledSendColor(LED_currentColor.Red,LED_currentColor.Green,LED_currentColor.Blue);
+        }
+        ledDisable();
     }
-    deselectSRAM();
-    ledDisable();
+    else if(source == SRAM)
+    {
+        SRAMStartRead(0x00);            /* Start address*/
+        ledEnable();
+
+        receivedBtye = SPI_Exchange8bit(0x00);         /* Write a dummy byte to read out the first byte in SRAM */
+        __delay_ms(1);
+        for(i=0;i<NUMBER_OF_LED*3;i++)
+        {
+            receivedBtye = SPI_Exchange8bit(receivedBtye);
+            //SRAMtoLED();
+        }
+        deselectSRAM();
+        ledDisable();
+    }
+    else
+    {
+    
+    }
+    
+    GIE = 1;
 }
 
 //---------------------------------------LED Patterns-----------------------------------------
-static void LED_directColor(RGB_t ledColor)
+static void ledSetColorInSRAM(RGB_t ledColor)
 { 
     currentLEDIndex = 0;
     SRAMStarWrite(0x00);
@@ -258,7 +276,6 @@ static void LED_directColor(RGB_t ledColor)
         ledSetColor(ledColor);
     }
     deselectSRAM();
-    LED_Show();
 }
 
 static void LED_party(void)

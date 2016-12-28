@@ -198,7 +198,7 @@ void COMM_Task(void)
     if(EUSART_DataReady)
     {
         receiveData = EUSART_Read();      /* Receive Character from UART  */
-        EUSART_Write(receiveData);      /* echo back character on TX line*/
+        //EUSART_Write(receiveData);      /* echo back character on TX line*/
 
         /* command process state machine*/
         switch(UART_ReceiveState)

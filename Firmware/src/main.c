@@ -73,7 +73,7 @@ void main(void)
     {
         COMM_Task();
         LED_Task();
-        __delay_ms(100);
+        //__delay_ms(5);
 
     }
 }

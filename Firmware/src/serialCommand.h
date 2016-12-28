@@ -15,7 +15,7 @@ extern "C" {
 #include "../BT_LED_strip.X/mcc_generated_files/mcc.h"
 
 
-#define INPUT_COMMAND_BUFFER_SIZE 24
+#define INPUT_COMMAND_BUFFER_SIZE 32
 #define COLOR_COMMAND_LENGTH      8    /* RRGGBB\r\n*/
 
 void COMM_Initialize(void);
